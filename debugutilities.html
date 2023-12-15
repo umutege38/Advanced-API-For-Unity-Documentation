@@ -1,0 +1,792 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat"><html lang="en-US" data-colors-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex">  <meta name="built-on" content="2023-12-15T20:31:17.9445018"><meta name="build-number" content="${buildNumber}">       <title>Debug Utilities | Advanced API Docs</title><script id="virtual-toc-data" type="application/json">[]</script><script id="topic-shortcuts" type="application/json"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.css" rel="stylesheet">   <link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><link rel="manifest" href="https://jetbrains.com/site.webmanifest"><link rel="mask-icon" href="https://jetbrains.com/safari-pinned-tab.svg" color="#000000"><meta name="msapplication-TileColor" content="#000000"/><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>  <meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Debug Utilities | Advanced API Docs"/><meta property="og:description" content=""/><meta property="og:image" content=""/><meta property="og:site_name" content="Advanced API Docs Help"/><meta property="og:type" content="website"/><meta property="og:locale" content="en_US"/><meta property="og:url" content="debugutilities.html"/><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Debug Utilities | Advanced API Docs"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json"> { "@context": "http://schema.org", "@type": "WebPage", "@id": "debugutilities.html#webpage", "url": "debugutilities.html", "name": "Debug Utilities | Advanced API Docs", "description": "", "image": "", "inLanguage":"en-US" }</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json"> { "@type": "WebSite", "@id": "/#website", "url": "/", "name": "Advanced API Docs Help" }</script><!-- End Schema.org --></head>      <body data-id="DebugUtilities" data-main-title="Debug Utilities" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}"  data-template="article"  data-breadcrumbs="API-reference.md|API Reference///VirtualWorldInteractive-Engineering.md|VirtualWorldInteractive.Engineering"  >   <div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Advanced API Docs  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="DebugUtilities"   id="DebugUtilities.md">Debug Utilities</h1>  <div class="code-block" data-lang="none"         >    /// &lt;summary&gt;
+    /// A boolean flag indicating whether an error has been logged. 
+    /// Set to 'true' if an error has been logged, and 'false' otherwise.
+    /// &lt;/summary&gt;
+    private static bool errorLogged = false;
+
+    /// &lt;summary&gt;
+    /// A boolean flag indicating whether a warning has been logged. 
+    /// Set to 'true' if a warning has been logged, and 'false' otherwise.
+    /// &lt;/summary&gt;
+    private static bool warningLogged = false;
+
+    /// &lt;summary&gt;
+    /// Log a message to the Unity console.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;message&quot;&gt;The message to be logged.&lt;/param&gt;
+    public static void Log(object message)
+    {
+        Debug.Log(message);
+
+    }
+
+    /// &lt;summary&gt;
+    /// Log a warning message to the Unity console.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;message&quot;&gt;The warning message to be logged.&lt;/param&gt;
+    public static void LogWarning(object message)
+    {
+        Debug.LogWarning(message);
+    }
+
+    /// &lt;summary&gt;
+    /// Log an error message to the Unity console.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;message&quot;&gt;The error message to be logged.&lt;/param&gt;
+    public static void LogError(object message)
+    {
+        Debug.LogError(message);
+    }
+
+    /// &lt;summary&gt;
+    /// Log an error message to the Unity console.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;message&quot;&gt;The error message to be logged.&lt;/param&gt;
+    public static void LogFormat(string format, params object[] args)
+    {
+        Debug.LogFormat(format, args);
+    }
+
+    /// &lt;summary&gt;
+    /// Log a formatted warning message to the Unity console using the specified format and arguments.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;format&quot;&gt;A composite format string.&lt;/param&gt;
+    /// &lt;param name=&quot;args&quot;&gt;An array of objects to format and include in the warning message.&lt;/param&gt;
+    public static void LogWarningFormat(string format, params object[] args)
+    {
+        Debug.LogWarningFormat(format, args);
+    }
+
+    /// &lt;summary&gt;
+    /// Log a formatted error message to the Unity console using the specified format and arguments.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;format&quot;&gt;A composite format string.&lt;/param&gt;
+    /// &lt;param name=&quot;args&quot;&gt;An array of objects to format and include in the error message.&lt;/param&gt;
+    public static void LogErrorFormat(string format, params object[] args)
+    {
+        Debug.LogErrorFormat(format, args);
+    }
+
+    /// &lt;summary&gt;
+    /// Log information about an exception to the Unity console.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;exception&quot;&gt;The exception to be logged.&lt;/param&gt;
+    public static void LogException(System.Exception exception)
+    {
+        Debug.LogException(exception);
+    }
+
+    /// &lt;summary&gt;
+    /// Draw a wireframe box in the Unity scene using Debug.DrawLine.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;center&quot;&gt;The center of the wireframe box.&lt;/param&gt;
+    /// &lt;param name=&quot;size&quot;&gt;The size (dimensions) of the wireframe box.&lt;/param&gt;
+    /// &lt;param name=&quot;color&quot;&gt;The color of the wireframe box's lines.&lt;/param&gt;
+    /// &lt;param name=&quot;duration&quot;&gt;The duration in seconds that the wireframe will be visible.&lt;/param&gt;
+    public static void DrawWireBox(Vector3 center, Vector3 size, Color color, float duration = 0f)
+    {
+
+        Debug.DrawLine(center + new Vector3(-size.x / 2, -size.y / 2, -size.z / 2), center + new Vector3(size.x / 2, -size.y / 2, -size.z / 2), color, duration);
+        Debug.DrawLine(center + new Vector3(-size.x / 2, -size.y / 2, -size.z / 2), center + new Vector3(-size.x / 2, -size.y / 2, size.z / 2), color, duration);
+        Debug.DrawLine(center + new Vector3(size.x / 2, -size.y / 2, -size.z / 2), center + new Vector3(size.x / 2, -size.y / 2, size.z / 2), color, duration);
+        Debug.DrawLine(center + new Vector3(-size.x / 2, -size.y / 2, size.z / 2), center + new Vector3(size.x / 2, -size.y / 2, size.z / 2), color, duration);
+
+
+        Debug.DrawLine(center + new Vector3(-size.x / 2, size.y / 2, -size.z / 2), center + new Vector3(size.x / 2, size.y / 2, -size.z / 2), color, duration);
+        Debug.DrawLine(center + new Vector3(-size.x / 2, size.y / 2, -size.z / 2), center + new Vector3(-size.x / 2, size.y / 2, size.z / 2), color, duration);
+        Debug.DrawLine(center + new Vector3(size.x / 2, size.y / 2, -size.z / 2), center + new Vector3(size.x / 2, size.y / 2, size.z / 2), color, duration);
+        Debug.DrawLine(center + new Vector3(-size.x / 2, size.y / 2, size.z / 2), center + new Vector3(size.x / 2, size.y / 2, size.z / 2), color, duration);
+
+
+        Debug.DrawLine(center + new Vector3(-size.x / 2, -size.y / 2, -size.z / 2), center + new Vector3(-size.x / 2, size.y / 2, -size.z / 2), color, duration);
+        Debug.DrawLine(center + new Vector3(size.x / 2, -size.y / 2, -size.z / 2), center + new Vector3(size.x / 2, size.y / 2, -size.z / 2), color, duration);
+        Debug.DrawLine(center + new Vector3(-size.x / 2, -size.y / 2, size.z / 2), center + new Vector3(-size.x / 2, size.y / 2, size.z / 2), color, duration);
+        Debug.DrawLine(center + new Vector3(size.x / 2, -size.y / 2, size.z / 2), center + new Vector3(size.x / 2, size.y / 2, size.z / 2), color, duration);
+    }
+
+    /// &lt;summary&gt;
+    /// Draw a path by connecting a series of points with lines in the Unity scene using Debug.DrawLine.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;path&quot;&gt;An array of Vector3 points representing the path to be drawn.&lt;/param&gt;
+    /// &lt;param name=&quot;color&quot;&gt;The color of the lines that connect the path points.&lt;/param&gt;
+    /// &lt;param name=&quot;duration&quot;&gt;The duration in seconds that the path lines will be visible.&lt;/param&gt;
+    public static void DrawPath(Vector3[] path, Color color, float duration = 0f)
+    {
+        for (int i = 1; i &lt; path.Length; i++)
+
+        {
+
+            Debug.DrawLine(path[i - 1], path[i], color, duration);
+
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Draw an arrow from one point to another using Debug.DrawLine for the shaft and Debug.DrawRay for arrowheads.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;from&quot;&gt;The starting point of the arrow.&lt;/param&gt;
+    /// &lt;param name=&quot;to&quot;&gt;The ending point of the arrow.&lt;/param&gt;
+    /// &lt;param name=&quot;color&quot;&gt;The color of the arrow.&lt;/param&gt;
+    /// &lt;param name=&quot;duration&quot;&gt;The duration in seconds the arrow will be visible.&lt;/param&gt;
+    /// &lt;param name=&quot;arrowHeadLength&quot;&gt;The length of the arrowhead lines.&lt;/param&gt;
+    /// &lt;param name=&quot;arrowHeadAngle&quot;&gt;The angle in degrees between the arrowhead lines and the shaft.&lt;/param&gt;
+    public static void DrawArrow(Vector3 from, Vector3 to, Color color, float duration = 0f, float arrowHeadLength = 0.25f, float arrowHeadAngle = 20.0f)
+    {
+        Debug.DrawLine(from, to, color, duration);
+        Vector3 direction = to - from;
+        Vector3 right = Quaternion.LookRotation(direction) * Quaternion.Euler(0, 180 + arrowHeadAngle, 0) * Vector3.forward;
+        Vector3 left = Quaternion.LookRotation(direction) * Quaternion.Euler(0, 180 - arrowHeadAngle, 0) * Vector3.forward;
+
+        Debug.DrawRay(to, right * arrowHeadLength, color, duration);
+        Debug.DrawRay(to, left * arrowHeadLength, color, duration);
+    }
+
+    /// &lt;summary&gt;
+    /// Draw a 2D grid in the Unity scene using Debug.DrawLine for grid lines.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;origin&quot;&gt;The origin point of the grid.&lt;/param&gt;
+    /// &lt;param name=&quot;rows&quot;&gt;The number of rows in the grid.&lt;/param&gt;
+    /// &lt;param name=&quot;columns&quot;&gt;The number of columns in the grid.&lt;/param&gt;
+    /// &lt;param name=&quot;cellSize&quot;&gt;The size of each grid cell.&lt;/param&gt;
+    /// &lt;param name=&quot;color&quot;&gt;The color of the grid lines.&lt;/param&gt;
+    /// &lt;param name=&quot;duration&quot;&gt;The duration in seconds the grid will be visible.&lt;/param&gt;
+    public static void DrawGrid(Vector3 origin, int rows, int columns, float cellSize, Color color, float duration = 0f)
+    {
+        for (int row = 0; row &lt;= rows; row++)
+        {
+
+            Debug.DrawLine(origin + row * Vector3.up * cellSize, origin + row * Vector3.up * cellSize + columns * Vector3.right * cellSize, color, duration);
+        }
+
+        for (int column = 0; column &lt;= columns; column++)
+        {
+            Debug.DrawLine(origin + column * Vector3.right * cellSize, origin + column * Vector3.right * cellSize + rows * Vector3.up * cellSize, color, duration);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Log a warning message if the provided object is null.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;obj&quot;&gt;The object to check for null.&lt;/param&gt;
+    /// &lt;param name=&quot;message&quot;&gt;The warning message to log if the object is null (default: &quot;Object is null.&quot;).&lt;/param&gt;
+    public static void LogWarningIfNull(object obj, string message = &quot;Object is null.&quot;)
+    {
+        if (obj == null)
+        {
+            Debug.LogWarning(message);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Log an error message if the provided object is null.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;obj&quot;&gt;The object to check for null.&lt;/param&gt;
+    /// &lt;param name=&quot;message&quot;&gt;The error message to log if the object is null (default: &quot;Object is null.&quot;).&lt;/param&gt;
+    public static void LogErrorIfNull(object obj, string message = &quot;Object is null.&quot;)
+    {
+        if (obj == null)
+        {
+            Debug.LogError(message);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Log a set of labeled values to the Unity console.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;valuePairs&quot;&gt;An array of tuples, each containing a label and an associated value to log.&lt;/param&gt;
+    public static void LogValues(params (string label, object value)[] valuePairs)
+    {
+
+        foreach (var (label, value) in valuePairs)
+        {
+            Debug.Log($&quot;{label}: {value}&quot;);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Conditionally log a message to the Unity console based on a given condition.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;condition&quot;&gt;The condition that determines whether the message is logged.&lt;/param&gt;
+    /// &lt;param name=&quot;message&quot;&gt;The message to log when the condition is met.&lt;/param&gt;
+    public static void ConditionalLog(bool condition, string message)
+    {
+        if (condition)
+        {
+            Debug.Log(message);
+        }
+
+    }
+
+    /// &lt;summary&gt;
+    /// Log a message indicating the entry of the calling method.
+    /// &lt;/summary&gt;
+    public static void LogMethodEntry()
+    {
+        Debug.Log($&quot;Entering method: {new System.Diagnostics.StackFrame(1).GetMethod().Name}&quot;);
+    }
+
+    /// &lt;summary&gt;
+    /// Log a message indicating the exit of the calling method.
+    /// &lt;/summary&gt;
+    public static void LogMethodExit()
+    {
+        Debug.Log($&quot;Exiting method: {new System.Diagnostics.StackFrame(1).GetMethod().Name}&quot;);
+    }
+
+    /// &lt;summary&gt;
+    /// Log the contents of an IEnumerable collection to the console.
+    /// &lt;/summary&gt;
+    /// &lt;typeparam name=&quot;T&quot;&gt;The type of elements in the collection.&lt;/typeparam&gt;
+    /// &lt;param name=&quot;list&quot;&gt;The IEnumerable collection to be logged.&lt;/param&gt;
+    public static void LogListContents&lt;T&gt;(IEnumerable&lt;T&gt; list)
+    {
+        foreach (var item in list)
+        {
+            Debug.Log(item.ToString());
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Log the key-value pairs of a dictionary to the console.
+    /// &lt;/summary&gt;
+    /// &lt;typeparam name=&quot;TKey&quot;&gt;The type of keys in the dictionary.&lt;/typeparam&gt;
+    /// &lt;typeparam name=&quot;TValue&quot;&gt;The type of values in the dictionary.&lt;/typeparam&gt;
+    /// &lt;param name=&quot;dictionary&quot;&gt;The dictionary to be logged.&lt;/param&gt;
+    public static void LogDictionaryContents&lt;TKey, TValue&gt;(Dictionary&lt;TKey, TValue&gt; dictionary)
+    {
+
+        foreach (var kvp in dictionary)
+        {
+            Debug.Log($&quot;{kvp.Key}: {kvp.Value}&quot;);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Log the current frame rate in frames per second (FPS) to the console.
+    /// &lt;/summary&gt;
+    public static void LogFrameRate()
+    {
+        float fps = 1.0f / Time.deltaTime;
+        Debug.Log($&quot;Frame Rate: {fps:F2} FPS&quot;);
+    }
+
+    /// &lt;summary&gt;
+    /// Log the execution time of a specified method and print the result to the console.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;method&quot;&gt;The method to execute and measure.&lt;/param&gt;
+    /// &lt;param name=&quot;methodName&quot;&gt;An optional name to identify the method in the log (default: &quot;Method&quot;).&lt;/param&gt;
+    public static void LogMethodExecutionTime(System.Action method, string methodName = &quot;Method&quot;)
+    {
+        System.Diagnostics.Stopwatch stopwatch = System.Diagnostics.Stopwatch.StartNew();
+        method.Invoke();
+        stopwatch.Stop();
+        Debug.Log($&quot;{methodName} execution time: {stopwatch.ElapsedMilliseconds} ms&quot;);
+    }
+
+    /// &lt;summary&gt;
+    /// Log the hierarchy of a GameObject, including its child objects, with an optional depth parameter.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The root GameObject to log.&lt;/param&gt;
+    /// &lt;param name=&quot;depth&quot;&gt;The depth of the hierarchy (default: 0).&lt;/param&gt;
+    public static void LogGameObjectHierarchy(GameObject gameObject, int depth = 0)
+    {
+        Debug.Log(new string('-', depth) + gameObject.name);
+        foreach (Transform child in gameObject.transform)
+        {
+            LogGameObjectHierarchy(child.gameObject, depth + 1);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Log a message with a specified tag to the Unity console.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;tag&quot;&gt;The tag to be displayed in square brackets.&lt;/param&gt;
+    /// &lt;param name=&quot;message&quot;&gt;The message to be logged.&lt;/param&gt;
+    public static void LogWithTag(string tag, string message)
+    {
+        Debug.Log($&quot;[{tag}] {message}&quot;);
+    }
+
+    /// &lt;summary&gt;
+    /// Log a warning message with a specified tag to the Unity console.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;tag&quot;&gt;The tag to be displayed in square brackets.&lt;/param&gt;
+    /// &lt;param name=&quot;message&quot;&gt;The warning message to be logged.&lt;/param&gt;
+    public static void LogWarningWithTag(string tag, string message)
+    {
+        Debug.LogWarning($&quot;[{tag}] {message}&quot;);
+    }
+
+    /// &lt;summary&gt;
+    /// Log an error message with a specified tag to the Unity console.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;tag&quot;&gt;The tag to be displayed in square brackets.&lt;/param&gt;
+    /// &lt;param name=&quot;message&quot;&gt;The error message to be logged.&lt;/param&gt;
+    public static void LogErrorWithTag(string tag, string message)
+    {
+        Debug.LogError($&quot;[{tag}] {message}&quot;);
+    }
+
+    /// &lt;summary&gt;
+    /// Asserts a condition and logs an error message if the condition is false.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;condition&quot;&gt;The condition to assert.&lt;/param&gt;
+    /// &lt;param name=&quot;message&quot;&gt;The error message to log if the condition is false.&lt;/param&gt;
+    public static void Assert(bool condition, string message)
+    {
+        if (!condition)
+        {
+            Debug.LogError($&quot;Assertion failed: {message}&quot;);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Logs the current time in seconds to the Unity console.
+    /// &lt;/summary&gt;
+    public static void LogTime()
+    {
+        Debug.Log($&quot;Time: {Time.time:F2} seconds&quot;);
+    }
+
+    /// &lt;summary&gt;
+    /// Draws a ray in the scene for a specified duration with the given start point, direction, and color.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;start&quot;&gt;The starting point of the ray.&lt;/param&gt;
+    /// &lt;param name=&quot;direction&quot;&gt;The direction of the ray.&lt;/param&gt;
+    /// &lt;param name=&quot;color&quot;&gt;The color of the ray.&lt;/param&gt;
+    /// &lt;param name=&quot;duration&quot;&gt;The duration for which the ray should be visible (in seconds).&lt;/param&gt;
+    public static void DrawRay(Vector3 start, Vector3 direction, Color color, float duration = 0.0f)
+    {
+        Debug.DrawRay(start, direction, color, duration);
+    }
+
+    /// &lt;summary&gt;
+    /// Draws a line in the scene for a specified duration with the given start and end points and color.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;start&quot;&gt;The starting point of the line.&lt;/param&gt;
+    /// &lt;param name=&quot;end&quot;&gt;The ending point of the line.&lt;/param&gt;
+    /// &lt;param name=&quot;color&quot;&gt;The color of the line.&lt;/param&gt;
+    /// &lt;param name=&quot;duration&quot;&gt;The duration for which the line should be visible (in seconds).&lt;/param&gt;
+    public static void DrawLine(Vector3 start, Vector3 end, Color color, float duration = 0.0f)
+    {
+        Debug.DrawLine(start, end, color, duration);
+    }
+
+    /// &lt;summary&gt;
+    /// Asserts that an object is not null and logs an error message if the assertion fails.
+    /// &lt;/summary&gt;
+    /// &lt;typeparam name=&quot;T&quot;&gt;The type of the object to check (must derive from UnityEngine.Object).&lt;/typeparam&gt;
+    /// &lt;param name=&quot;obj&quot;&gt;The object to check for null.&lt;/param&gt;
+    /// &lt;param name=&quot;message&quot;&gt;The error message to log if the assertion fails.&lt;/param&gt;
+    public static void AssertNotNull&lt;T&gt;(T obj, string message) where T : Object
+    {
+        if (obj == null)
+        {
+            Debug.LogError(&quot;Assertion failed: &quot; + message);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Logs an error message only once to avoid repetitive error messages.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;message&quot;&gt;The error message to log.&lt;/param&gt;
+    public static void LogErrorOnce(string message)
+    {
+        if (!errorLogged)
+        {
+            Debug.LogError(message);
+
+            errorLogged = true;
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Logs a warning message only once to avoid repetitive warning messages.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;message&quot;&gt;The warning message to log.&lt;/param&gt;
+    public static void LogWarningOnce(string message)
+    {
+        if (!warningLogged)
+        {
+            Debug.LogWarning(message);
+            warningLogged = true;
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Logs a warning message along with a stack trace for debugging purposes.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;message&quot;&gt;The warning message to log.&lt;/param&gt;
+    public static void LogWarningWithStack(string message)
+    {
+        Debug.LogWarning(message + &quot;\n&quot; + new System.Diagnostics.StackTrace());
+    }
+
+    /// &lt;summary&gt;
+    /// Logs an error message along with a stack trace for debugging purposes.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;message&quot;&gt;The error message to log.&lt;/param&gt;
+    public static void LogErrorWithStack(string message)
+    {
+        Debug.LogError(message + &quot;\n&quot; + new System.Diagnostics.StackTrace());
+    }
+
+    /// &lt;summary&gt;
+    /// Enables or disables the Unity development console.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;isEnabled&quot;&gt;True to enable the development console, false to disable it.&lt;/param&gt;
+    public static void SetDevelopmentConsoleEnabled(bool isEnabled)
+    {
+        Debug.developerConsoleEnabled = isEnabled;
+    }
+
+    /// &lt;summary&gt;
+    /// Sets the visibility of the Unity development console.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;isVisible&quot;&gt;True to make the development console visible, false to hide it.&lt;/param&gt;
+    public static void SetDevelopmentConsoleVisible(bool isVisible)
+    {
+        Debug.developerConsoleVisible = isVisible;
+    }
+
+    /// &lt;summary&gt;
+    /// Checks if the Unity development console is enabled.
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;True if the development console is enabled, otherwise false.&lt;/returns&gt;
+    public static bool IsDevelopmentConsoleEnabled()
+    {
+        return Debug.developerConsoleEnabled;
+    }
+
+    /// &lt;summary&gt;
+    /// Checks if the Unity development console is visible.
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;True if the development console is visible, otherwise false.&lt;/returns&gt;
+    public static bool IsDevelopmentConsoleVisible()
+    {
+        return Debug.developerConsoleVisible;
+    }
+
+    /// &lt;summary&gt;
+    /// Log a message to the Unity console with a specified text color.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;message&quot;&gt;The message to be logged.&lt;/param&gt;
+    /// &lt;param name=&quot;color&quot;&gt;The text color to be used for the message.&lt;/param&gt;
+    public static void DebugLogWithColor(string message, Color color)
+    {
+        Debug.Log($&quot;&lt;color=#{ColorUtility.ToHtmlStringRGB(color)}&gt;{message}&lt;/color&gt;&quot;);
+    }
+
+    /// &lt;summary&gt;
+    /// Log a warning message to the Unity console with a stack trace.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;message&quot;&gt;The warning message to be logged.&lt;/param&gt;
+    public static void LogWarningWithStackTrace(string message)
+    {
+        Debug.LogWarning(message);
+        Debug.LogWarning(StackTraceUtility.ExtractStackTrace());
+    }
+
+    /// &lt;summary&gt;
+    /// Log an error message to the Unity console with a stack trace.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;message&quot;&gt;The error message to be logged.&lt;/param&gt;
+    public static void LogErrorWithStackTrace(string message)
+    {
+        Debug.LogError(message);
+        Debug.LogError(StackTraceUtility.ExtractStackTrace());
+    }
+
+    /// &lt;summary&gt;
+    /// Assert a condition and log an error message if the condition is false.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;condition&quot;&gt;The condition to check.&lt;/param&gt;
+    /// &lt;param name=&quot;message&quot;&gt;The error message to log if the condition is false.&lt;/param&gt;
+    public static void AssertWithMessage(bool condition, string message)
+    {
+        Debug.Assert(condition, message);
+    }
+
+    /// &lt;summary&gt;
+    /// Log information about a Unity Object, including its name and type.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;obj&quot;&gt;The Unity Object to log information about.&lt;/param&gt;
+    public static void LogObjectInfo(Object obj)
+    {
+        Debug.Log($&quot;Object name: {obj.name}&quot;);
+        Debug.Log($&quot;Object type: {obj.GetType()}&quot;);
+    }
+
+    /// &lt;summary&gt;
+    /// Log the time in seconds since the application started.
+    /// &lt;/summary&gt;
+    public static void LogTimeSinceStartup()
+    {
+        Debug.Log($&quot;Time since startup: {Time.timeSinceLevelLoad} seconds&quot;);
+    }
+
+    /// &lt;summary&gt;
+    /// Log the used heap size and mono heap size in kilobytes.
+    /// &lt;/summary&gt;
+    public static void LogMemoryUsage()
+    {
+        Debug.Log($&quot;Used heap size: {UnityEngine.Profiling.Profiler.usedHeapSizeLong / 1024} KB&quot;);
+        Debug.Log($&quot;Mono heap size: {UnityEngine.Profiling.Profiler.GetMonoHeapSizeLong() / 1024} KB&quot;);
+    }
+
+    /// &lt;summary&gt;
+    /// Log the name of the currently active scene.
+    /// &lt;/summary&gt;
+    public static void LogCurrentSceneName()
+    {
+        Debug.Log($&quot;Current scene: {UnityEngine.SceneManagement.SceneManager.GetActiveScene().name}&quot;);
+    }
+
+    /// &lt;summary&gt;
+    /// Log the name of the calling method.
+    /// &lt;/summary&gt;
+    public static void LogMethodName()
+    {
+        Debug.Log(&quot;Method Name: &quot; + new System.Diagnostics.StackTrace().GetFrame(1).GetMethod().Name);
+    }
+
+    /// &lt;summary&gt;
+    /// Log the names of all components attached to a GameObject.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject whose components will be logged.&lt;/param&gt;
+    public static void LogComponents(GameObject gameObject)
+    {
+        Component[] components = gameObject.GetComponents&lt;Component&gt;();
+        foreach (Component component in components)
+        {
+            Debug.Log(component.GetType().Name);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Log the names of child GameObjects under a parent GameObject.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent GameObject to log child GameObject names.&lt;/param&gt;
+    public static void LogChildGameObjects(GameObject parent)
+    {
+        foreach (Transform child in parent.transform)
+
+        {
+
+            Debug.Log(&quot;Child Object Name: &quot; + child.gameObject.name);
+
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Log the current mouse position in screen space.
+    /// &lt;/summary&gt;
+    public static void LogMousePosition()
+    {
+        Vector3 mousePos = Input.mousePosition;
+        Debug.Log($&quot;Mouse Position (Screen Space): {mousePos}&quot;);
+    }
+
+    /// &lt;summary&gt;
+    /// Log information about a RaycastHit, including the hit object and hit point.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;hit&quot;&gt;The RaycastHit to log information about.&lt;/param&gt;
+    public static void LogRaycastHitInfo(RaycastHit hit)
+    {
+        Debug.Log($&quot;Hit Object: {hit.collider.gameObject.name}&quot;);
+        Debug.Log($&quot;Hit Point: {hit.point}&quot;);
+    }
+
+    /// &lt;summary&gt;
+    /// Log the current screen resolution in pixels.
+    /// &lt;/summary&gt;
+    public static void LogScreenResolution()
+    {
+        int screenWidth = Screen.width;
+        int screenHeight = Screen.height;
+        Debug.Log($&quot;Screen Resolution: {screenWidth}x{screenHeight}&quot;);
+    }
+
+    /// &lt;summary&gt;
+    /// Log the version of the Unity engine.
+    /// &lt;/summary&gt;
+    public static void LogUnityVersion()
+    {
+        string unityVersion = Application.unityVersion;
+        Debug.Log($&quot;Unity Version: {unityVersion}&quot;);
+    }
+
+    /// &lt;summary&gt;
+    /// Log information about the device, including model and type.
+    /// &lt;/summary&gt;
+    public static void LogDeviceInfo()
+    {
+        string deviceModel = SystemInfo.deviceModel;
+        string deviceType = SystemInfo.deviceType.ToString();
+        Debug.Log($&quot;Device Model: {deviceModel}&quot;);
+        Debug.Log($&quot;Device Type: {deviceType}&quot;);
+    }
+
+    /// &lt;summary&gt;
+    /// Log a message to the console with a specific text color.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;message&quot;&gt;The message to be logged.&lt;/param&gt;
+    /// &lt;param name=&quot;color&quot;&gt;The color of the text in the log message.&lt;/param&gt;
+    public static void LogWithColor(string message, Color color)
+    {
+        Debug.Log(&quot;&lt;color=#&quot; + ColorUtility.ToHtmlStringRGB(color) + &quot;&gt;&quot; + message + &quot;&lt;/color&gt;&quot;);
+    }
+
+    /// &lt;summary&gt;
+    /// Log an error message to the console with red text color.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;message&quot;&gt;The error message to be logged.&lt;/param&gt;
+    public static void LogErrorWithColor(string message)
+    {
+        LogWithColor(message, Color.red);
+    }
+
+    /// &lt;summary&gt;
+    /// Log a warning message to the console with yellow text color.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;message&quot;&gt;The warning message to be logged.&lt;/param&gt;
+    public static void LogWarningWithColor(string message)
+    {
+        LogWithColor(message, Color.yellow);
+    }
+
+    /// &lt;summary&gt;
+    /// Log a message to the console with a custom prefix.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;prefix&quot;&gt;The custom prefix for the log message.&lt;/param&gt;
+    /// &lt;param name=&quot;message&quot;&gt;The message to be logged.&lt;/param&gt;
+    public static void LogWithPrefix(string prefix, string message)
+    {
+        Debug.Log(prefix + &quot;: &quot; + message);
+    }
+
+    /// &lt;summary&gt;
+    /// Log the value of a variable with a custom label.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;label&quot;&gt;The custom label for the variable value.&lt;/param&gt;
+    /// &lt;param name=&quot;variable&quot;&gt;The variable to log the value of.&lt;/param&gt;
+    public static void LogVariable(string label, object variable)
+    {
+        Debug.Log(label + &quot;: &quot; + variable.ToString());
+    }
+
+    /// &lt;summary&gt;
+    /// Log a list of items to the Unity console, each item on a new line.
+    /// &lt;/summary&gt;
+    /// &lt;typeparam name=&quot;T&quot;&gt;The type of items in the list.&lt;/typeparam&gt;
+    /// &lt;param name=&quot;label&quot;&gt;A label or description for the list.&lt;/param&gt;
+    /// &lt;param name=&quot;list&quot;&gt;The list of items to be logged.&lt;/param&gt;
+    public static void LogList&lt;T&gt;(string label, List&lt;T&gt; list)
+    {
+        Debug.Log(label + &quot;:&quot;);
+        foreach (var item in list)
+        {
+            Debug.Log(&quot;- &quot; + item.ToString());
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Log the position of a Transform to the Unity console.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;transform&quot;&gt;The Transform whose position is to be logged.&lt;/param&gt;
+    public static void LogTransformPosition(Transform transform)
+    {
+        Debug.Log($&quot;{transform.name} Position: {transform.position}&quot;);
+    }
+
+    /// &lt;summary&gt;
+    /// Log the rotation of a given Transform to the Unity console.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;transform&quot;&gt;The Transform whose rotation you want to log.&lt;/param&gt;
+    public static void LogTransformRotation(Transform transform)
+    {
+        Debug.Log($&quot;{transform.name} Rotation: {transform.rotation.eulerAngles}&quot;);
+    }
+
+    /// &lt;summary&gt;
+    /// Log the scale of a given Transform to the Unity console.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;transform&quot;&gt;The Transform whose scale you want to log.&lt;/param&gt;      
+    public static void LogTransformScale(Transform transform)
+    {
+        Debug.Log($&quot;{transform.name} Scale: {transform.localScale}&quot;);
+    }
+
+    /// &lt;summary&gt;
+    /// Get the system language setting of the device.
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;The SystemLanguage enum representing the device's language setting.&lt;/returns&gt;
+    public static SystemLanguage GetSystemLanguage()
+    {
+        return Application.systemLanguage;
+    }
+
+    /// &lt;summary&gt;
+    /// Get information about the installed package, such as the installer name, and the name of the application store (e.g., Google Play, Apple App Store).
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;A string containing package and store information, e.g., &quot;Installer: [Installer Name], Store: [Store Name]&quot;.&lt;/returns&gt;
+    public static string GetPackageAndStoreInfo()
+    {
+        return Application.installerName;
+    }
+
+    public static string GetBuildGUID()
+    {
+        return Application.buildGUID;
+    }
+
+    public static string GetCurrentApplicationVersion()
+    {
+        return Application.version;
+    }
+
+    public static string GetCurrentUnityVersion()
+    {
+        return Application.unityVersion;
+    }
+
+    public static bool IsDebugEnabled()
+    {
+        return Debug.isDebugBuild;
+    }
+
+    public static RuntimePlatform GetPlatform()
+    {
+        return Application.platform;
+    }
+
+    public static bool IsConsolePlatform()
+    {
+        return Application.isConsolePlatform;
+    }
+
+    public static bool IsMobilePlatform()
+    {
+        return Application.isMobilePlatform;
+    }
+
+    public static bool IsEditor()
+    {
+        return Application.isEditor;
+    }
+
+    public static string GetCompanyName()
+    {
+        return Application.companyName;
+    }
+
+    public static string GetApplicationName()
+    {
+        return Application.productName;
+    }
+
+    public static bool IsUnityLicensePro()
+    {
+        return Application.HasProLicense();
+    }
+</div><div class="last-modified"> Last modified: 15 December 2023</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom">  <a class="navigation-links__prev" href="audioutilities.html">Audio Utilities</a>   <a class="navigation-links__next" href="collisionutilities.html">Collision Utilities</a>  </div></article><div id="disqus_thread"></div></div></section></main></div>  <script src="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.js"></script></body></html>

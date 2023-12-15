@@ -1,0 +1,375 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat"><html lang="en-US" data-colors-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex">  <meta name="built-on" content="2023-12-15T20:31:17.9434925"><meta name="build-number" content="${buildNumber}">       <title>Audio Utilities | Advanced API Docs</title><script id="virtual-toc-data" type="application/json">[]</script><script id="topic-shortcuts" type="application/json"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.css" rel="stylesheet">   <link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><link rel="manifest" href="https://jetbrains.com/site.webmanifest"><link rel="mask-icon" href="https://jetbrains.com/safari-pinned-tab.svg" color="#000000"><meta name="msapplication-TileColor" content="#000000"/><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>  <meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Audio Utilities | Advanced API Docs"/><meta property="og:description" content=""/><meta property="og:image" content=""/><meta property="og:site_name" content="Advanced API Docs Help"/><meta property="og:type" content="website"/><meta property="og:locale" content="en_US"/><meta property="og:url" content="audioutilities.html"/><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Audio Utilities | Advanced API Docs"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json"> { "@context": "http://schema.org", "@type": "WebPage", "@id": "audioutilities.html#webpage", "url": "audioutilities.html", "name": "Audio Utilities | Advanced API Docs", "description": "", "image": "", "inLanguage":"en-US" }</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json"> { "@type": "WebSite", "@id": "/#website", "url": "/", "name": "Advanced API Docs Help" }</script><!-- End Schema.org --></head>      <body data-id="AudioUtilities" data-main-title="Audio Utilities" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}"  data-template="article"  data-breadcrumbs="API-reference.md|API Reference///VirtualWorldInteractive-Engineering.md|VirtualWorldInteractive.Engineering"  >   <div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Advanced API Docs  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="AudioUtilities"   id="AudioUtilities.md">Audio Utilities</h1>  <div class="code-block" data-lang="none"         >    /// &lt;summary&gt;
+    /// Play a sound effect once.    
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;audioSource&quot;&gt;The AudioSource to play the sound effect on.&lt;/param&gt;
+    /// &lt;param name=&quot;soundEffect&quot;&gt;The AudioClip representing the sound effect to play.&lt;/param&gt;
+    /// &lt;param name=&quot;volume&quot;&gt;The volume at which to play the sound effect (default is 1.0).&lt;/param&gt;  
+    public static void PlaySoundEffect(AudioSource audioSource, AudioClip soundEffect, float volume = 1.0f)
+    {
+        audioSource.PlayOneShot(soundEffect, volume);
+    }
+
+    /// &lt;summary&gt;
+    /// Play background music.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;audioSource&quot;&gt;The AudioSource to play the background music on.&lt;/param&gt;
+    /// &lt;param name=&quot;music&quot;&gt;The AudioClip representing the background music to play.&lt;/param&gt;
+    /// &lt;param name=&quot;volume&quot;&gt;The volume at which to play the background music (default is 1.0).&lt;/param&gt;
+    public static void PlayBackgroundMusic(AudioSource audioSource, AudioClip music, float volume = 1.0f)
+    {
+        audioSource.clip = music;
+        audioSource.volume = volume;
+        audioSource.loop = true;
+        audioSource.Play();
+    }
+
+    /// &lt;summary&gt;
+    /// Stop audio playback.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;audioSource&quot;&gt;The AudioSource to stop.&lt;/param&gt;
+    public static void StopAudio(AudioSource audioSource)
+    {
+        audioSource.Stop();
+    }
+
+    /// &lt;summary&gt;
+    /// Pause audio playback.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;audioSource&quot;&gt;The AudioSource to pause.&lt;/param&gt;
+    public static void PauseAudio(AudioSource audioSource)
+    {
+        audioSource.Pause();
+    }
+
+    /// &lt;summary&gt;
+    /// Resume audio playback.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;audioSource&quot;&gt;The AudioSource to resume.&lt;/param&gt;
+    public static void ResumeAudio(AudioSource audioSource)
+    {
+        audioSource.UnPause();
+    }
+
+    /// &lt;summary&gt;
+    /// Fade the volume of an AudioSource to a target value over a specified duration.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;audioSource&quot;&gt;The AudioSource to fade.&lt;/param&gt;
+    /// &lt;param name=&quot;targetVolume&quot;&gt;The target volume to fade to.&lt;/param&gt;
+    /// &lt;param name=&quot;fadeDuration&quot;&gt;The duration of the fade in seconds.&lt;/param&gt;
+    public static System.Collections.IEnumerator FadeAudioVolume(AudioSource audioSource, float targetVolume, float fadeDuration)
+    {
+        float startVolume = audioSource.volume;
+        float currentTime = 0;
+
+        while (currentTime &lt; fadeDuration)
+        {
+            audioSource.volume = Mathf.Lerp(startVolume, targetVolume, currentTime / fadeDuration);
+            currentTime += Time.deltaTime;
+            yield return null;
+        }
+        audioSource.volume = targetVolume;
+    }
+
+    /// &lt;summary&gt;
+    /// Crossfade between two AudioSources over a specified duration.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;audioSource1&quot;&gt;The first AudioSource to crossfade from.&lt;/param&gt;
+    /// &lt;param name=&quot;audioSource2&quot;&gt;The second AudioSource to crossfade to.&lt;/param&gt;
+    /// &lt;param name=&quot;fadeDuration&quot;&gt;The duration of the crossfade in seconds.&lt;/param&gt;
+    public static System.Collections.IEnumerator CrossfadeAudio(AudioSource audioSource1, AudioSource audioSource2, float fadeDuration)
+    {
+        float currentTime = 0;
+
+        audioSource2.volume = 0;
+        audioSource2.Play();
+
+        while (currentTime &lt; fadeDuration)
+        {
+            audioSource1.volume = Mathf.Lerp(1, 0, currentTime / fadeDuration);
+            audioSource2.volume = Mathf.Lerp(0, 1, currentTime / fadeDuration);
+            currentTime += Time.deltaTime;
+            yield return null;
+        }
+
+        audioSource1.Stop();
+    }
+
+    /// &lt;summary&gt;
+    /// Randomly pitch shift the audio source within a specified range.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;audioSource&quot;&gt;The AudioSource to pitch shift.&lt;/param&gt;
+    /// &lt;param name=&quot;minPitch&quot;&gt;The minimum pitch value.&lt;/param&gt;
+    /// &lt;param name=&quot;maxPitch&quot;&gt;The maximum pitch value.&lt;/param&gt;
+    public static void RandomizePitch(AudioSource audioSource, float minPitch, float maxPitch)
+    {
+        audioSource.pitch = Random.Range(minPitch, maxPitch);
+    }
+
+    /// &lt;summary&gt;
+    /// Play a random clip from an array of AudioClips on the given AudioSource.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;audioSource&quot;&gt;The AudioSource to play the clip on.&lt;/param&gt;
+    /// &lt;param name=&quot;clips&quot;&gt;An array of AudioClips to choose from.&lt;/param&gt;
+    public static void PlayRandomClip(AudioSource audioSource, AudioClip[] clips)
+    {
+        if (clips.Length == 0)
+        {
+            Debug.LogWarning(&quot;No audio clips provided for random playback.&quot;);
+            return;
+        }
+
+        int randomIndex = Random.Range(0, clips.Length);
+        audioSource.clip = clips[randomIndex];
+        audioSource.Play();
+    }
+
+    /// &lt;summary&gt;
+    /// Loop an AudioSource's playback between two given time points.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;audioSource&quot;&gt;The AudioSource to loop.&lt;/param&gt;
+    /// &lt;param name=&quot;loopStart&quot;&gt;The loop's start time in seconds.&lt;/param&gt;
+    /// &lt;param name=&quot;loopEnd&quot;&gt;The loop's end time in seconds.&lt;/param&gt;
+    public static void LoopAudioBetweenTimes(AudioSource audioSource, float loopStart, float loopEnd)
+    {
+        audioSource.time = loopStart;
+        audioSource.SetScheduledEndTime(AudioSettings.dspTime + (loopEnd - loopStart));
+        audioSource.PlayScheduled(AudioSettings.dspTime + 0.1);
+    }
+
+    /// &lt;summary&gt;
+    /// Mute or unmute an AudioSource's volume.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;audioSource&quot;&gt;The AudioSource to mute/unmute.&lt;/param&gt;
+    /// &lt;param name=&quot;mute&quot;&gt;True to mute, false to unmute.&lt;/param&gt;
+    public static void MuteAudio(AudioSource audioSource, bool mute)
+    {
+        audioSource.mute = mute;
+    }
+
+    /// &lt;summary&gt;
+    /// Set the pitch of an AudioSource to play in reverse.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;audioSource&quot;&gt;The AudioSource to reverse.&lt;/param&gt;
+    public static void PlayReverse(AudioSource audioSource)
+    {
+        audioSource.pitch = -1;
+        audioSource.Play();
+    }
+
+    /// &lt;summary&gt;
+    /// Change the pitch of an AudioSource.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;audioSource&quot;&gt;The AudioSource to adjust the pitch of.&lt;/param&gt;
+    /// &lt;param name=&quot;newPitch&quot;&gt;The new pitch value.&lt;/param&gt;
+    public static void ChangePitch(AudioSource audioSource, float newPitch)
+    {
+        audioSource.pitch = newPitch;
+    }
+
+    /// &lt;summary&gt;
+    /// Crossfade between two AudioSources over a specified duration.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;sourceA&quot;&gt;The first AudioSource to crossfade from.&lt;/param&gt;
+    /// &lt;param name=&quot;sourceB&quot;&gt;The second AudioSource to crossfade to.&lt;/param&gt;
+    /// &lt;param name=&quot;duration&quot;&gt;The duration of the crossfade in seconds.&lt;/param&gt;
+    public static void Crossfade(AudioSource sourceA, AudioSource sourceB, float duration)
+    {
+        sourceB.volume = 0.0f;
+        sourceB.Play();
+
+        float startTime = Time.time;
+        float endTime = startTime + duration;
+
+        while (Time.time &lt; endTime)
+        {
+            float t = (Time.time - startTime) / duration;
+            sourceA.volume = 1 - t;
+            sourceB.volume = t;
+        }
+
+        sourceA.volume = 0.0f;
+    }
+
+    /// &lt;summary&gt;
+    /// Fade out the volume of an AudioSource over a specified duration.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;audioSource&quot;&gt;The AudioSource to fade out.&lt;/param&gt;
+    /// &lt;param name=&quot;duration&quot;&gt;The duration of the fade out in seconds.&lt;/param&gt;
+    public static void FadeOut(AudioSource audioSource, float duration)
+    {
+        float startVolume = audioSource.volume;
+        float startTime = Time.time;
+        float endTime = startTime + duration;
+
+        while (Time.time &lt; endTime)
+        {
+            float t = (Time.time - startTime) / duration;
+            audioSource.volume = Mathf.Lerp(startVolume, 0.0f, t);
+        }
+
+        audioSource.volume = 0.0f;
+    }
+
+    /// &lt;summary&gt;
+    /// Get the length of an AudioClip in seconds.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;clip&quot;&gt;The AudioClip to get the length of.&lt;/param&gt;
+    /// &lt;returns&gt;The length of the AudioClip in seconds.&lt;/returns&gt;
+    public static float GetClipLength(AudioClip clip)
+    {
+        return clip.length;
+    }
+
+    /// &lt;summary&gt;
+    /// Play an AudioClip on an AudioSource.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;audioSource&quot;&gt;The AudioSource to play the AudioClip on.&lt;/param&gt;
+    /// &lt;param name=&quot;audioClip&quot;&gt;The AudioClip to play.&lt;/param&gt;
+    public static void PlayClip(AudioSource audioSource, AudioClip audioClip)
+    {
+        audioSource.clip = audioClip;
+        audioSource.Play();
+    }
+
+    /// &lt;summary&gt;
+    /// Set the volume of an AudioSource.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;audioSource&quot;&gt;The AudioSource to adjust the volume of.&lt;/param&gt;
+    /// &lt;param name=&quot;volume&quot;&gt;The new volume value (0.0 to 1.0).&lt;/param&gt;
+    public static void SetVolume(AudioSource audioSource, float volume)
+    {
+        audioSource.volume = Mathf.Clamp01(volume);
+    }
+
+    /// &lt;summary&gt;
+    /// Set the loop flag on an AudioSource.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;audioSource&quot;&gt;The AudioSource to set loop mode for.&lt;/param&gt;
+    /// &lt;param name=&quot;loop&quot;&gt;True to enable looping, false to disable looping.&lt;/param&gt;
+    public static void SetLoop(AudioSource audioSource, bool loop)
+    {
+        audioSource.loop = loop;
+    }
+
+    /// &lt;summary&gt;
+    /// Check if an AudioSource is currently playing.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;audioSource&quot;&gt;The AudioSource to check.&lt;/param&gt;
+    /// &lt;returns&gt;True if the AudioSource is playing, false otherwise.&lt;/returns&gt;
+    public static bool IsPlaying(AudioSource audioSource)
+    {
+        return audioSource.isPlaying;
+    }
+
+    /// &lt;summary&gt;
+    /// Get the current time position within the AudioClip.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;audioSource&quot;&gt;The AudioSource to get the time position from.&lt;/param&gt;
+    /// &lt;returns&gt;The current time position in seconds.&lt;/returns&gt;
+    public static float GetTimePosition(AudioSource audioSource)
+    {
+        return audioSource.time;
+    }
+
+    /// &lt;summary&gt;
+    /// Set the time position within the AudioClip.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;audioSource&quot;&gt;The AudioSource to set the time position on.&lt;/param&gt;
+    /// &lt;param name=&quot;time&quot;&gt;The new time position in seconds.&lt;/param&gt;
+    public static void SetTimePosition(AudioSource audioSource, float time)
+    {
+        audioSource.time = Mathf.Clamp(time, 0f, audioSource.clip.length);
+    }
+
+    /// &lt;summary&gt;
+    /// Play an audio clip on an AudioSource after a specified delay.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;audioSource&quot;&gt;The AudioSource to play the audio clip on.&lt;/param&gt;
+    /// &lt;param name=&quot;audioClip&quot;&gt;The audio clip to play.&lt;/param&gt;
+    /// &lt;param name=&quot;delay&quot;&gt;The delay before playing the audio clip in seconds.&lt;/param&gt;
+    public static IEnumerator PlayDelayed(AudioSource audioSource, AudioClip audioClip, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        audioSource.clip = audioClip;
+        audioSource.Play();
+    }
+
+    /// &lt;summary&gt;
+    /// Set the pitch of an AudioSource.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;audioSource&quot;&gt;The AudioSource to adjust the pitch of.&lt;/param&gt;
+    /// &lt;param name=&quot;pitch&quot;&gt;The new pitch value (0.0 to 3.0).&lt;/param&gt;
+    public static void SetPitch(AudioSource audioSource, float pitch)
+    {
+        audioSource.pitch = Mathf.Clamp(pitch, 0f, 3f);
+    }
+
+    /// &lt;summary&gt;
+    /// Fade in the volume of an AudioSource gradually.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;audioSource&quot;&gt;The AudioSource to fade in.&lt;/param&gt;
+    /// &lt;param name=&quot;duration&quot;&gt;The duration of the fade-in in seconds.&lt;/param&gt;
+    public static IEnumerator FadeIn(AudioSource audioSource, float duration)
+    {
+        float startVolume = 0;
+        audioSource.volume = 0;
+        float startTime = Time.time;
+
+        while (audioSource.volume &lt; 1)
+        {
+            float elapsedTime = Time.time - startTime;
+            audioSource.volume = Mathf.Lerp(startVolume, 1, elapsedTime / duration);
+            yield return null;
+        }
+
+        audioSource.volume = 1;
+    }
+
+    /// &lt;summary&gt;
+    /// Start playing an AudioSource.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;audioSource&quot;&gt;The AudioSource used to play the audio.&lt;/param&gt;       
+    public static void PlayAudio(AudioSource audioSource)
+    {
+        if (audioSource != null)
+        {
+            if (audioSource.clip != null)
+            {
+                audioSource.Play();
+            }
+            else
+            {
+                Debug.LogWarning(&quot;Audio clip is null!&quot;);
+            }
+        }
+        else
+        {
+            Debug.LogWarning(&quot;Audio source is null!&quot;);
+        }
+
+    }
+
+    /// &lt;summary&gt;
+    /// Set an AudioSource to 3D audio mode.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;audioSource&quot;&gt;The AudioSource to set to 3D audio mode.&lt;/param&gt;
+    public static void SetAudio3D(AudioSource audioSource)
+    {
+        if (audioSource != null)
+        {
+            audioSource.spatialBlend = 1.0f; // Set spatialBlend to 1.0 for 3D audio.
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Set an AudioSource to 2D audio mode.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;audioSource&quot;&gt;The AudioSource to set to 2D audio mode.&lt;/param&gt;
+    public static void SetAudio2D(AudioSource audioSource)
+    {
+        if (audioSource != null)
+        {
+            audioSource.spatialBlend = 0.0f; // Set spatialBlend to 0.0 for 2D audio.
+        }
+    }
+</div><div class="last-modified"> Last modified: 15 December 2023</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom">  <a class="navigation-links__prev" href="rigidbodyutilities.html">Rigidbody Utilities</a>   <a class="navigation-links__next" href="debugutilities.html">Debug Utilities</a>  </div></article><div id="disqus_thread"></div></div></section></main></div>  <script src="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.js"></script></body></html>

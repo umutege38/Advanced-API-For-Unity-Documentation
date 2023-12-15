@@ -1,0 +1,411 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat"><html lang="en-US" data-colors-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex">  <meta name="built-on" content="2023-12-15T20:31:17.9445018"><meta name="build-number" content="${buildNumber}">       <title>Collision Utilities | Advanced API Docs</title><script id="virtual-toc-data" type="application/json">[]</script><script id="topic-shortcuts" type="application/json"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.css" rel="stylesheet">   <link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><link rel="manifest" href="https://jetbrains.com/site.webmanifest"><link rel="mask-icon" href="https://jetbrains.com/safari-pinned-tab.svg" color="#000000"><meta name="msapplication-TileColor" content="#000000"/><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>  <meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Collision Utilities | Advanced API Docs"/><meta property="og:description" content=""/><meta property="og:image" content=""/><meta property="og:site_name" content="Advanced API Docs Help"/><meta property="og:type" content="website"/><meta property="og:locale" content="en_US"/><meta property="og:url" content="collisionutilities.html"/><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Collision Utilities | Advanced API Docs"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json"> { "@context": "http://schema.org", "@type": "WebPage", "@id": "collisionutilities.html#webpage", "url": "collisionutilities.html", "name": "Collision Utilities | Advanced API Docs", "description": "", "image": "", "inLanguage":"en-US" }</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json"> { "@type": "WebSite", "@id": "/#website", "url": "/", "name": "Advanced API Docs Help" }</script><!-- End Schema.org --></head>      <body data-id="CollisionUtilities" data-main-title="Collision Utilities" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}"  data-template="article"  data-breadcrumbs="API-reference.md|API Reference///VirtualWorldInteractive-Engineering.md|VirtualWorldInteractive.Engineering"  >   <div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Advanced API Docs  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="CollisionUtilities"   id="CollisionUtilities.md">Collision Utilities</h1>  <div class="code-block" data-lang="none"         >    /// &lt;summary&gt;
+    /// Creates a mesh collider for a game object with the provided mesh.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The game object for which to create a mesh collider.&lt;/param&gt;
+    /// &lt;param name=&quot;mesh&quot;&gt;The mesh to use for the collider.&lt;/param&gt;
+    public static void CreateMeshCollider(GameObject gameObject, Mesh mesh)
+    {
+        if (gameObject != null &amp;&amp; mesh != null)
+        {
+            MeshCollider meshCollider = gameObject.AddComponent&lt;MeshCollider&gt;();
+            meshCollider.sharedMesh = mesh;
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Check if a GameObject is colliding with any other colliders in a layer.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject to check for collisions.&lt;/param&gt;
+    /// &lt;param name=&quot;layerMask&quot;&gt;The layer mask to check against.&lt;/param&gt;
+    /// &lt;returns&gt;True if the GameObject is colliding with any collider in the specified layer, otherwise false.&lt;/returns&gt;
+    public static bool IsCollidingWithLayer(GameObject gameObject, LayerMask layerMask)
+    {
+        Collider[] colliders = gameObject.GetComponentsInChildren&lt;Collider&gt;();
+
+        foreach (var collider in colliders)
+        {
+            if (collider != null &amp;&amp; (layerMask.value &amp; (1 &lt;&lt; collider.gameObject.layer)) != 0)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /// &lt;summary&gt;
+    /// Check if a ray intersects with any colliders in the scene.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;ray&quot;&gt;The ray to check for intersections.&lt;/param&gt;
+    /// &lt;param name=&quot;maxDistance&quot;&gt;The maximum distance for the ray.&lt;/param&gt;
+    /// &lt;returns&gt;True if the ray intersects with any collider, otherwise false.&lt;/returns&gt;
+    public static bool RayIntersectsAnything(Ray ray, float maxDistance)
+    {
+        RaycastHit hitInfo;
+
+        if (Physics.Raycast(ray, out hitInfo, maxDistance))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    /// &lt;summary&gt;
+    /// Perform a raycast to detect the first collision and return information about it.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;ray&quot;&gt;The ray to cast.&lt;/param&gt;
+    /// &lt;param name=&quot;maxDistance&quot;&gt;The maximum distance for the raycast.&lt;/param&gt;
+    /// &lt;param name=&quot;hitInfo&quot;&gt;Information about the collision if one occurs.&lt;/param&gt;
+    /// &lt;param name=&quot;layerMask&quot;&gt;The layer mask to filter the collision.&lt;/param&gt;
+    /// &lt;returns&gt;True if a collision is detected, otherwise false.&lt;/returns&gt;
+    public static bool RaycastFirstHit(Ray ray, float maxDistance, out RaycastHit hitInfo, LayerMask layerMask)
+    {
+        return Physics.Raycast(ray, out hitInfo, maxDistance, layerMask);
+    }
+
+    /// &lt;summary&gt;
+    /// Check if a GameObject is colliding with any other colliders within a specified distance.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject to check for collisions.&lt;/param&gt;
+    /// &lt;param name=&quot;distance&quot;&gt;The maximum distance for collision checks.&lt;/param&gt;
+    /// &lt;param name=&quot;layerMask&quot;&gt;The layer mask to check against.&lt;/param&gt;
+    /// &lt;returns&gt;True if the GameObject is colliding with any collider within the specified distance and layer, otherwise false.&lt;/returns&gt;
+    public static bool IsCollidingWithinDistance(GameObject gameObject, float distance, LayerMask layerMask)
+    {
+        Collider[] colliders = gameObject.GetComponentsInChildren&lt;Collider&gt;();
+
+        foreach (var collider in colliders)
+        {
+            if (collider != null)
+            {
+                if (Physics.CheckSphere(collider.transform.position, distance, layerMask))
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /// &lt;summary&gt;
+    /// Check if a GameObject is grounded, meaning it is in contact with the ground.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject to check for grounding.&lt;/param&gt;
+    /// &lt;param name=&quot;groundCheckDistance&quot;&gt;The distance to check for grounding.&lt;/param&gt;
+    /// &lt;param name=&quot;groundLayer&quot;&gt;The layer representing the ground.&lt;/param&gt;
+    /// &lt;returns&gt;True if the GameObject is grounded, otherwise false.&lt;/returns&gt;
+    public static bool IsGrounded(GameObject gameObject, float groundCheckDistance, LayerMask groundLayer)
+    {
+        Collider collider = gameObject.GetComponent&lt;Collider&gt;();
+
+        if (collider != null)
+        {
+            Vector3 bottomCenter = collider.bounds.center - new Vector3(0, collider.bounds.extents.y, 0);
+            if (Physics.Raycast(bottomCenter, Vector3.down, groundCheckDistance, groundLayer))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /// &lt;summary&gt;
+    /// Perform a sphere cast to detect collisions and return information about the first collision.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;origin&quot;&gt;The starting point of the sphere cast.&lt;/param&gt;
+    /// &lt;param name=&quot;radius&quot;&gt;The radius of the sphere cast.&lt;/param&gt;
+    /// &lt;param name=&quot;direction&quot;&gt;The direction of the sphere cast.&lt;/param&gt;
+    /// &lt;param name=&quot;maxDistance&quot;&gt;The maximum distance for the cast.&lt;/param&gt;
+    /// &lt;param name=&quot;hitInfo&quot;&gt;Information about the first collision if one occurs.&lt;/param&gt;
+    /// &lt;param name=&quot;layerMask&quot;&gt;The layer mask to filter the collision.&lt;/param&gt;
+    /// &lt;returns&gt;True if a collision is detected, otherwise false.&lt;/returns&gt;
+    public static bool SphereCastFirstHit(Vector3 origin, float radius, Vector3 direction, float maxDistance, out RaycastHit hitInfo, LayerMask layerMask)
+    {
+        return Physics.SphereCast(origin, radius, direction, out hitInfo, maxDistance, layerMask);
+    }
+
+    /// &lt;summary&gt;
+    /// Check if a specific point is inside a collider.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;point&quot;&gt;The point to check for collision.&lt;/param&gt;
+    /// &lt;param name=&quot;collider&quot;&gt;The collider to check against.&lt;/param&gt;
+    /// &lt;returns&gt;True if the point is inside the collider, otherwise false.&lt;/returns&gt;
+    public static bool IsPointInsideCollider(Vector3 point, Collider collider)
+    {
+        return collider.bounds.Contains(point);
+    }
+
+    /// &lt;summary&gt;
+    /// Check if two colliders are currently overlapping.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;collider1&quot;&gt;The first collider to check.&lt;/param&gt;
+    /// &lt;param name=&quot;collider2&quot;&gt;The second collider to check.&lt;/param&gt;
+    /// &lt;returns&gt;True if the two colliders are overlapping, otherwise false.&lt;/returns&gt;
+    public static bool AreCollidersOverlapping(Collider collider1, Collider collider2)
+    {
+        return collider1.bounds.Intersects(collider2.bounds);
+    }
+
+    /// &lt;summary&gt;
+    /// Check if a GameObject is in proximity to other GameObjects in a given layer.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject to check for proximity.&lt;/param&gt;
+    /// &lt;param name=&quot;layerMask&quot;&gt;The layer mask to consider for proximity checks.&lt;/param&gt;
+    /// &lt;param name=&quot;maxDistance&quot;&gt;The maximum distance for proximity checks.&lt;/param&gt;
+    /// &lt;returns&gt;True if the GameObject is in proximity to any other GameObject in the specified layer, otherwise false.&lt;/returns&gt;
+    public static bool IsInProximityToLayer(GameObject gameObject, LayerMask layerMask, float maxDistance)
+    {
+        Collider[] colliders = Physics.OverlapSphere(gameObject.transform.position, maxDistance, layerMask);
+
+        return colliders.Length &gt; 0;
+    }
+
+    /// &lt;summary&gt;
+    /// Check if two GameObjects are currently colliding.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject1&quot;&gt;The first GameObject to check for collision.&lt;/param&gt;
+    /// &lt;param name=&quot;gameObject2&quot;&gt;The second GameObject to check for collision.&lt;/param&gt;
+    /// &lt;returns&gt;True if the two GameObjects are colliding, otherwise false.&lt;/returns&gt;
+    public static bool AreGameObjectsColliding(GameObject gameObject1, GameObject gameObject2)
+    {
+        Collider collider1 = gameObject1.GetComponent&lt;Collider&gt;();
+        Collider collider2 = gameObject2.GetComponent&lt;Collider&gt;();
+
+        if (collider1 != null &amp;&amp; collider2 != null)
+        {
+            return AreCollidersOverlapping(collider1, collider2);
+        }
+
+        return false;
+    }
+
+    /// &lt;summary&gt;
+    /// Check if a ray intersects any colliders within a specified layer.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;ray&quot;&gt;The ray to check for intersections.&lt;/param&gt;
+    /// &lt;param name=&quot;maxDistance&quot;&gt;The maximum distance for the ray.&lt;/param&gt;
+    /// &lt;param name=&quot;layerMask&quot;&gt;The layer mask to filter collisions.&lt;/param&gt;
+    /// &lt;returns&gt;True if the ray intersects any colliders within the specified layer, otherwise false.&lt;/returns&gt;
+    public static bool RayIntersectsLayer(Ray ray, float maxDistance, LayerMask layerMask)
+    {
+        RaycastHit hitInfo;
+
+        if (Physics.Raycast(ray, out hitInfo, maxDistance, layerMask))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    /// &lt;summary&gt;
+    /// Check if a GameObject is currently inside a trigger collider of another GameObject.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject to check for being inside a trigger collider.&lt;/param&gt;
+    /// &lt;param name=&quot;otherGameObject&quot;&gt;The other GameObject with the trigger collider to check against.&lt;/param&gt;
+    /// &lt;returns&gt;True if the GameObject is inside the trigger collider of the other GameObject, otherwise false.&lt;/returns&gt;
+    public static bool IsInsideTriggerCollider(GameObject gameObject, GameObject otherGameObject)
+    {
+        Collider otherCollider = otherGameObject.GetComponent&lt;Collider&gt;();
+
+        if (otherCollider != null)
+        {
+            Collider[] colliders = gameObject.GetComponentsInChildren&lt;Collider&gt;();
+
+            foreach (var collider in colliders)
+            {
+                if (collider.isTrigger &amp;&amp; collider.bounds.Intersects(otherCollider.bounds))
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /// &lt;summary&gt;
+    /// Check if two GameObjects are currently overlapping trigger colliders.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject1&quot;&gt;The first GameObject to check for trigger overlap.&lt;/param&gt;
+    /// &lt;param name=&quot;gameObject2&quot;&gt;The second GameObject to check for trigger overlap.&lt;/param&gt;
+    /// &lt;returns&gt;True if the trigger colliders of the two GameObjects are overlapping, otherwise false.&lt;/returns&gt;
+    public static bool AreTriggerCollidersOverlapping(GameObject gameObject1, GameObject gameObject2)
+    {
+        Collider[] colliders1 = gameObject1.GetComponentsInChildren&lt;Collider&gt;();
+        Collider[] colliders2 = gameObject2.GetComponentsInChildren&lt;Collider&gt;();
+
+        foreach (var collider1 in colliders1)
+        {
+            if (collider1.isTrigger)
+            {
+                foreach (var collider2 in colliders2)
+                {
+                    if (collider2.isTrigger &amp;&amp; collider1.bounds.Intersects(collider2.bounds))
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /// &lt;summary&gt;
+    /// Check if a point is within a specific distance of a collider.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;point&quot;&gt;The point to check for proximity.&lt;/param&gt;
+    /// &lt;param name=&quot;collider&quot;&gt;The collider to check against.&lt;/param&gt;
+    /// &lt;param name=&quot;maxDistance&quot;&gt;The maximum allowed distance for the point to be considered in proximity.&lt;/param&gt;
+    /// &lt;returns&gt;True if the point is within the specified distance of the collider, otherwise false.&lt;/returns&gt;
+    public static bool IsPointInProximity(Vector3 point, Collider collider, float maxDistance)
+    {
+        return Vector3.Distance(point, collider.ClosestPoint(point)) &lt;= maxDistance;
+    }
+
+    /// &lt;summary&gt;
+    /// Check if a GameObject is inside the trigger zone of another GameObject.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject to check for being inside the trigger zone.&lt;/param&gt;
+    /// &lt;param name=&quot;triggerZone&quot;&gt;The GameObject with a trigger collider representing the zone to check against.&lt;/param&gt;
+    /// &lt;returns&gt;True if the GameObject is inside the trigger zone, otherwise false.&lt;/returns&gt;
+    public static bool IsInTriggerZone(GameObject gameObject, GameObject triggerZone)
+    {
+        Collider triggerCollider = triggerZone.GetComponent&lt;Collider&gt;();
+
+        if (triggerCollider != null)
+        {
+            Collider[] colliders = gameObject.GetComponentsInChildren&lt;Collider&gt;();
+
+            foreach (var collider in colliders)
+            {
+                if (collider.isTrigger &amp;&amp; triggerCollider.bounds.Intersects(collider.bounds))
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /// &lt;summary&gt;
+    /// Check if two GameObjects are currently in contact with each other (non-trigger collision).
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject1&quot;&gt;The first GameObject to check for contact.&lt;/param&gt;
+    /// &lt;param name=&quot;gameObject2&quot;&gt;The second GameObject to check for contact.&lt;/param&gt;
+    /// &lt;returns&gt;True if the two GameObjects are in contact (non-trigger collision), otherwise false.&lt;/returns&gt;
+    public static bool AreGameObjectsInContact(GameObject gameObject1, GameObject gameObject2)
+    {
+        Collider[] colliders1 = gameObject1.GetComponentsInChildren&lt;Collider&gt;();
+        Collider[] colliders2 = gameObject2.GetComponentsInChildren&lt;Collider&gt;();
+
+        foreach (var collider1 in colliders1)
+        {
+            foreach (var collider2 in colliders2)
+            {
+                if (!collider1.isTrigger &amp;&amp; !collider2.isTrigger &amp;&amp; collider1.bounds.Intersects(collider2.bounds))
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /// &lt;summary&gt;
+    /// Check if a GameObject is currently touching the ground (using raycasting).
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject to check for ground contact.&lt;/param&gt;
+    /// &lt;param name=&quot;groundLayer&quot;&gt;The layer representing the ground or terrain.&lt;/param&gt;
+    /// &lt;param name=&quot;raycastDistance&quot;&gt;The distance to cast the ray downward.&lt;/param&gt;
+    /// &lt;returns&gt;True if the GameObject is touching the ground, otherwise false.&lt;/returns&gt;
+    public static bool IsTouchingGround(GameObject gameObject, LayerMask groundLayer, float raycastDistance = 0.1f)
+    {
+        if (Physics.Raycast(gameObject.transform.position, Vector3.down, raycastDistance, groundLayer))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    /// &lt;summary&gt;
+    /// Check if a GameObject is in the air (not touching the ground).
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject to check for being in the air.&lt;/param&gt;
+    /// &lt;param name=&quot;groundLayer&quot;&gt;The layer representing the ground or terrain.&lt;/param&gt;
+    /// &lt;param name=&quot;raycastDistance&quot;&gt;The distance to cast the ray downward.&lt;/param&gt;
+    /// &lt;returns&gt;True if the GameObject is in the air, otherwise false.&lt;/returns&gt;
+    public static bool IsInAir(GameObject gameObject, LayerMask groundLayer, float raycastDistance = 0.1f)
+    {
+        return !IsTouchingGround(gameObject, groundLayer, raycastDistance);
+    }
+
+    /// &lt;summary&gt;
+    /// Check if two colliders are currently intersecting.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;collider1&quot;&gt;The first collider to check for intersection.&lt;/param&gt;
+    /// &lt;param name=&quot;collider2&quot;&gt;The second collider to check for intersection.&lt;/param&gt;
+    /// &lt;returns&gt;True if the two colliders are intersecting, otherwise false.&lt;/returns&gt;
+    public static bool AreCollidersIntersecting(Collider collider1, Collider collider2)
+    {
+        return collider1.bounds.Intersects(collider2.bounds);
+    }
+
+    /// &lt;summary&gt;
+    /// Check if a GameObject is currently in front of another GameObject.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject to check if it's in front.&lt;/param&gt;
+    /// &lt;param name=&quot;otherGameObject&quot;&gt;The other GameObject to compare to.&lt;/param&gt;
+    /// &lt;param name=&quot;toleranceAngle&quot;&gt;The tolerance angle in degrees for considering &quot;in front.&quot;&lt;/param&gt;
+    /// &lt;returns&gt;True if the GameObject is in front of the other GameObject, otherwise false.&lt;/returns&gt;
+    public static bool IsInFrontOf(GameObject gameObject, GameObject otherGameObject, float toleranceAngle = 45f)
+    {
+        Vector3 toOther = otherGameObject.transform.position - gameObject.transform.position;
+        float angle = Vector3.Angle(gameObject.transform.forward, toOther);
+
+        return angle &lt; toleranceAngle;
+    }
+
+    /// &lt;summary&gt;
+    /// Check if two GameObjects are approximately at the same position (within a tolerance radius).
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject1&quot;&gt;The first GameObject to check for proximity.&lt;/param&gt;
+    /// &lt;param name=&quot;gameObject2&quot;&gt;The second GameObject to check for proximity.&lt;/param&gt;
+    /// &lt;param name=&quot;toleranceRadius&quot;&gt;The maximum distance for the GameObjects to be considered in proximity.&lt;/param&gt;
+    /// &lt;returns&gt;True if the two GameObjects are in proximity, otherwise false.&lt;/returns&gt;
+    public static bool AreInProximity(GameObject gameObject1, GameObject gameObject2, float toleranceRadius = 0.1f)
+    {
+        return Vector3.Distance(gameObject1.transform.position, gameObject2.transform.position) &lt;= toleranceRadius;
+    }
+
+    /// &lt;summary&gt;
+    /// Check if a point is within the bounds of a specified Collider.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;point&quot;&gt;The point to check for collision.&lt;/param&gt;
+    /// &lt;param name=&quot;collider&quot;&gt;The Collider to check against.&lt;/param&gt;
+    /// &lt;returns&gt;True if the point is within the bounds of the Collider, otherwise false.&lt;/returns&gt;
+    public static bool IsPointWithinCollider(Vector3 point, Collider collider)
+    {
+        return collider.bounds.Contains(point);
+    }
+
+    /// &lt;summary&gt;
+    /// Disable or enable all Colliders on a GameObject and its children.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject with Colliders to enable or disable.&lt;/param&gt;
+    /// &lt;param name=&quot;isEnabled&quot;&gt;True to enable Colliders, false to disable them.&lt;/param&gt;
+    public static void EnableCollidersRecursively(GameObject gameObject, bool isEnabled)
+    {
+        Collider[] colliders = gameObject.GetComponentsInChildren&lt;Collider&gt;();
+        foreach (Collider collider in colliders)
+        {
+            collider.enabled = isEnabled;
+        }
+    }
+</div><div class="last-modified"> Last modified: 15 December 2023</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom">  <a class="navigation-links__prev" href="debugutilities.html">Debug Utilities</a>   <a class="navigation-links__next" href="camerautilities.html">Camera Utilities</a>  </div></article><div id="disqus_thread"></div></div></section></main></div>  <script src="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.js"></script></body></html>

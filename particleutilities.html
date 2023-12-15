@@ -1,0 +1,256 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat"><html lang="en-US" data-colors-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex">  <meta name="built-on" content="2023-12-15T20:31:17.9434925"><meta name="build-number" content="${buildNumber}">       <title>Particle Utilities | Advanced API Docs</title><script id="virtual-toc-data" type="application/json">[]</script><script id="topic-shortcuts" type="application/json"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.css" rel="stylesheet">   <link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><link rel="manifest" href="https://jetbrains.com/site.webmanifest"><link rel="mask-icon" href="https://jetbrains.com/safari-pinned-tab.svg" color="#000000"><meta name="msapplication-TileColor" content="#000000"/><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>  <meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Particle Utilities | Advanced API Docs"/><meta property="og:description" content=""/><meta property="og:image" content=""/><meta property="og:site_name" content="Advanced API Docs Help"/><meta property="og:type" content="website"/><meta property="og:locale" content="en_US"/><meta property="og:url" content="particleutilities.html"/><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Particle Utilities | Advanced API Docs"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json"> { "@context": "http://schema.org", "@type": "WebPage", "@id": "particleutilities.html#webpage", "url": "particleutilities.html", "name": "Particle Utilities | Advanced API Docs", "description": "", "image": "", "inLanguage":"en-US" }</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json"> { "@type": "WebSite", "@id": "/#website", "url": "/", "name": "Advanced API Docs Help" }</script><!-- End Schema.org --></head>      <body data-id="ParticleUtilities" data-main-title="Particle Utilities" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}"  data-template="article"  data-breadcrumbs="API-reference.md|API Reference///VirtualWorldInteractive.Rendering.md|VirtualWorldInteractive.Rendering"  >   <div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Advanced API Docs  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="ParticleUtilities"   id="ParticleUtilities.md">Particle Utilities</h1>  <div class="code-block" data-lang="none"         >    /// &lt;summary&gt;
+    /// Creates a new Particle System at the specified position and starts it.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;position&quot;&gt;The position where the Particle System will be created.&lt;/param&gt;
+    /// &lt;param name=&quot;prefab&quot;&gt;The Particle System prefab to instantiate.&lt;/param&gt;
+    /// &lt;returns&gt;The newly created Particle System instance.&lt;/returns&gt;
+    public static ParticleSystem CreateParticleSystem(Vector3 position, ParticleSystem prefab)
+    {
+        ParticleSystem newParticleSystem = Object.Instantiate(prefab, position, Quaternion.identity);
+        newParticleSystem.Play();
+        return newParticleSystem;
+    }
+
+    /// &lt;summary&gt;
+    /// Modifies the start color of a given Particle System.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;particleSystem&quot;&gt;The Particle System to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;color&quot;&gt;The new start color for the particles.&lt;/param&gt;
+    public static void ModifyParticleColor(ParticleSystem particleSystem, Color color)
+    {
+        ParticleSystem.MainModule mainModule = particleSystem.main;
+        mainModule.startColor = color;
+    }
+
+    /// &lt;summary&gt;
+    /// Spawns particles at a specific rate within a Particle System.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;particleSystem&quot;&gt;The Particle System to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;rate&quot;&gt;The emission rate in particles per second.&lt;/param&gt;
+    public static void SpawnParticles(ParticleSystem particleSystem, int rate)
+    {
+        ParticleSystem.EmissionModule emission = particleSystem.emission;
+        emission.enabled = true;
+        emission.rateOverTime = rate;
+    }
+
+    /// &lt;summary&gt;
+    /// Customizes particle movement within a Particle System by applying a specific motion pattern.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;particleSystem&quot;&gt;The Particle System to customize.&lt;/param&gt;
+    public static void CustomizeParticleMovement(ParticleSystem particleSystem)
+    {
+        ParticleSystem.VelocityOverLifetimeModule velocity = particleSystem.velocityOverLifetime;
+        AnimationCurve curve = new AnimationCurve(new Keyframe(0, 0), new Keyframe(1, 1));
+        velocity.x = new ParticleSystem.MinMaxCurve { curve = curve, mode = ParticleSystemCurveMode.Curve };
+        velocity.y = new ParticleSystem.MinMaxCurve { curve = curve, mode = ParticleSystemCurveMode.Curve };
+        velocity.z = new ParticleSystem.MinMaxCurve { curve = curve, mode = ParticleSystemCurveMode.Curve };
+    }
+
+    /// &lt;summary&gt;
+    /// Stops and destroys a Particle System after a specified delay.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;particleSystem&quot;&gt;The Particle System to stop and destroy.&lt;/param&gt;
+    /// &lt;param name=&quot;delay&quot;&gt;The delay in seconds before destruction.&lt;/param&gt;
+    public static void StopAndDestroyParticleSystem(ParticleSystem particleSystem, float delay)
+    {
+        if (particleSystem != null)
+        {
+            particleSystem.Stop();
+            Object.Destroy(particleSystem.gameObject, delay);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Clears all particles from a Particle System.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;particleSystem&quot;&gt;The Particle System to clear.&lt;/param&gt;
+    public static void ClearParticles(ParticleSystem particleSystem)
+    {
+        if (particleSystem != null)
+        {
+            particleSystem.Clear();
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Simulate a burst of particles at a specific position in a Particle System without affecting emission rate.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;particleSystem&quot;&gt;The Particle System to simulate the burst in.&lt;/param&gt;
+    /// &lt;param name=&quot;position&quot;&gt;The position to emit the burst from.&lt;/param&gt;
+    /// &lt;param name=&quot;particleCount&quot;&gt;The number of particles in the burst.&lt;/param&gt;
+    public static void SimulateParticleBurst(ParticleSystem particleSystem, Vector3 position, int particleCount)
+    {
+        ParticleSystem.EmitParams emitParams = new ParticleSystem.EmitParams();
+        emitParams.position = position;
+        particleSystem.Emit(emitParams, particleCount);
+    }
+
+    /// &lt;summary&gt;
+    /// Scale the size of particles in a Particle System over time.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;particleSystem&quot;&gt;The Particle System to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;startSize&quot;&gt;The initial size of particles.&lt;/param&gt;
+    /// &lt;param name=&quot;endSize&quot;&gt;The final size of particles.&lt;/param&gt;
+    /// &lt;param name=&quot;duration&quot;&gt;The duration over which the size transition occurs.&lt;/param&gt;
+    public static void ScaleParticleSizeOverTime(ParticleSystem particleSystem, float startSize, float endSize, float duration)
+    {
+        ParticleSystem.SizeOverLifetimeModule sizeModule = particleSystem.sizeOverLifetime;
+        AnimationCurve sizeCurve = new AnimationCurve(new Keyframe(0, startSize), new Keyframe(1, endSize));
+        sizeModule.size = new ParticleSystem.MinMaxCurve(1f, sizeCurve);
+        sizeModule.enabled = true;
+        particleSystem.time = 0f; // Reset the Particle System's time to apply size changes immediately
+        particleSystem.Simulate(duration, true, false);
+    }
+
+    /// &lt;summary&gt;
+    /// Apply a force to particles in a Particle System to simulate wind or turbulence.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;particleSystem&quot;&gt;The Particle System to apply the force to.&lt;/param&gt;
+    /// &lt;param name=&quot;force&quot;&gt;The force vector to apply to the particles.&lt;/param&gt;
+    public static void ApplyForceToParticles(ParticleSystem particleSystem, Vector3 force)
+    {
+        ParticleSystem.ForceOverLifetimeModule forceModule = particleSystem.forceOverLifetime;
+        forceModule.enabled = true;
+        forceModule.x = new ParticleSystem.MinMaxCurve { constant = force.x };
+        forceModule.y = new ParticleSystem.MinMaxCurve { constant = force.y };
+        forceModule.z = new ParticleSystem.MinMaxCurve { constant = force.z };
+    }
+
+    /// &lt;summary&gt;
+    /// Create a trail effect for particles in a Particle System.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;particleSystem&quot;&gt;The Particle System to create a trail for.&lt;/param&gt;
+    /// &lt;param name=&quot;trailMaterial&quot;&gt;The material for the trail rendering.&lt;/param&gt;
+    /// &lt;param name=&quot;startLifetime&quot;&gt;The initial lifetime of trail particles.&lt;/param&gt;
+    /// &lt;param name=&quot;colorOverLifetime&quot;&gt;A gradient defining the trail's color over its lifetime.&lt;/param&gt;
+    public static void CreateParticleTrail(ParticleSystem particleSystem, Material trailMaterial, float startLifetime, Gradient colorOverLifetime)
+    {
+        ParticleSystem.TrailModule trailModule = particleSystem.trails;
+        trailModule.enabled = true;
+        trailModule.textureMode = ParticleSystemTrailTextureMode.Stretch;
+        trailModule.inheritParticleColor = true;
+        trailModule.lifetime = startLifetime;
+        trailModule.sizeAffectsWidth = true;
+        trailModule.colorOverLifetime = colorOverLifetime;
+
+        Renderer renderer = particleSystem.GetComponent&lt;ParticleSystemRenderer&gt;();
+        renderer.material = trailMaterial;
+    }
+
+    /// &lt;summary&gt;
+    /// Play a Particle System on a specific custom timer.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;particleSystem&quot;&gt;The Particle System to play.&lt;/param&gt;
+    /// &lt;param name=&quot;delay&quot;&gt;The delay in seconds before playing the Particle System.&lt;/param&gt;
+    public static void PlayParticleSystemWithDelay(ParticleSystem particleSystem, float delay)
+    {
+        particleSystem.Stop();
+        particleSystem.Clear();
+        particleSystem.Simulate(delay);
+        particleSystem.Play();
+    }
+
+    /// &lt;summary&gt;
+    /// Rotate the emission shape of a Particle System.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;particleSystem&quot;&gt;The Particle System to rotate the emission shape for.&lt;/param&gt;
+    /// &lt;param name=&quot;rotation&quot;&gt;The rotation to apply to the emission shape.&lt;/param&gt;
+    public static void RotateEmissionShape(ParticleSystem particleSystem, Quaternion rotation)
+    {
+        ParticleSystem.ShapeModule shapeModule = particleSystem.shape;
+        shapeModule.rotation = rotation.eulerAngles;
+    }
+
+    /// &lt;summary&gt;
+    /// Enable GPU-based noise for more advanced and realistic particle movement.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;particleSystem&quot;&gt;The Particle System to enable GPU-based noise for.&lt;/param&gt;
+    public static void EnableGPUNoise(ParticleSystem particleSystem)
+    {
+        ParticleSystem.NoiseModule noiseModule = particleSystem.noise;
+        noiseModule.enabled = true;
+        noiseModule.strengthX = 1.0f;
+        noiseModule.strengthY = 1.0f;
+        noiseModule.strengthZ = 1.0f;
+    }
+
+    /// &lt;summary&gt;
+    /// Plays the specified particle system.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;particleSystem&quot;&gt;The ParticleSystem to play.&lt;/param&gt;
+    public static void PlayParticleSystem(ParticleSystem particleSystem)
+    {
+        if (particleSystem != null)
+        {
+            particleSystem.Play();
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Stops the specified particle system.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;particleSystem&quot;&gt;The ParticleSystem to stop.&lt;/param&gt;
+    public static void StopParticleSystem(ParticleSystem particleSystem)
+    {
+        if (particleSystem != null)
+        {
+            particleSystem.Stop();
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Pauses the specified particle system.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;particleSystem&quot;&gt;The ParticleSystem to pause.&lt;/param&gt;
+    public static void PauseParticleSystem(ParticleSystem particleSystem)
+    {
+        if (particleSystem != null)
+        {
+            particleSystem.Pause();
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Sets the emission rate of the specified particle system.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;particleSystem&quot;&gt;The ParticleSystem to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;emissionRate&quot;&gt;The new emission rate for the particles.&lt;/param&gt;
+    public static void SetParticleSystemEmissionRate(ParticleSystem particleSystem, float emissionRate)
+    {
+        if (particleSystem != null)
+        {
+            var emission = particleSystem.emission;
+            emission.rateOverTime = new ParticleSystem.MinMaxCurve(emissionRate);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Sets the size of the particles in the specified particle system.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;particleSystem&quot;&gt;The ParticleSystem to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;size&quot;&gt;The new size for the particles.&lt;/param&gt;
+    public static void SetParticleSystemParticleSize(ParticleSystem particleSystem, float size)
+    {
+        if (particleSystem != null)
+        {
+            var mainModule = particleSystem.main;
+            mainModule.startSize = size;
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Randomizes the rotation of particles in the specified particle system.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;particleSystem&quot;&gt;The ParticleSystem to modify.&lt;/param&gt;
+    public static void RandomizeParticleRotation(ParticleSystem particleSystem)
+    {
+        if (particleSystem != null)
+        {
+            var rotationModule = particleSystem.rotationOverLifetime;
+            rotationModule.enabled = true;
+            rotationModule.separateAxes = true;
+            rotationModule.z = new ParticleSystem.MinMaxCurve(0f, 360f);
+        }
+    }
+</div><div class="last-modified"> Last modified: 15 December 2023</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom">  <a class="navigation-links__prev" href="lightingutilities.html">Lighting Utilities</a>   </div></article><div id="disqus_thread"></div></div></section></main></div>  <script src="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.js"></script></body></html>

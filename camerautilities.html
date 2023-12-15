@@ -1,0 +1,500 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat"><html lang="en-US" data-colors-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex">  <meta name="built-on" content="2023-12-15T20:31:17.9434925"><meta name="build-number" content="${buildNumber}">       <title>Camera Utilities | Advanced API Docs</title><script id="virtual-toc-data" type="application/json">[]</script><script id="topic-shortcuts" type="application/json"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.css" rel="stylesheet">   <link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><link rel="manifest" href="https://jetbrains.com/site.webmanifest"><link rel="mask-icon" href="https://jetbrains.com/safari-pinned-tab.svg" color="#000000"><meta name="msapplication-TileColor" content="#000000"/><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>  <meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Camera Utilities | Advanced API Docs"/><meta property="og:description" content=""/><meta property="og:image" content=""/><meta property="og:site_name" content="Advanced API Docs Help"/><meta property="og:type" content="website"/><meta property="og:locale" content="en_US"/><meta property="og:url" content="camerautilities.html"/><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Camera Utilities | Advanced API Docs"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json"> { "@context": "http://schema.org", "@type": "WebPage", "@id": "camerautilities.html#webpage", "url": "camerautilities.html", "name": "Camera Utilities | Advanced API Docs", "description": "", "image": "", "inLanguage":"en-US" }</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json"> { "@type": "WebSite", "@id": "/#website", "url": "/", "name": "Advanced API Docs Help" }</script><!-- End Schema.org --></head>      <body data-id="CameraUtilities" data-main-title="Camera Utilities" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}"  data-template="article"  data-breadcrumbs="API-reference.md|API Reference///VirtualWorldInteractive-Engineering.md|VirtualWorldInteractive.Engineering"  >   <div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Advanced API Docs  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="CameraUtilities"   id="CameraUtilities.md">Camera Utilities</h1>  <div class="code-block" data-lang="none"         >    /// &lt;summary&gt;
+    /// Check if a GameObject is outside the camera's view frustum.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject to check for being outside the camera's view.&lt;/param&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The camera used for checking visibility.&lt;/param&gt;
+    /// &lt;returns&gt;True if the GameObject is outside the camera's view, otherwise false.&lt;/returns&gt;
+    public static bool IsOutsideCameraView(GameObject gameObject, Camera camera)
+    {
+        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(camera);
+        Collider[] colliders = gameObject.GetComponentsInChildren&lt;Collider&gt;();
+
+        foreach (var collider in colliders)
+        {
+            if (!GeometryUtility.TestPlanesAABB(planes, collider.bounds))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /// &lt;summary&gt;
+    /// Set the camera's field of view (FOV) to a specified value.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;fieldOfView&quot;&gt;The new field of view value.&lt;/param&gt;
+    public static void SetFieldOfView(Camera camera, float fieldOfView)
+    {
+        camera.fieldOfView = fieldOfView;
+    }
+
+    /// &lt;summary&gt;
+    /// Smoothly move the camera to a target position over a specified duration.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to move.&lt;/param&gt;
+    /// &lt;param name=&quot;targetPosition&quot;&gt;The target position to move to.&lt;/param&gt;
+    /// &lt;param name=&quot;duration&quot;&gt;The duration of the movement in seconds.&lt;/param&gt;
+    public static void SmoothCameraMoveToPosition(Camera camera, Vector3 targetPosition, float duration)
+    {
+        if (camera != null)
+        {
+            Vector3 initialPosition = camera.transform.position;
+            float startTime = Time.time;
+            float endTime = startTime + duration;
+
+            while (Time.time &lt; endTime)
+            {
+                float t = (Time.time - startTime) / duration;
+                camera.transform.position = Vector3.Lerp(initialPosition, targetPosition, t);
+            }
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Shake the camera by applying random position offsets.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to shake.&lt;/param&gt;
+    /// &lt;param name=&quot;shakeIntensity&quot;&gt;The intensity of the camera shake.&lt;/param&gt;
+    /// &lt;param name=&quot;duration&quot;&gt;The duration of the camera shake in seconds.&lt;/param&gt;
+    public static void ShakeCamera(Camera camera, float shakeIntensity, float duration)
+    {
+        if (camera != null)
+        {
+            Vector3 originalPosition = camera.transform.position;
+
+            float startTime = Time.time;
+            float endTime = startTime + duration;
+
+            while (Time.time &lt; endTime)
+            {
+                float offsetX = Random.Range(-shakeIntensity, shakeIntensity);
+                float offsetY = Random.Range(-shakeIntensity, shakeIntensity);
+                float offsetZ = Random.Range(-shakeIntensity, shakeIntensity);
+
+                camera.transform.position = originalPosition + new Vector3(offsetX, offsetY, offsetZ);
+            }
+
+            camera.transform.position = originalPosition;
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Follow a target GameObject with the camera smoothly over time.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to use for following.&lt;/param&gt;
+    /// &lt;param name=&quot;target&quot;&gt;The target GameObject to follow.&lt;/param&gt;
+    /// &lt;param name=&quot;smoothTime&quot;&gt;The smooth time for camera movement.&lt;/param&gt;
+    public static void FollowTarget(Camera camera, GameObject target, float smoothTime)
+    {
+        if (camera != null &amp;&amp; target != null)
+        {
+            Vector3 velocity = Vector3.zero;
+            Vector3 targetPosition = target.transform.position;
+            targetPosition.z = camera.transform.position.z;
+            camera.transform.position = Vector3.SmoothDamp(camera.transform.position, targetPosition, ref velocity, smoothTime);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Center the camera on a specified position with a given offset.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to center.&lt;/param&gt;
+    /// &lt;param name=&quot;targetPosition&quot;&gt;The position to center the camera on.&lt;/param&gt;
+    /// &lt;param name=&quot;offset&quot;&gt;The offset from the target position.&lt;/param&gt;
+    public static void CenterOnPosition(Camera camera, Vector3 targetPosition, Vector3 offset)
+    {
+        if (camera != null)
+        {
+            camera.transform.position = targetPosition + offset;
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Rotate the camera to look at a specified target position.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to rotate.&lt;/param&gt;
+    /// &lt;param name=&quot;targetPosition&quot;&gt;The position to look at.&lt;/param&gt;
+    public static void RotateToLookAt(Camera camera, Vector3 targetPosition)
+    {
+        if (camera != null)
+        {
+            camera.transform.LookAt(targetPosition);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Zoom the camera in or out by adjusting its field of view.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to zoom.&lt;/param&gt;
+    /// &lt;param name=&quot;zoomAmount&quot;&gt;The amount to zoom by (positive or negative).&lt;/param&gt;
+    public static void ZoomCamera(Camera camera, float zoomAmount)
+    {
+        if (camera != null)
+        {
+            camera.fieldOfView += zoomAmount;
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Set the camera's background color to a specified color.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;backgroundColor&quot;&gt;The new background color for the camera.&lt;/param&gt;
+    public static void SetBackgroundColor(Camera camera, Color backgroundColor)
+    {
+        camera.backgroundColor = backgroundColor;
+    }
+
+    /// &lt;summary&gt;
+    /// Toggle the camera's culling mask to show or hide objects in specific layers.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;layerMask&quot;&gt;The layer mask representing the layers to show or hide.&lt;/param&gt;
+    /// &lt;param name=&quot;show&quot;&gt;True to show objects in the specified layers, false to hide them.&lt;/param&gt;
+    public static void ToggleLayerCulling(Camera camera, LayerMask layerMask, bool show)
+    {
+        if (show)
+        {
+            camera.cullingMask |= layerMask;
+        }
+        else
+        {
+            camera.cullingMask &amp;= ~layerMask;
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Set the camera's clear flags to a specified value (e.g., Skybox, Solid Color).
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;clearFlags&quot;&gt;The new clear flags value for the camera.&lt;/param&gt;
+    public static void SetClearFlags(Camera camera, CameraClearFlags clearFlags)
+    {
+        camera.clearFlags = clearFlags;
+    }
+
+    /// &lt;summary&gt;
+    /// Fade the camera's background color to a target color over a specified duration.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to fade.&lt;/param&gt;
+    /// &lt;param name=&quot;targetColor&quot;&gt;The target background color to fade to.&lt;/param&gt;
+    /// &lt;param name=&quot;duration&quot;&gt;The duration of the fade in seconds.&lt;/param&gt;
+    public static void FadeBackgroundColor(Camera camera, Color targetColor, float duration)
+    {
+        if (camera != null)
+        {
+            Color originalColor = camera.backgroundColor;
+            float startTime = Time.time;
+            float endTime = startTime + duration;
+
+            while (Time.time &lt; endTime)
+            {
+                float t = (Time.time - startTime) / duration;
+                camera.backgroundColor = Color.Lerp(originalColor, targetColor, t);
+            }
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Shake the camera by applying random rotation offsets.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to shake.&lt;/param&gt;
+    /// &lt;param name=&quot;shakeIntensity&quot;&gt;The intensity of the camera shake.&lt;/param&gt;
+    /// &lt;param name=&quot;duration&quot;&gt;The duration of the camera shake in seconds.&lt;/param&gt;
+    public static void ShakeCameraRotation(Camera camera, float shakeIntensity, float duration)
+    {
+        if (camera != null)
+        {
+            Quaternion originalRotation = camera.transform.rotation;
+
+            float startTime = Time.time;
+            float endTime = startTime + duration;
+
+            while (Time.time &lt; endTime)
+            {
+                float rotationX = Random.Range(-shakeIntensity, shakeIntensity);
+                float rotationY = Random.Range(-shakeIntensity, shakeIntensity);
+                float rotationZ = Random.Range(-shakeIntensity, shakeIntensity);
+
+                camera.transform.rotation = originalRotation * Quaternion.Euler(rotationX, rotationY, rotationZ);
+            }
+
+            camera.transform.rotation = originalRotation;
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Set the camera's depth to control its rendering order in the scene.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;newDepth&quot;&gt;The new depth value for the camera.&lt;/param&gt;
+    public static void SetCameraDepth(Camera camera, int newDepth)
+    {
+        camera.depth = newDepth;
+    }
+
+    /// &lt;summary&gt;
+    /// Adjust the camera's clipping planes to modify its near and far clip distances.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;newNearClipPlane&quot;&gt;The new near clip distance.&lt;/param&gt;
+    /// &lt;param name=&quot;newFarClipPlane&quot;&gt;The new far clip distance.&lt;/param&gt;
+    public static void AdjustClipPlanes(Camera camera, float newNearClipPlane, float newFarClipPlane)
+    {
+        camera.nearClipPlane = newNearClipPlane;
+        camera.farClipPlane = newFarClipPlane;
+    }
+
+    /// &lt;summary&gt;
+    /// Enable or disable the camera's rendering.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to enable or disable.&lt;/param&gt;
+    /// &lt;param name=&quot;isEnabled&quot;&gt;True to enable rendering, false to disable rendering.&lt;/param&gt;
+    public static void SetCameraEnabled(Camera camera, bool isEnabled)
+    {
+        camera.enabled = isEnabled;
+    }
+
+    /// &lt;summary&gt;
+    /// Set the camera's orthographic size to control its zoom level.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;orthographicSize&quot;&gt;The new orthographic size for the camera.&lt;/param&gt;
+    public static void SetOrthographicSize(Camera camera, float orthographicSize)
+    {
+        camera.orthographicSize = orthographicSize;
+    }
+
+    /// &lt;summary&gt;
+    /// Lock the camera's rotation to a specific axis (e.g., X, Y, Z).
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;lockAxis&quot;&gt;The axis to lock (e.g., Vector3.right, Vector3.up, Vector3.forward).&lt;/param&gt;
+    public static void LockCameraRotation(Camera camera, Vector3 lockAxis)
+    {
+        camera.transform.rotation = Quaternion.LookRotation(lockAxis);
+    }
+
+    /// &lt;summary&gt;
+    /// Set the camera's background color to a gradient.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;startColor&quot;&gt;The start color of the gradient.&lt;/param&gt;
+    /// &lt;param name=&quot;endColor&quot;&gt;The end color of the gradient.&lt;/param&gt;
+    public static void SetBackgroundGradient(Camera camera, Color startColor, Color endColor)
+    {
+        camera.clearFlags = CameraClearFlags.SolidColor;
+        camera.backgroundColor = startColor;
+    }
+
+    /// &lt;summary&gt;
+    /// Get the current camera's forward vector.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to get the forward vector from.&lt;/param&gt;
+    /// &lt;returns&gt;The forward vector of the camera.&lt;/returns&gt;
+    public static Vector3 GetCameraForwardVector(Camera camera)
+    {
+        return camera.transform.forward;
+    }
+
+    /// &lt;summary&gt;
+    /// Change the camera's projection mode to orthographic.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    public static void SetOrthographicProjection(Camera camera)
+    {
+        camera.orthographic = true;
+    }
+
+    /// &lt;summary&gt;
+    /// Change the camera's projection mode to perspective.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    public static void SetPerspectiveProjection(Camera camera)
+    {
+        camera.orthographic = false;
+    }
+
+    /// &lt;summary&gt;
+    /// Change the camera's target texture to a specified RenderTexture.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;renderTexture&quot;&gt;The new RenderTexture to set as the camera's target texture.&lt;/param&gt;
+    public static void SetTargetTexture(Camera camera, RenderTexture renderTexture)
+    {
+        camera.targetTexture = renderTexture;
+    }
+
+    /// &lt;summary&gt;
+    /// Set the camera's aspect ratio to match the screen's aspect ratio.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    public static void SetAspectRatioToScreen(Camera camera)
+    {
+        camera.aspect = (float)Screen.width / Screen.height;
+    }
+
+    /// &lt;summary&gt;
+    /// Toggle the camera's HDR rendering on or off.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;enableHDR&quot;&gt;True to enable HDR rendering, false to disable it.&lt;/param&gt;
+    public static void ToggleHDRRendering(Camera camera, bool enableHDR)
+    {
+        camera.allowHDR = enableHDR;
+    }
+
+    /// &lt;summary&gt;
+    /// Set the camera's rendering path to a specified value.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;renderingPath&quot;&gt;The new rendering path for the camera.&lt;/param&gt;
+    public static void SetRenderingPath(Camera camera, RenderingPath renderingPath)
+    {
+        camera.renderingPath = renderingPath;
+    }
+
+    /// &lt;summary&gt;
+    /// Set the camera's clear flags to show only the skybox.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    public static void SetClearFlagsForSkybox(Camera camera)
+    {
+        camera.clearFlags = CameraClearFlags.Skybox;
+    }
+
+    /// &lt;summary&gt;
+    /// Set the camera's target display to a specified display index.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;targetDisplay&quot;&gt;The index of the target display to use.&lt;/param&gt;
+    public static void SetTargetDisplay(Camera camera, int targetDisplay)
+    {
+        camera.targetDisplay = targetDisplay;
+    }
+
+    /// &lt;summary&gt;
+    /// Set the camera's depth texture mode to a specified value.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;depthTextureMode&quot;&gt;The new depth texture mode for the camera.&lt;/param&gt;
+    public static void SetDepthTextureMode(Camera camera, DepthTextureMode depthTextureMode)
+    {
+        camera.depthTextureMode = depthTextureMode;
+    }
+
+    /// &lt;summary&gt;
+    /// Adjust the camera's rendering mask to include or exclude specific layers.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;includeLayers&quot;&gt;The layers to include in the rendering mask.&lt;/param&gt;
+    /// &lt;param name=&quot;excludeLayers&quot;&gt;The layers to exclude from the rendering mask.&lt;/param&gt;
+    public static void AdjustRenderingMask(Camera camera, LayerMask includeLayers, LayerMask excludeLayers)
+    {
+        camera.cullingMask = includeLayers &amp; ~excludeLayers;
+    }
+
+    /// &lt;summary&gt;
+    /// Set the camera's aspect ratio to a custom value.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;customAspectRatio&quot;&gt;The new aspect ratio to set for the camera.&lt;/param&gt;
+    public static void SetCustomAspectRatio(Camera camera, float customAspectRatio)
+    {
+        camera.aspect = customAspectRatio;
+    }
+
+    /// &lt;summary&gt;
+    /// Set the camera's viewport rect to specify a sub-rectangle of the screen.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;viewportRect&quot;&gt;The new viewport rect to set for the camera.&lt;/param&gt;
+    public static void SetViewportRect(Camera camera, Rect viewportRect)
+    {
+        camera.rect = viewportRect;
+    }
+
+    /// &lt;summary&gt;
+    /// Adjust the camera's near and far clip planes to encompass a specified volume.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;volume&quot;&gt;The volume to encompass with the clip planes.&lt;/param&gt;
+    public static void AdjustClipPlanesToVolume(Camera camera, Bounds volume)
+    {
+        camera.nearClipPlane = -volume.extents.z;
+        camera.farClipPlane = volume.extents.z;
+    }
+
+    /// &lt;summary&gt;
+    /// Set the camera's rendering path to use the Vertex Lit rendering path.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    public static void SetVertexLitRenderingPath(Camera camera)
+    {
+        camera.renderingPath = RenderingPath.VertexLit;
+    }
+
+    /// &lt;summary&gt;
+    /// Set the camera's background color to a gradient skybox.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    public static void SetBackgroundToGradientSkybox(Camera camera)
+    {
+        camera.clearFlags = CameraClearFlags.Skybox;
+    }
+
+    /// &lt;summary&gt;
+    /// Set the camera's rendering resolution to a custom size.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;resolutionWidth&quot;&gt;The new width of the rendering resolution.&lt;/param&gt;
+    /// &lt;param name=&quot;resolutionHeight&quot;&gt;The new height of the rendering resolution.&lt;/param&gt;
+    public static void SetRenderingResolution(Camera camera, int resolutionWidth, int resolutionHeight)
+    {
+        camera.targetTexture = new RenderTexture(resolutionWidth, resolutionHeight, 24);
+    }
+
+    /// &lt;summary&gt;
+    /// Change the camera's field of view based on a target aspect ratio.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;targetAspectRatio&quot;&gt;The target aspect ratio to achieve.&lt;/param&gt;
+    public static void ChangeFieldOfViewByAspectRatio(Camera camera, float targetAspectRatio)
+    {
+        float currentAspectRatio = camera.aspect;
+        float newFieldOfView = camera.fieldOfView * (currentAspectRatio / targetAspectRatio);
+        camera.fieldOfView = newFieldOfView;
+    }
+
+    /// &lt;summary&gt;
+    /// Set the camera's rendering path to use the Unlit rendering path.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    public static void SetUnlitRenderingPath(Camera camera)
+    {
+        camera.renderingPath = RenderingPath.Forward;
+    }
+
+    /// &lt;summary&gt;
+    /// Set the camera's rendering path to use the Deferred rendering path.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    public static void SetDeferredRenderingPath(Camera camera)
+    {
+        camera.renderingPath = RenderingPath.DeferredShading;
+    }
+
+    /// &lt;summary&gt;
+    /// Set the camera's near and far clip planes to specific values.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;camera&quot;&gt;The Camera to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;newNearClipPlane&quot;&gt;The new near clip distance.&lt;/param&gt;
+    /// &lt;param name=&quot;newFarClipPlane&quot;&gt;The new far clip distance.&lt;/param&gt;
+    public static void SetClipPlanes(Camera camera, float newNearClipPlane, float newFarClipPlane)
+    {
+        camera.nearClipPlane = newNearClipPlane;
+        camera.farClipPlane = newFarClipPlane;
+    }
+</div><div class="last-modified"> Last modified: 15 December 2023</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom">  <a class="navigation-links__prev" href="collisionutilities.html">Collision Utilities</a>   <a class="navigation-links__next" href="virtualworldinteractive-rendering.html">VirtualWorldInteractive.Rendering</a>  </div></article><div id="disqus_thread"></div></div></section></main></div>  <script src="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.js"></script></body></html>

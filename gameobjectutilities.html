@@ -1,4 +1,4 @@
-<!DOCTYPE html SYSTEM "about:legacy-compat"><html lang="en-US" data-colors-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex">  <meta name="built-on" content="2023-12-14T17:44:43.9915753"><meta name="build-number" content="${buildNumber}">       <title>GameObject Utilities | Advanced API Docs</title><script id="virtual-toc-data" type="application/json">[{"id":"areobjectscloseenough-gameobject-object1-gameobject-object2-float-threshold","level":0,"title":"AreObjectsCloseEnough(GameObject object1, GameObject object2, float threshold)","anchor":"#areobjectscloseenough-gameobject-object1-gameobject-object2-float-threshold"},{"id":"createemptyobject-string-name","level":0,"title":"CreateEmptyObject(string name)","anchor":"#createemptyobject-string-name"}]</script><script id="topic-shortcuts" type="application/json"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.css" rel="stylesheet">   <link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><link rel="manifest" href="https://jetbrains.com/site.webmanifest"><link rel="mask-icon" href="https://jetbrains.com/safari-pinned-tab.svg" color="#000000"><meta name="msapplication-TileColor" content="#000000"/><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>  <meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="GameObject Utilities | Advanced API Docs"/><meta property="og:description" content=""/><meta property="og:image" content=""/><meta property="og:site_name" content="Advanced API Docs Help"/><meta property="og:type" content="website"/><meta property="og:locale" content="en_US"/><meta property="og:url" content="gameobjectutilities.html"/><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="GameObject Utilities | Advanced API Docs"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json"> { "@context": "http://schema.org", "@type": "WebPage", "@id": "gameobjectutilities.html#webpage", "url": "gameobjectutilities.html", "name": "GameObject Utilities | Advanced API Docs", "description": "", "image": "", "inLanguage":"en-US" }</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json"> { "@type": "WebSite", "@id": "/#website", "url": "/", "name": "Advanced API Docs Help" }</script><!-- End Schema.org --></head>      <body data-id="GameObjectUtilities" data-main-title="GameObject Utilities" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}"  data-template="article"  data-breadcrumbs="API-reference.md|API Reference///VirtualWorldInteractive-Engineering.md|VirtualWorldInteractive.Engineering"  >   <div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Advanced API Docs  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="GameObjectUtilities"   id="GameObjectUtilities.md">GameObject Utilities</h1>  <section class="chapter"><h2 id="areobjectscloseenough-gameobject-object1-gameobject-object2-float-threshold" data-toc="areobjectscloseenough-gameobject-object1-gameobject-object2-float-threshold"   >AreObjectsCloseEnough(GameObject object1, GameObject object2, float threshold)</h2><p id="9268e735_9">This function calculates the distance between the two GameObjects using the GetDistanceBetweenObjects helper method and compares it against the provided threshold.</p><p id="9268e735_10">Parameters:</p><p id="9268e735_11">object1 = The first GameObject to compare.</p><p id="9268e735_12">object2 = The second GameObject to compare.</p><p id="9268e735_13">threshold = The distance threshold for proximity.</p><p id="9268e735_14">returns = True if the GameObjects are close enough, false otherwise.</p><p id="9268e735_15">Example usage:</p><div class="code-block" data-lang="csharp"         >
+<!DOCTYPE html SYSTEM "about:legacy-compat"><html lang="en-US" data-colors-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex">  <meta name="built-on" content="2023-12-15T20:31:17.9446114"><meta name="build-number" content="${buildNumber}">       <title>GameObject Utilities | Advanced API Docs</title><script id="virtual-toc-data" type="application/json">[{"id":"areobjectscloseenough-gameobject-object1-gameobject-object2-float-threshold","level":0,"title":"AreObjectsCloseEnough(GameObject object1, GameObject object2, float threshold)","anchor":"#areobjectscloseenough-gameobject-object1-gameobject-object2-float-threshold"},{"id":"createemptyobject-string-name","level":0,"title":"CreateEmptyObject(string name)","anchor":"#createemptyobject-string-name"}]</script><script id="topic-shortcuts" type="application/json"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.css" rel="stylesheet">   <link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><link rel="manifest" href="https://jetbrains.com/site.webmanifest"><link rel="mask-icon" href="https://jetbrains.com/safari-pinned-tab.svg" color="#000000"><meta name="msapplication-TileColor" content="#000000"/><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>  <meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="GameObject Utilities | Advanced API Docs"/><meta property="og:description" content=""/><meta property="og:image" content=""/><meta property="og:site_name" content="Advanced API Docs Help"/><meta property="og:type" content="website"/><meta property="og:locale" content="en_US"/><meta property="og:url" content="gameobjectutilities.html"/><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="GameObject Utilities | Advanced API Docs"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json"> { "@context": "http://schema.org", "@type": "WebPage", "@id": "gameobjectutilities.html#webpage", "url": "gameobjectutilities.html", "name": "GameObject Utilities | Advanced API Docs", "description": "", "image": "", "inLanguage":"en-US" }</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json"> { "@type": "WebSite", "@id": "/#website", "url": "/", "name": "Advanced API Docs Help" }</script><!-- End Schema.org --></head>      <body data-id="GameObjectUtilities" data-main-title="GameObject Utilities" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}"  data-template="article"  data-breadcrumbs="API-reference.md|API Reference///VirtualWorldInteractive-Engineering.md|VirtualWorldInteractive.Engineering"  >   <div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Advanced API Docs  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="GameObjectUtilities"   id="GameObjectUtilities.md">GameObject Utilities</h1>  <section class="chapter"><h2 id="areobjectscloseenough-gameobject-object1-gameobject-object2-float-threshold" data-toc="areobjectscloseenough-gameobject-object1-gameobject-object2-float-threshold"   >AreObjectsCloseEnough(GameObject object1, GameObject object2, float threshold)</h2><p id="fffdcde8_271">This function calculates the distance between the two GameObjects using the GetDistanceBetweenObjects helper method and compares it against the provided threshold.</p><p id="fffdcde8_272">Parameters:</p><p id="fffdcde8_273">object1 = The first GameObject to compare.</p><p id="fffdcde8_274">object2 = The second GameObject to compare.</p><p id="fffdcde8_275">threshold = The distance threshold for proximity.</p><p id="fffdcde8_276">returns = True if the GameObjects are close enough, false otherwise.</p><p id="fffdcde8_277">Example usage:</p><div class="code-block" data-lang="csharp"         >
 void Start()
 {
     GameObject object1 = GameObject.Find(&quot;object1&quot;);
@@ -14,9 +14,1490 @@ void Start()
         Debug.Log(&quot;Objects are not close enough.&quot;);
     }
 }
-</div></section><section class="chapter"><h2 id="createemptyobject-string-name" data-toc="createemptyobject-string-name"   >CreateEmptyObject(string name)</h2><p id="9268e735_17">Creates an empty GameObject with a specified name.</p><p id="9268e735_18">Parameters:</p><p id="9268e735_19">name = The name for the new GameObject.</p><p id="9268e735_20">returns = The newly created empty GameObject.</p><p id="9268e735_21">Example usage:</p><div class="code-block" data-lang="csharp"         >
+</div></section><section class="chapter"><h2 id="createemptyobject-string-name" data-toc="createemptyobject-string-name"   >CreateEmptyObject(string name)</h2><p id="fffdcde8_279">Creates an empty GameObject with a specified name.</p><p id="fffdcde8_280">Parameters:</p><p id="fffdcde8_281">name = The name for the new GameObject.</p><p id="fffdcde8_282">returns = The newly created empty GameObject.</p><p id="fffdcde8_283">Example usage:</p><div class="code-block" data-lang="csharp"         >
 void Start()
 {
     GameObject emptyObject = GameObjectUtilities.CreateEmptyObject(&quot;name&quot;);
 }
-</div></section><div class="last-modified"> Last modified: 14 December 2023</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom">  <a class="navigation-links__prev" href="cursorutilities.html">Cursor Utilities</a>   <a class="navigation-links__next" href="virtualworldinteractive-rendering.html">VirtualWorldInteractive.Rendering</a>  </div></article><div id="disqus_thread"></div></div></section></main></div>  <script src="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.js"></script></body></html>
+</div><div class="code-block" data-lang="none"         >    /// &lt;summary&gt;
+    /// Count the number of child Transforms under the specified parent Transform.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent Transform to count children under.&lt;/param&gt;
+    /// &lt;returns&gt;The number of child Transforms.&lt;/returns&gt;
+    public static int CountChildren(this Transform parent)
+    {
+        int count = 0;
+
+        foreach (Transform child in parent)
+        {
+            count++;
+        }
+
+        return count;
+    }
+
+    public static void SetGameObjectsActive(GameObject[] gameObjects, bool isActive)
+    {
+        foreach (GameObject gameObject in gameObjects)
+        {
+            gameObject.SetActive(isActive);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Count the number of child Transforms with a specific name under the specified parent Transform.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent Transform to count children under.&lt;/param&gt;
+    /// &lt;param name=&quot;childName&quot;&gt;The name of child Transforms to count.&lt;/param&gt;
+    /// &lt;returns&gt;The number of child Transforms with the specified name.&lt;/returns&gt;
+    public static int CountChildrenWithName(this Transform parent, string childName)
+    {
+        int count = 0;
+
+        foreach (Transform child in parent)
+        {
+            if (child.name == childName)
+            {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    /// &lt;summary&gt;
+    /// Count the number of child Transforms with a specific tag under the specified parent Transform.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent Transform to count children under.&lt;/param&gt;
+    /// &lt;param name=&quot;tag&quot;&gt;The tag of child Transforms to count.&lt;/param&gt;
+    /// &lt;returns&gt;The number of child Transforms with the specified tag.&lt;/returns&gt;
+    public static int CountChildrenWithTag(this Transform parent, string tag)
+    {
+        int count = 0;
+
+        foreach (Transform child in parent)
+        {
+            if (child.CompareTag(tag))
+            {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    /// &lt;summary&gt;
+    /// Count the number of child Transforms with a specific layer under the specified parent Transform.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent Transform to count children under.&lt;/param&gt;
+    /// &lt;param name=&quot;layer&quot;&gt;The layer of child Transforms to count.&lt;/param&gt;
+    /// &lt;returns&gt;The number of child Transforms with the specified layer.&lt;/returns&gt;
+    public static int CountChildrenWithLayer(this Transform parent, int layer)
+    {
+        int count = 0;
+
+        foreach (Transform child in parent)
+        {
+            if (child.gameObject.layer == layer)
+            {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    /// &lt;summary&gt;
+    /// Find a child Transform by name under the specified parent Transform.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent Transform to search under.&lt;/param&gt;
+    /// &lt;param name=&quot;name&quot;&gt;The name of the child Transform to find.&lt;/param&gt;
+    /// &lt;returns&gt;The child Transform with the specified name, or null if not found.&lt;/returns&gt;
+    public static Transform GetChildByName(this Transform parent, string name)
+    {
+        foreach (Transform child in parent)
+        {
+            if (child.name == name)
+            {
+                return child;
+            }
+        }
+        return null;
+    }
+
+    /// &lt;summary&gt;
+    /// Find a child Transform by tag under the specified parent Transform.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent Transform to search under.&lt;/param&gt;
+    /// &lt;param name=&quot;tag&quot;&gt;The tag of the child Transform to find.&lt;/param&gt;
+    /// &lt;returns&gt;The child Transform with the specified tag, or null if not found.&lt;/returns&gt;
+    public static Transform GetChildByTag(this Transform parent, string tag)
+    {
+        foreach (Transform child in parent)
+        {
+            if (child.CompareTag(tag))
+            {
+                return child;
+            }
+        }
+
+        return null; // No child with the specified tag was found.
+    }
+
+    /// &lt;summary&gt;
+    /// Find a child Transform by index under the specified parent Transform.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent Transform to search under.&lt;/param&gt;
+    /// &lt;param name=&quot;index&quot;&gt;The index of the child Transform to find.&lt;/param&gt;
+    /// &lt;returns&gt;The child Transform at the specified index, or null if the index is out of bounds.&lt;/returns&gt;
+    public static Transform GetChildByIndex(this Transform parent, int index)
+    {
+        if (index &gt;= 0 &amp;&amp; index &lt; parent.childCount)
+        {
+            return parent.GetChild(index);
+        }
+        return null;
+    }
+
+    /// &lt;summary&gt;
+    /// Find a child Transform by layer under the specified parent Transform.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent Transform to search under.&lt;/param&gt;
+    /// &lt;param name=&quot;layer&quot;&gt;The layer of the child Transform to find.&lt;/param&gt;
+    /// &lt;returns&gt;The child Transform with the specified layer, or null if not found.&lt;/returns&gt;
+    public static Transform GetChildByLayer(this Transform parent, int layer)
+    {
+        foreach (Transform child in parent)
+        {
+            if (child.gameObject.layer == layer)
+            {
+                return child;
+            }
+        }
+
+        return null; // No child with the specified layer was found.
+    }
+
+    /// &lt;summary&gt;
+    /// Find a child Transform by a specific component type under the specified parent Transform.
+    /// &lt;/summary&gt;
+    /// &lt;typeparam name=&quot;T&quot;&gt;The type of component to search for.&lt;/typeparam&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent Transform to search under.&lt;/param&gt;
+    /// &lt;param name=&quot;includeInactive&quot;&gt;Whether to include inactive objects in the search.&lt;/param&gt;
+    /// &lt;returns&gt;The child Transform with the specified component, or null if not found.&lt;/returns&gt;
+    public static T GetChildByComponent&lt;T&gt;(this Transform parent, bool includeInactive = false) where T : Component
+    {
+        foreach (Transform child in parent)
+        {
+            T component = child.GetComponent&lt;T&gt;();
+
+            if (component != null &amp;&amp; (includeInactive || child.gameObject.activeSelf))
+            {
+                return component;
+            }
+        }
+
+        return null; // No child with the specified script or component was found.
+    }
+
+    /// &lt;summary&gt;
+    /// Create an empty GameObject with a specified name.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;name&quot;&gt;The name for the new GameObject.&lt;/param&gt;
+    /// &lt;returns&gt;The newly created empty GameObject.&lt;/returns&gt;
+    public static GameObject CreateEmptyObject(string name)
+    {
+        return new GameObject(name);
+    }
+
+    /// &lt;summary&gt;
+    /// Destroy a GameObject and all of its components.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject to destroy.&lt;/param&gt;
+    public static void DestroyObject(GameObject gameObject)
+    {
+        GameObject.Destroy(gameObject);
+    }
+
+    /// &lt;summary&gt;
+    /// Check if a GameObject has a specific component.
+    /// &lt;/summary&gt;
+    /// &lt;typeparam name=&quot;T&quot;&gt;The type of component to check for.&lt;/typeparam&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject to check.&lt;/param&gt;
+    /// &lt;returns&gt;True if the GameObject has the specified component, false otherwise.&lt;/returns&gt;
+    public static bool HasComponent&lt;T&gt;(GameObject gameObject) where T : Component
+    {
+        return gameObject.GetComponent&lt;T&gt;() != null;
+    }
+
+    /// &lt;summary&gt;
+    /// Activate or deactivate a GameObject and all of its components.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject to activate or deactivate.&lt;/param&gt;
+    /// &lt;param name=&quot;isActive&quot;&gt;True to activate, false to deactivate.&lt;/param&gt;
+    public static void SetActive(GameObject gameObject, bool isActive)
+    {
+        gameObject.SetActive(isActive);
+    }
+
+    /// &lt;summary&gt;
+    /// Instantiate a prefab as a new GameObject at a specific position and rotation.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;prefab&quot;&gt;The prefab to instantiate.&lt;/param&gt;
+    /// &lt;param name=&quot;position&quot;&gt;The position of the new GameObject.&lt;/param&gt;
+    /// &lt;param name=&quot;rotation&quot;&gt;The rotation of the new GameObject.&lt;/param&gt;
+    /// &lt;returns&gt;The instantiated GameObject.&lt;/returns&gt;
+    public static GameObject InstantiatePrefab(GameObject prefab, Vector3 position, Quaternion rotation)
+    {
+        return GameObject.Instantiate(prefab, position, rotation);
+    }
+
+    /// &lt;summary&gt;
+    /// Change the layer of a GameObject and its children recursively.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;newLayer&quot;&gt;The new layer to assign.&lt;/param&gt;
+    public static void ChangeLayerRecursively(GameObject gameObject, int newLayer)
+    {
+        gameObject.layer = newLayer;
+        foreach (Transform child in gameObject.transform)
+        {
+            ChangeLayerRecursively(child.gameObject, newLayer);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Set the GameObject's static flag, which controls whether the GameObject is marked as static.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;isStatic&quot;&gt;True to mark the GameObject as static, false to mark it as non-static.&lt;/param&gt;
+    public static void SetStaticFlag(GameObject gameObject, bool isStatic)
+    {
+        gameObject.isStatic = isStatic;
+    }
+
+    /// &lt;summary&gt;
+    /// Attach a new component of the specified type to a GameObject.
+    /// &lt;/summary&gt;
+    /// &lt;typeparam name=&quot;T&quot;&gt;The type of component to attach.&lt;/typeparam&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject to attach the component to.&lt;/param&gt;
+    /// &lt;returns&gt;The attached component instance.&lt;/returns&gt;
+    public static T AttachComponent&lt;T&gt;(GameObject gameObject) where T : Component
+    {
+        return gameObject.AddComponent&lt;T&gt;();
+    }
+
+    /// &lt;summary&gt;
+    /// Get or add a component of a specific type to a GameObject.
+    /// If the component does not exist, it will be added.
+    /// &lt;/summary&gt;
+    /// &lt;typeparam name=&quot;T&quot;&gt;The type of component to get or add.&lt;/typeparam&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject to get or add the component to.&lt;/param&gt;
+    /// &lt;returns&gt;The existing or newly added component instance.&lt;/returns&gt;
+    public static T GetOrAddComponent&lt;T&gt;(GameObject gameObject) where T : Component
+    {
+        T component = gameObject.GetComponent&lt;T&gt;();
+        if (component == null)
+        {
+            component = gameObject.AddComponent&lt;T&gt;();
+        }
+        return component;
+    }
+
+    /// &lt;summary&gt;
+    /// Find the root parent GameObject of a child GameObject in the hierarchy.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;child&quot;&gt;The child GameObject to find the root parent for.&lt;/param&gt;
+    /// &lt;returns&gt;The root parent GameObject or the child itself if it has no parent.&lt;/returns&gt;
+    public static GameObject FindRootParent(GameObject child)
+    {
+        Transform parent = child.transform.parent;
+        while (parent != null)
+        {
+            child = parent.gameObject;
+            parent = child.transform.parent;
+        }
+        return child;
+    }
+
+    /// &lt;summary&gt;
+    /// Attach a new empty GameObject as a child to another GameObject.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent GameObject to attach the child to.&lt;/param&gt;
+    /// &lt;param name=&quot;childName&quot;&gt;The name for the new child GameObject.&lt;/param&gt;
+    /// &lt;returns&gt;The newly attached child GameObject.&lt;/returns&gt;
+    public static GameObject AttachEmptyChild(GameObject parent, string childName)
+    {
+        GameObject child = new GameObject(childName);
+        child.transform.SetParent(parent.transform);
+        return child;
+    }
+
+    /// &lt;summary&gt;
+    /// Destroy a GameObject after a specified delay in seconds.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject to destroy.&lt;/param&gt;
+    /// &lt;param name=&quot;delay&quot;&gt;The delay in seconds before destroying the GameObject.&lt;/param&gt;
+    public static void DestroyObjectDelayed(GameObject gameObject, float delay)
+    {
+        GameObject.Destroy(gameObject, delay);
+    }
+
+    /// &lt;summary&gt;
+    /// Check if a GameObject is active in the hierarchy, taking into account its parent's activity.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject to check for activity.&lt;/param&gt;
+    /// &lt;returns&gt;True if the GameObject and all its parent GameObjects are active, false otherwise.&lt;/returns&gt;
+    public static bool IsGameObjectActiveInHierarchy(GameObject gameObject)
+    {
+        return gameObject != null &amp;&amp; gameObject.activeInHierarchy;
+    }
+
+    /// &lt;summary&gt;
+    /// Duplicate a GameObject and its components.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject to duplicate.&lt;/param&gt;
+    /// &lt;returns&gt;The duplicated GameObject with the same components and properties.&lt;/returns&gt;
+    public static GameObject DuplicateGameObject(GameObject gameObject)
+    {
+        GameObject duplicate = GameObject.Instantiate(gameObject);
+        duplicate.name = gameObject.name + &quot;_Duplicate&quot;;
+        return duplicate;
+    }
+
+    /// &lt;summary&gt;
+    /// Set the layer of a GameObject and its children recursively.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;newLayer&quot;&gt;The new layer to assign.&lt;/param&gt;
+    public static void SetLayerRecursively(GameObject gameObject, int newLayer)
+    {
+        gameObject.layer = newLayer;
+        foreach (Transform child in gameObject.transform)
+        {
+            SetLayerRecursively(child.gameObject, newLayer);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Enable or disable all Renderers on a GameObject and its children.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject with Renderers to enable or disable.&lt;/param&gt;
+    /// &lt;param name=&quot;isEnabled&quot;&gt;True to enable, false to disable Renderers.&lt;/param&gt;
+    public static void EnableRenderersRecursively(GameObject gameObject, bool isEnabled)
+    {
+        Renderer[] renderers = gameObject.GetComponentsInChildren&lt;Renderer&gt;();
+        foreach (Renderer renderer in renderers)
+        {
+            renderer.enabled = isEnabled;
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Check if a GameObject has a specific tag.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject to check for the tag.&lt;/param&gt;
+    /// &lt;param name=&quot;tag&quot;&gt;The tag to compare against.&lt;/param&gt;
+    /// &lt;returns&gt;True if the GameObject has the specified tag, false otherwise.&lt;/returns&gt;
+    public static bool HasTag(GameObject gameObject, string tag)
+    {
+        return gameObject.CompareTag(tag);
+    }
+
+    /// &lt;summary&gt;
+    /// Find the nearest GameObject to a reference position from a list of GameObjects.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;referencePosition&quot;&gt;The reference position to measure distances from.&lt;/param&gt;
+    /// &lt;param name=&quot;gameObjects&quot;&gt;A list of GameObjects to search through.&lt;/param&gt;
+    /// &lt;returns&gt;The nearest GameObject to the reference position or null if the list is empty.&lt;/returns&gt;
+    public static GameObject FindNearestGameObject(Vector3 referencePosition, GameObject[] gameObjects)
+    {
+        GameObject nearest = null;
+        float nearestDistance = float.MaxValue;
+
+        foreach (GameObject obj in gameObjects)
+        {
+            float distance = Vector3.Distance(obj.transform.position, referencePosition);
+            if (distance &lt; nearestDistance)
+            {
+                nearest = obj;
+                nearestDistance = distance;
+            }
+        }
+
+        return nearest;
+    }
+
+    /// &lt;summary&gt;
+    /// Change the parent of a GameObject while preserving its world position and rotation.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject to reparent.&lt;/param&gt;
+    /// &lt;param name=&quot;newParent&quot;&gt;The new parent Transform to set.&lt;/param&gt;
+    public static void ReparentPreserveTransform(GameObject gameObject, Transform newParent)
+    {
+        Vector3 position = gameObject.transform.position;
+        Quaternion rotation = gameObject.transform.rotation;
+
+        gameObject.transform.parent = newParent;
+
+        gameObject.transform.position = position;
+        gameObject.transform.rotation = rotation;
+    }
+
+    /// &lt;summary&gt;
+    /// Get all components of a specific type from all child GameObjects of a parent GameObject.
+    /// &lt;/summary&gt;
+    /// &lt;typeparam name=&quot;T&quot;&gt;The type of component to retrieve.&lt;/typeparam&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent GameObject to search for components.&lt;/param&gt;
+    /// &lt;returns&gt;An array of all components of the specified type found in child GameObjects.&lt;/returns&gt;
+    public static T[] GetComponentsInChildren&lt;T&gt;(GameObject parent) where T : Component
+    {
+        return parent.GetComponentsInChildren&lt;T&gt;();
+    }
+
+    /// &lt;summary&gt;
+    /// Set the layer of a GameObject and its children recursively while ignoring specific layers.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;newLayer&quot;&gt;The new layer to assign.&lt;/param&gt;
+    /// &lt;param name=&quot;ignoreLayers&quot;&gt;An array of layers to ignore during the process.&lt;/param&gt;
+    public static void SetLayerRecursivelyIgnoring(GameObject gameObject, int newLayer, int[] ignoreLayers)
+    {
+        if (System.Array.IndexOf(ignoreLayers, gameObject.layer) == -1)
+        {
+            gameObject.layer = newLayer;
+        }
+
+        foreach (Transform child in gameObject.transform)
+        {
+            SetLayerRecursivelyIgnoring(child.gameObject, newLayer, ignoreLayers);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Check if a GameObject has a specific component type.
+    /// &lt;/summary&gt;
+    /// &lt;typeparam name=&quot;T&quot;&gt;The type of component to check for.&lt;/typeparam&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject to check.&lt;/param&gt;
+    /// &lt;returns&gt;True if the GameObject has the specified component type, false otherwise.&lt;/returns&gt;
+    public static bool HasComponentOfType&lt;T&gt;(GameObject gameObject) where T : Component
+    {
+        return gameObject.GetComponent&lt;T&gt;() != null;
+    }
+
+    /// &lt;summary&gt;
+    /// Find all GameObjects of a specific layer in the scene.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;layer&quot;&gt;The layer to search for GameObjects.&lt;/param&gt;
+    /// &lt;returns&gt;An array of GameObjects with the specified layer.&lt;/returns&gt;
+    public static GameObject[] FindObjectsWithLayer(int layer)
+    {
+        GameObject[] allGameObjects = GameObject.FindObjectsOfType&lt;GameObject&gt;();
+        List&lt;GameObject&gt; result = new List&lt;GameObject&gt;();
+
+        foreach (GameObject go in allGameObjects)
+        {
+            if (go.layer == layer)
+            {
+                result.Add(go);
+            }
+        }
+
+        return result.ToArray();
+    }
+
+    /// &lt;summary&gt;
+    /// Find all GameObjects with a specific name in the scene.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;name&quot;&gt;The name of the GameObjects to find.&lt;/param&gt;
+    /// &lt;returns&gt;An array of GameObjects with the specified name.&lt;/returns&gt;
+    public static GameObject[] FindObjectsByName(string name)
+    {
+        GameObject[] allGameObjects = GameObject.FindObjectsOfType&lt;GameObject&gt;();
+        List&lt;GameObject&gt; result = new List&lt;GameObject&gt;();
+
+        foreach (GameObject go in allGameObjects)
+        {
+            if (go.name == name)
+            {
+                result.Add(go);
+            }
+        }
+
+        return result.ToArray();
+    }
+
+    /// &lt;summary&gt;
+    /// Check if a GameObject is a child of another GameObject.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;child&quot;&gt;The potential child GameObject to check.&lt;/param&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The potential parent GameObject to check against.&lt;/param&gt;
+    /// &lt;returns&gt;True if the child is a child of the parent, false otherwise.&lt;/returns&gt;
+    public static bool IsChildOf(GameObject child, GameObject parent)
+    {
+        Transform childTransform = child.transform;
+
+        while (childTransform != null)
+        {
+            if (childTransform == parent.transform)
+            {
+                return true;
+            }
+            childTransform = childTransform.parent;
+        }
+
+        return false;
+    }
+
+    /// &lt;summary&gt;
+    /// Remove a specific component from a GameObject.
+    /// &lt;/summary&gt;
+    /// &lt;typeparam name=&quot;T&quot;&gt;The type of component to remove.&lt;/typeparam&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject to remove the component from.&lt;/param&gt;
+    public static void RemoveComponent&lt;T&gt;(GameObject gameObject) where T : Component
+    {
+        T component = gameObject.GetComponent&lt;T&gt;();
+        if (component != null)
+        {
+            GameObject.Destroy(component);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Destroy all child GameObjects of a GameObject.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject with child objects to destroy.&lt;/param&gt;
+    public static void DestroyAllChildren(GameObject gameObject)
+    {
+        for (int i = gameObject.transform.childCount - 1; i &gt;= 0; i--)
+        {
+            GameObject.Destroy(gameObject.transform.GetChild(i).gameObject);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Change the tag of a GameObject and its children recursively.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;gameObject&quot;&gt;The GameObject to modify.&lt;/param&gt;
+    /// &lt;param name=&quot;newTag&quot;&gt;The new tag to assign.&lt;/param&gt;
+    public static void SetTagRecursively(GameObject gameObject, string newTag)
+    {
+        gameObject.tag = newTag;
+        foreach (Transform child in gameObject.transform)
+        {
+            SetTagRecursively(child.gameObject, newTag);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Clone a GameObject and its hierarchy to a new parent while preserving relative positions.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;original&quot;&gt;The original GameObject to clone.&lt;/param&gt;
+    /// &lt;param name=&quot;newParent&quot;&gt;The new parent for the cloned GameObject.&lt;/param&gt;
+    /// &lt;returns&gt;The cloned GameObject with the new parent and relative positions.&lt;/returns&gt;
+    public static GameObject CloneToNewParent(GameObject original, Transform newParent)
+    {
+        GameObject clone = GameObject.Instantiate(original, newParent);
+        clone.transform.localPosition = original.transform.localPosition;
+        clone.transform.localRotation = original.transform.localRotation;
+        clone.transform.localScale = original.transform.localScale;
+        return clone;
+    }
+
+    /// &lt;summary&gt;
+    /// Get all children of a GameObject with a specific tag.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent GameObject to search for children.&lt;/param&gt;
+    /// &lt;param name=&quot;tag&quot;&gt;The tag to filter by.&lt;/param&gt;
+    /// &lt;returns&gt;An array of all child GameObjects with the specified tag.&lt;/returns&gt;
+    public static GameObject[] GetChildrenByTag(GameObject parent, string tag)
+    {
+        List&lt;GameObject&gt; childrenWithTag = new List&lt;GameObject&gt;();
+
+        Transform parentTransform = parent.transform;
+        foreach (Transform child in parentTransform)
+        {
+            if (child.CompareTag(tag))
+            {
+                childrenWithTag.Add(child.gameObject);
+            }
+        }
+
+        return childrenWithTag.ToArray();
+    }
+
+    /// &lt;summary&gt;
+    /// Get all children of a GameObject whose names start with a specific string.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent GameObject to search for children.&lt;/param&gt;
+    /// &lt;param name=&quot;startsWith&quot;&gt;The string to filter child names by (case-sensitive).&lt;/param&gt;
+    /// &lt;returns&gt;An array of all child GameObjects with names starting with the specified string.&lt;/returns&gt;
+    public static GameObject[] GetChildrenWithNameStartsWith(GameObject parent, string startsWith)
+    {
+        List&lt;GameObject&gt; childrenWithNames = new List&lt;GameObject&gt;();
+
+        Transform parentTransform = parent.transform;
+        foreach (Transform child in parentTransform)
+        {
+            if (child.name.StartsWith(startsWith))
+            {
+                childrenWithNames.Add(child.gameObject);
+            }
+        }
+
+        return childrenWithNames.ToArray();
+    }
+
+    /// &lt;summary&gt;
+    /// Get all children of a GameObject, including nested children.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent GameObject to search for children.&lt;/param&gt;
+    /// &lt;returns&gt;An array of all child GameObjects, including nested children.&lt;/returns&gt;
+    public static GameObject[] GetAllChildren(GameObject parent)
+    {
+        List&lt;GameObject&gt; allChildren = new List&lt;GameObject&gt;();
+
+        Transform parentTransform = parent.transform;
+
+        foreach (Transform child in parentTransform)
+        {
+            allChildren.Add(child.gameObject);
+            allChildren.AddRange(GetAllChildren(child.gameObject));
+        }
+
+        return allChildren.ToArray();
+    }
+
+    /// &lt;summary&gt;
+    /// Get all children of a GameObject that have a specific component attached.
+    /// &lt;/summary&gt;
+    /// &lt;typeparam name=&quot;T&quot;&gt;The type of component to filter by.&lt;/typeparam&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent GameObject to search for children.&lt;/param&gt;
+    /// &lt;returns&gt;An array of child GameObjects that have the specified component attached.&lt;/returns&gt;
+    public static GameObject[] GetChildrenByComponent&lt;T&gt;(GameObject parent) where T : Component
+    {
+        List&lt;GameObject&gt; childrenWithComponent = new List&lt;GameObject&gt;();
+
+        Transform parentTransform = parent.transform;
+
+        foreach (Transform child in parentTransform)
+        {
+            T component = child.GetComponent&lt;T&gt;();
+            if (component != null)
+            {
+                childrenWithComponent.Add(child.gameObject);
+            }
+        }
+
+        return childrenWithComponent.ToArray();
+    }
+
+    /// &lt;summary&gt;
+    /// Destroy all children of a GameObject whose names match a specific string.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent GameObject containing the children to destroy.&lt;/param&gt;
+    /// &lt;param name=&quot;nameToMatch&quot;&gt;The string to match child names (case-sensitive).&lt;/param&gt;
+    public static void DestroyChildrenWithName(GameObject parent, string nameToMatch)
+    {
+        Transform parentTransform = parent.transform;
+
+        foreach (Transform child in parentTransform)
+        {
+            if (child.name == nameToMatch)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Destroy all children of a GameObject with a specific tag.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent GameObject containing the children to destroy.&lt;/param&gt;
+    /// &lt;param name=&quot;tagToMatch&quot;&gt;The tag to match child GameObjects by.&lt;/param&gt;
+    public static void DestroyChildrenWithTag(GameObject parent, string tagToMatch)
+    {
+        Transform parentTransform = parent.transform;
+
+        foreach (Transform child in parentTransform)
+        {
+            if (child.CompareTag(tagToMatch))
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Destroy a child of a GameObject by its index.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent GameObject containing the child to destroy.&lt;/param&gt;
+    /// &lt;param name=&quot;index&quot;&gt;The index of the child to destroy (0-based).&lt;/param&gt;
+    public static void DestroyChildByIndex(GameObject parent, int index)
+    {
+        Transform parentTransform = parent.transform;
+
+        if (index &gt;= 0 &amp;&amp; index &lt; parentTransform.childCount)
+        {
+            Transform child = parentTransform.GetChild(index);
+            GameObject.Destroy(child.gameObject);
+        }
+        else
+        {
+            Debug.LogWarning(&quot;Invalid index. No child found at the specified index.&quot;);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Recursively destroy a child GameObject by its name within a parent's hierarchy.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent GameObject to search for children.&lt;/param&gt;
+    /// &lt;param name=&quot;childName&quot;&gt;The name of the child GameObject to destroy (case-sensitive).&lt;/param&gt;
+    public static void DestroyChildByNameRecursively(GameObject parent, string childName)
+    {
+        Transform parentTransform = parent.transform;
+
+        for (int i = parentTransform.childCount - 1; i &gt;= 0; i--)
+        {
+            Transform child = parentTransform.GetChild(i);
+            if (child.name == childName)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+            else
+            {
+                // Recursively search in the child's hierarchy.
+                DestroyChildByNameRecursively(child.gameObject, childName);
+            }
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Recursively destroy child GameObjects by their tag within a parent's hierarchy.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent GameObject to search for children.&lt;/param&gt;
+    /// &lt;param name=&quot;childTag&quot;&gt;The tag to match for child GameObjects to destroy.&lt;/param&gt;
+    public static void DestroyChildByTagRecursively(GameObject parent, string childTag)
+    {
+        Transform parentTransform = parent.transform;
+
+        for (int i = parentTransform.childCount - 1; i &gt;= 0; i--)
+        {
+            Transform child = parentTransform.GetChild(i);
+            if (child.CompareTag(childTag))
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+            else
+            {
+                // Recursively search in the child's hierarchy.
+                DestroyChildByTagRecursively(child.gameObject, childTag);
+            }
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Recursively destroy child GameObjects by their index within a parent's hierarchy.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent GameObject to search for children.&lt;/param&gt;
+    /// &lt;param name=&quot;index&quot;&gt;The index of child GameObjects to destroy (0-based).&lt;/param&gt;
+    public static void DestroyChildByIndexRecursively(GameObject parent, int index)
+    {
+        Transform parentTransform = parent.transform;
+
+        if (index &gt;= 0 &amp;&amp; index &lt; parentTransform.childCount)
+        {
+            Transform child = parentTransform.GetChild(index);
+            GameObject.Destroy(child.gameObject);
+        }
+
+        for (int i = parentTransform.childCount - 1; i &gt;= 0; i--)
+        {
+            Transform child = parentTransform.GetChild(i);
+            // Continue recursively searching in the child's hierarchy.
+            DestroyChildByIndexRecursively(child.gameObject, index);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Recursively destroy all child GameObjects within a parent's hierarchy.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent GameObject to start the recursive destruction from.&lt;/param&gt;
+    public static void DestroyAllChildrenRecursively(GameObject parent)
+    {
+        Transform parentTransform = parent.transform;
+
+        for (int i = parentTransform.childCount - 1; i &gt;= 0; i--)
+        {
+            Transform child = parentTransform.GetChild(i);
+            GameObject.Destroy(child.gameObject);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Find a child GameObject by its name within a parent GameObject.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent GameObject to search for the child.&lt;/param&gt;
+    /// &lt;param name=&quot;childName&quot;&gt;The name of the child GameObject to find (case-sensitive).&lt;/param&gt;
+    /// &lt;returns&gt;The child GameObject with the specified name, or null if not found.&lt;/returns&gt;
+    public static GameObject FindChildByName(GameObject parent, string childName)
+    {
+        Transform parentTransform = parent.transform;
+
+        for (int i = 0; i &lt; parentTransform.childCount; i++)
+        {
+            Transform child = parentTransform.GetChild(i);
+            if (child.name == childName)
+            {
+                return child.gameObject;
+            }
+        }
+
+        return null; // Child with the specified name not found.
+    }
+
+    /// &lt;summary&gt;
+    /// Find a child GameObject by its tag within a parent GameObject.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent GameObject to search for the child.&lt;/param&gt;
+    /// &lt;param name=&quot;childTag&quot;&gt;The tag of the child GameObject to find.&lt;/param&gt;
+    /// &lt;returns&gt;The child GameObject with the specified tag, or null if not found.&lt;/returns&gt;
+    public static GameObject FindChildByTag(GameObject parent, string childTag)
+    {
+        Transform parentTransform = parent.transform;
+
+        for (int i = 0; i &lt; parentTransform.childCount; i++)
+        {
+            Transform child = parentTransform.GetChild(i);
+            if (child.CompareTag(childTag))
+            {
+                return child.gameObject;
+            }
+        }
+
+        return null; // Child with the specified tag not found.
+    }
+
+    /// &lt;summary&gt;
+    /// Find a child GameObject by its index within a parent GameObject.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent GameObject to search for the child.&lt;/param&gt;
+    /// &lt;param name=&quot;index&quot;&gt;The index of the child to find (0-based).&lt;/param&gt;
+    /// &lt;returns&gt;The child GameObject at the specified index, or null if the index is out of range.&lt;/returns&gt;
+    public static GameObject FindChildByIndex(GameObject parent, int index)
+    {
+        Transform parentTransform = parent.transform;
+
+        if (index &gt;= 0 &amp;&amp; index &lt; parentTransform.childCount)
+        {
+            Transform child = parentTransform.GetChild(index);
+            return child.gameObject;
+        }
+
+        return null; // Child with the specified index not found.
+    }
+
+    /// &lt;summary&gt;
+    /// Find a child GameObject by its layer within a parent GameObject.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent GameObject to search for the child.&lt;/param&gt;
+    /// &lt;param name=&quot;layer&quot;&gt;The layer of the child GameObject to find.&lt;/param&gt;
+    /// &lt;returns&gt;The child GameObject with the specified layer, or null if not found.&lt;/returns&gt;
+    public static GameObject FindChildByLayer(GameObject parent, int layer)
+    {
+        Transform parentTransform = parent.transform;
+
+        for (int i = 0; i &lt; parentTransform.childCount; i++)
+        {
+            Transform child = parentTransform.GetChild(i);
+            if (child.gameObject.layer == layer)
+            {
+                return child.gameObject;
+            }
+        }
+
+        return null; // Child with the specified layer not found.
+    }
+
+    /// &lt;summary&gt;
+    /// Recursively find a child GameObject by its name within a parent's hierarchy.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent GameObject to search for the child.&lt;/param&gt;
+    /// &lt;param name=&quot;childName&quot;&gt;The name of the child GameObject to find (case-sensitive).&lt;/param&gt;
+    /// &lt;returns&gt;The child GameObject with the specified name, or null if not found in the hierarchy.&lt;/returns&gt;
+    public static GameObject FindChildByNameRecursively(GameObject parent, string childName)
+    {
+        Transform parentTransform = parent.transform;
+
+        for (int i = 0; i &lt; parentTransform.childCount; i++)
+        {
+            Transform child = parentTransform.GetChild(i);
+            if (child.name == childName)
+            {
+                return child.gameObject;
+            }
+
+            // Recursively search in the child's hierarchy.
+            GameObject childInHierarchy = FindChildByNameRecursively(child.gameObject, childName);
+            if (childInHierarchy != null)
+            {
+                return childInHierarchy;
+            }
+        }
+
+        return null; // Child with the specified name not found in the hierarchy.
+    }
+
+    /// &lt;summary&gt;
+    /// Recursively find a child GameObject by its tag within a parent's hierarchy.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent GameObject to search for the child.&lt;/param&gt;
+    /// &lt;param name=&quot;childTag&quot;&gt;The tag of the child GameObject to find.&lt;/param&gt;
+    /// &lt;returns&gt;The child GameObject with the specified tag, or null if not found in the hierarchy.&lt;/returns&gt;
+    public static GameObject FindChildByTagRecursively(GameObject parent, string childTag)
+    {
+        Transform parentTransform = parent.transform;
+
+        for (int i = 0; i &lt; parentTransform.childCount; i++)
+        {
+            Transform child = parentTransform.GetChild(i);
+            if (child.CompareTag(childTag))
+            {
+                return child.gameObject;
+            }
+
+            // Recursively search in the child's hierarchy.
+            GameObject childInHierarchy = FindChildByTagRecursively(child.gameObject, childTag);
+            if (childInHierarchy != null)
+            {
+                return childInHierarchy;
+            }
+        }
+
+        return null; // Child with the specified tag not found in the hierarchy.
+    }
+
+    /// &lt;summary&gt;
+    /// Recursively find a child GameObject by its index within a parent's hierarchy.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent GameObject to search for the child.&lt;/param&gt;
+    /// &lt;param name=&quot;index&quot;&gt;The index of the child to find (0-based).&lt;/param&gt;
+    /// &lt;returns&gt;The child GameObject at the specified index, or null if the index is out of range in the hierarchy.&lt;/returns&gt;
+    public static GameObject FindChildByIndexRecursively(GameObject parent, int index)
+    {
+        Transform parentTransform = parent.transform;
+
+        if (index &gt;= 0 &amp;&amp; index &lt; parentTransform.childCount)
+        {
+            Transform child = parentTransform.GetChild(index);
+            return child.gameObject;
+        }
+
+        for (int i = 0; i &lt; parentTransform.childCount; i++)
+        {
+            Transform child = parentTransform.GetChild(i);
+
+            // Recursively search in the child's hierarchy.
+            GameObject childInHierarchy = FindChildByIndexRecursively(child.gameObject, index);
+            if (childInHierarchy != null)
+            {
+                return childInHierarchy;
+            }
+        }
+
+        return null; // Child with the specified index not found in the hierarchy.
+    }
+
+    /// &lt;summary&gt;
+    /// Recursively find a child GameObject by its layer within a parent's hierarchy.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;The parent GameObject to search for the child.&lt;/param&gt;
+    /// &lt;param name=&quot;layer&quot;&gt;The layer of the child GameObject to find.&lt;/param&gt;
+    /// &lt;returns&gt;The child GameObject with the specified layer, or null if not found in the hierarchy.&lt;/returns&gt;
+    public static GameObject FindChildByLayerRecursively(GameObject parent, int layer)
+    {
+        Transform parentTransform = parent.transform;
+
+        for (int i = 0; i &lt; parentTransform.childCount; i++)
+        {
+            Transform child = parentTransform.GetChild(i);
+            if (child.gameObject.layer == layer)
+            {
+                return child.gameObject;
+            }
+
+            // Recursively search in the child's hierarchy.
+            GameObject childInHierarchy = FindChildByLayerRecursively(child.gameObject, layer);
+            if (childInHierarchy != null)
+            {
+                return childInHierarchy;
+            }
+        }
+
+        return null; // Child with the specified layer not found in the hierarchy.
+    }
+
+    // Set child functions
+    public static void SetChildActiveByName(this Transform parent, string childName, bool active)
+    {
+        Transform childToActivate = parent.Find(childName);
+        if (childToActivate != null)
+        {
+            childToActivate.gameObject.SetActive(active);
+        }
+        else
+        {
+            Debug.LogWarning(&quot;Child not found for activation: &quot; + childName);
+        }
+    }
+
+    public static void SetChildActiveByTag(this Transform parent, string tag, bool active)
+    {
+        foreach (Transform child in parent)
+        {
+            if (child.CompareTag(tag))
+            {
+                child.gameObject.SetActive(active);
+            }
+        }
+    }
+
+    public static void SetChildActiveByIndex(this Transform parent, int index, bool active)
+    {
+        if (index &gt;= 0 &amp;&amp; index &lt; parent.childCount)
+        {
+            Transform child = parent.GetChild(index);
+            child.gameObject.SetActive(active);
+        }
+        else
+        {
+            Debug.LogWarning(&quot;Invalid child index: &quot; + index);
+        }
+    }
+
+    public static void SetChildActiveByComponent&lt;T&gt;(this Transform parent, bool activate, bool includeInactive = false) where T : Component
+    {
+        foreach (Transform child in parent)
+        {
+            T component = child.GetComponent&lt;T&gt;();
+
+            if (component != null &amp;&amp; (includeInactive || child.gameObject.activeSelf))
+            {
+                child.gameObject.SetActive(activate);
+            }
+        }
+    }
+
+    public static void SetAllChildrenActive(this Transform parent, bool active)
+    {
+        foreach (Transform child in parent)
+        {
+            child.gameObject.SetActive(active);
+        }
+    }
+
+    // Get parent functions
+    public static Transform GetParent(this GameObject gameObject)
+    {
+        if (gameObject != null &amp;&amp; gameObject.transform.parent != null)
+        {
+            return gameObject.transform.parent;
+        }
+        return null;
+    }
+    public static Transform GetParentByName(this GameObject gameObject, string parentName)
+    {
+        Transform currentTransform = gameObject.transform;
+        while (currentTransform != null)
+        {
+            if (currentTransform.name == parentName)
+            {
+                return currentTransform;
+            }
+            currentTransform = currentTransform.parent;
+        }
+        return null; // No parent with the specified name found.
+    }
+    public static Transform GetParentByTag(this GameObject gameObject, string parentTag)
+    {
+        Transform currentTransform = gameObject.transform;
+        while (currentTransform != null)
+        {
+            if (currentTransform.CompareTag(parentTag))
+            {
+                return currentTransform;
+            }
+            currentTransform = currentTransform.parent;
+        }
+        return null; // No parent with the specified tag found.
+    }
+    public static Transform GetParentByLayer(this GameObject gameObject, int parentLayer)
+    {
+        Transform currentTransform = gameObject.transform;
+        while (currentTransform != null)
+        {
+            if (currentTransform.gameObject.layer == parentLayer)
+            {
+                return currentTransform;
+            }
+            currentTransform = currentTransform.parent;
+        }
+        return null; // No parent with the specified layer found.
+    }
+    public static Transform GetParentByIndex(this GameObject gameObject, int parentIndex)
+    {
+        Transform parentTransform = gameObject.transform.parent;
+
+        if (parentTransform == null)
+        {
+            return null; // No parent found.
+        }
+
+        // Retrieve all children of the parent.
+        List&lt;Transform&gt; siblings = new List&lt;Transform&gt;();
+        foreach (Transform child in parentTransform)
+        {
+            siblings.Add(child);
+        }
+
+        if (parentIndex &gt;= 0 &amp;&amp; parentIndex &lt; siblings.Count)
+        {
+            return siblings[parentIndex];
+        }
+
+        return null; // Index out of bounds.
+    }
+
+    // Destroy parent functions
+    public static void DestroyParent(this GameObject gameObject)
+    {
+        Transform parentTransform = gameObject.transform.parent;
+
+        if (parentTransform != null)
+        {
+            GameObject.Destroy(parentTransform.gameObject);
+        }
+        else
+        {
+            Debug.LogWarning(&quot;No parent found to destroy for the GameObject.&quot;);
+        }
+    }
+    public static void DestroyParentByName(this GameObject gameObject, string parentName)
+    {
+        Transform currentTransform = gameObject.transform;
+        Transform parentTransform = null;
+
+        while (currentTransform != null)
+        {
+            if (currentTransform.name == parentName)
+            {
+                parentTransform = currentTransform;
+                break;
+            }
+            currentTransform = currentTransform.parent;
+        }
+
+        if (parentTransform != null)
+        {
+            GameObject.Destroy(parentTransform.gameObject);
+        }
+        else
+        {
+            Debug.LogWarning(&quot;No parent with the specified name found to destroy for the GameObject.&quot;);
+        }
+    }
+    public static void DestroyParentByTag(this GameObject gameObject, string parentTag)
+    {
+        Transform currentTransform = gameObject.transform;
+        Transform parentTransform = null;
+
+        while (currentTransform != null)
+        {
+            if (currentTransform.CompareTag(parentTag))
+            {
+                parentTransform = currentTransform;
+                break;
+            }
+            currentTransform = currentTransform.parent;
+        }
+
+        if (parentTransform != null)
+        {
+            GameObject.Destroy(parentTransform.gameObject);
+        }
+        else
+        {
+            Debug.LogWarning(&quot;No parent with the specified tag found to destroy for the GameObject.&quot;);
+        }
+    }
+    public static void DestroyParentByLayer(this GameObject gameObject, int parentLayer)
+    {
+        Transform currentTransform = gameObject.transform;
+        Transform parentTransform = null;
+
+        while (currentTransform != null)
+        {
+            if (currentTransform.gameObject.layer == parentLayer)
+            {
+                parentTransform = currentTransform;
+                break;
+            }
+            currentTransform = currentTransform.parent;
+        }
+
+        if (parentTransform != null)
+        {
+            GameObject.Destroy(parentTransform.gameObject);
+        }
+        else
+        {
+            Debug.LogWarning(&quot;No parent with the specified layer found to destroy for the GameObject.&quot;);
+        }
+    }
+    public static void DestroyParentByIndex(this GameObject gameObject, int parentIndex)
+    {
+        Transform currentTransform = gameObject.transform.parent;
+
+        if (currentTransform == null)
+        {
+            Debug.LogWarning(&quot;No parent found to destroy for the GameObject.&quot;);
+            return;
+        }
+
+        // Retrieve all children of the parent.
+        Transform[] siblings = new Transform[currentTransform.childCount];
+        for (int i = 0; i &lt; currentTransform.childCount; i++)
+        {
+            siblings[i] = currentTransform.GetChild(i);
+        }
+
+        if (parentIndex &gt;= 0 &amp;&amp; parentIndex &lt; siblings.Length)
+        {
+            GameObject.Destroy(siblings[parentIndex].gameObject);
+        }
+        else
+        {
+            Debug.LogWarning(&quot;Parent index is out of bounds.&quot;);
+        }
+    }
+    public static void DestroyParentByComponent&lt;T&gt;(this GameObject gameObject) where T : Component
+    {
+        Transform currentTransform = gameObject.transform;
+        Transform parentTransform = null;
+
+        while (currentTransform != null)
+        {
+            if (currentTransform.TryGetComponent&lt;T&gt;(out T component))
+            {
+                parentTransform = currentTransform;
+                break;
+            }
+            currentTransform = currentTransform.parent;
+        }
+
+        if (parentTransform != null)
+        {
+            GameObject.Destroy(parentTransform.gameObject);
+        }
+        else
+        {
+            Debug.LogWarning(&quot;No parent with the specified component found to destroy for the GameObject.&quot;);
+        }
+    }
+
+    // Destroy object functions
+    public static void DestroyObjectByName(string objectName)
+    {
+        GameObject obj = GameObject.Find(objectName);
+
+        if (obj != null)
+        {
+            GameObject.Destroy(obj);
+        }
+        else
+        {
+            Debug.LogWarning(&quot;GameObject with name '&quot; + objectName + &quot;' not found.&quot;);
+        }
+    }
+    public static void DestroyObjectsByTag(string tag)
+    {
+        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag(tag);
+
+        foreach (GameObject obj in objectsWithTag)
+        {
+            GameObject.Destroy(obj);
+        }
+    }
+    public static void DestroyObjectsByLayer(int layer)
+    {
+        GameObject[] allGameObjects = Object.FindObjectsOfType&lt;GameObject&gt;();
+
+        foreach (GameObject obj in allGameObjects)
+        {
+            if (obj.layer == layer)
+            {
+                GameObject.Destroy(obj);
+            }
+        }
+    }
+    public static void DestroyObjectsByComponent&lt;T&gt;() where T : Component
+    {
+        T[] components = Object.FindObjectsOfType&lt;T&gt;();
+
+        foreach (T component in components)
+        {
+            GameObject.Destroy(component.gameObject);
+        }
+    }
+
+    // Component functions
+    public static T AddComponent&lt;T&gt;(this GameObject gameObject) where T : Component
+    {
+        return gameObject.AddComponent&lt;T&gt;();
+    }
+    public static void EnableComponent&lt;T&gt;(this GameObject gameObject, bool enable) where T : Component
+    {
+        T component = gameObject.GetComponent&lt;T&gt;();
+        if (component != null)
+        {
+            if (component is Behaviour)
+            {
+                (component as Behaviour).enabled = enable;
+            }
+            else
+            {
+                Debug.LogWarning($&quot;Component of type {typeof(T).Name} does not have an 'enabled' property.&quot;);
+            }
+        }
+        else
+        {
+            Debug.LogWarning($&quot;Component of type {typeof(T).Name} not found on GameObject: {gameObject.name}&quot;);
+        }
+    }
+    public static void EnableAllComponents(GameObject gameObject)
+    {
+        Component[] components = gameObject.GetComponents&lt;Component&gt;();
+
+        foreach (Component component in components)
+        {
+            if (component is Behaviour)
+            {
+                (component as Behaviour).enabled = true;
+            }
+        }
+    }
+    public static void DestroyComponent&lt;T&gt;(this GameObject gameObject) where T : Component
+    {
+        T component = gameObject.GetComponent&lt;T&gt;();
+        if (component != null)
+        {
+            Object.Destroy(component);
+        }
+        else
+        {
+            Debug.LogWarning($&quot;Component of type {typeof(T).Name} not found on GameObject: {gameObject.name}&quot;);
+        }
+    }
+    public static void DestroyAllComponents(GameObject gameObject)
+    {
+        Component[] components = gameObject.GetComponents&lt;Component&gt;();
+
+        for (int i = components.Length - 1; i &gt;= 0; i--)
+        {
+            // Skip Transform component, as you usually don't want to destroy the transform.
+            if (components[i] is Transform)
+            {
+                continue;
+            }
+
+            Object.Destroy(components[i]);
+        }
+    }
+
+    // Spawn object function
+    private static float timer;
+    public static GameObject SpawnObject(GameObject prefab, Vector3 position, Quaternion rotation, Transform parent = null, float spawnRate = 2.0f)
+    {
+
+        if (timer &lt; spawnRate)
+        {
+            timer += Time.deltaTime;
+            return null; // Don't spawn if the timer hasn't elapsed
+        }
+
+        timer = 0.0f; // Reset the timer when an object is spawned
+
+        if (prefab == null)
+        {
+            Debug.LogError(&quot;Prefab is null. Cannot spawn object.&quot;);
+            return null;
+        }
+
+        GameObject spawnedObject = Object.Instantiate(prefab, position, rotation);
+
+        if (parent != null)
+        {
+            spawnedObject.transform.parent = parent;
+        }
+
+        return spawnedObject;
+    }
+
+    // Get functions
+    public static string GetName(this GameObject gameObject)
+    {
+        return gameObject.name;
+    }
+    public static string GetTag(this GameObject gameObject)
+    {
+        return gameObject.tag;
+    }
+    public static int GetLayer(this GameObject gameObject)
+    {
+        return gameObject.layer;
+    }
+
+
+    public static int CountAllGameObjects()
+    {
+        GameObject[] allGameObjects = Object.FindObjectsOfType&lt;GameObject&gt;();
+        return allGameObjects.Length;
+    }
+    public static int CountGameObjectsWithTag(string tag)
+    {
+        GameObject[] gameObjectsWithTag = GameObject.FindGameObjectsWithTag(tag);
+        return gameObjectsWithTag.Length;
+    }
+    public static int CountGameObjectsWithLayer(int layer)
+    {
+        GameObject[] allGameObjects = Object.FindObjectsOfType&lt;GameObject&gt;();
+        int count = 0;
+
+        foreach (var obj in allGameObjects)
+        {
+            if (obj.layer == layer)
+            {
+                count++;
+            }
+        }
+
+        return count;
+    }
+    public static int CountGameObjectsWithComponent&lt;T&gt;() where T : Component
+    {
+        T[] components = Object.FindObjectsOfType&lt;T&gt;();
+        return components.Length;
+    }
+
+    public static void SetParent(GameObject gameObject, GameObject parent)
+    {
+        if (parent != null)
+        {
+            gameObject.transform.parent = parent.transform;
+        }
+        else
+        {
+            gameObject.transform.parent = null;
+        }
+    }
+</div></section><div class="last-modified"> Last modified: 15 December 2023</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom">  <a class="navigation-links__prev" href="cursorutilities.html">Cursor Utilities</a>   <a class="navigation-links__next" href="transformutilities.html">Transform Utilities</a>  </div></article><div id="disqus_thread"></div></div></section></main></div>  <script src="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.js"></script></body></html>

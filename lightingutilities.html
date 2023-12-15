@@ -1,1 +1,657 @@
-<!DOCTYPE html SYSTEM "about:legacy-compat"><html lang="en-US" data-colors-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex">  <meta name="built-on" content="2023-12-14T17:44:43.9905741"><meta name="build-number" content="${buildNumber}">       <title>Lighting Utilities | Advanced API Docs</title><script id="virtual-toc-data" type="application/json">[]</script><script id="topic-shortcuts" type="application/json"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.css" rel="stylesheet">   <link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><link rel="manifest" href="https://jetbrains.com/site.webmanifest"><link rel="mask-icon" href="https://jetbrains.com/safari-pinned-tab.svg" color="#000000"><meta name="msapplication-TileColor" content="#000000"/><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>  <meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Lighting Utilities | Advanced API Docs"/><meta property="og:description" content=""/><meta property="og:image" content=""/><meta property="og:site_name" content="Advanced API Docs Help"/><meta property="og:type" content="website"/><meta property="og:locale" content="en_US"/><meta property="og:url" content="lightingutilities.html"/><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Lighting Utilities | Advanced API Docs"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json"> { "@context": "http://schema.org", "@type": "WebPage", "@id": "lightingutilities.html#webpage", "url": "lightingutilities.html", "name": "Lighting Utilities | Advanced API Docs", "description": "", "image": "", "inLanguage":"en-US" }</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json"> { "@type": "WebSite", "@id": "/#website", "url": "/", "name": "Advanced API Docs Help" }</script><!-- End Schema.org --></head>      <body data-id="LightingUtilities" data-main-title="Lighting Utilities" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}"  data-template="article"  data-breadcrumbs="API-reference.md|API Reference///VirtualWorldInteractive.Rendering.md|VirtualWorldInteractive.Rendering"  >   <div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Advanced API Docs  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="LightingUtilities"   id="LightingUtilities.md">Lighting Utilities</h1>  <div class="last-modified"> Last modified: 14 December 2023</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom">  <a class="navigation-links__prev" href="virtualworldinteractive-rendering.html">VirtualWorldInteractive.Rendering</a>   </div></article><div id="disqus_thread"></div></div></section></main></div>  <script src="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.js"></script></body></html>
+<!DOCTYPE html SYSTEM "about:legacy-compat"><html lang="en-US" data-colors-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex">  <meta name="built-on" content="2023-12-15T20:31:17.9456114"><meta name="build-number" content="${buildNumber}">       <title>Lighting Utilities | Advanced API Docs</title><script id="virtual-toc-data" type="application/json">[{"id":"togglelight-gameobject-obj","level":0,"title":"ToggleLight(GameObject obj)","anchor":"#togglelight-gameobject-obj"},{"id":"changelightintensity-gameobject-obj-float-newintensity","level":0,"title":"ChangeLightIntensity(GameObject obj, float newIntensity)","anchor":"#changelightintensity-gameobject-obj-float-newintensity"},{"id":"changelightcolor-gameobject-obj-color-newcolor","level":0,"title":"ChangeLightColor(GameObject obj, Color newColor)","anchor":"#changelightcolor-gameobject-obj-color-newcolor"},{"id":"movelighttoposition-gameobject-obj-vector3-newposition","level":0,"title":"MoveLightToPosition(GameObject obj, Vector3 newPosition)","anchor":"#movelighttoposition-gameobject-obj-vector3-newposition"},{"id":"fadelightintensity-light-light-float-targetintensity-float-duration","level":0,"title":"FadeLightIntensity(Light light, float targetIntensity, float duration)","anchor":"#fadelightintensity-light-light-float-targetintensity-float-duration"},{"id":"flashlight-light-light-float-frequency","level":0,"title":"FlashLight(Light light, float frequency)","anchor":"#flashlight-light-light-float-frequency"},{"id":"setlightrange-light-light-float-newrange","level":0,"title":"SetLightRange(Light light, float newRange)","anchor":"#setlightrange-light-light-float-newrange"},{"id":"createlight-vector3-position-color-color-float-intensity-float-range","level":0,"title":"CreateLight(Vector3 position, Color color, float intensity, float range)","anchor":"#createlight-vector3-position-color-color-float-intensity-float-range"},{"id":"rotatespotlight-light-light-float-rotationspeed","level":0,"title":"RotateSpotlight(Light light, float rotationSpeed)","anchor":"#rotatespotlight-light-light-float-rotationspeed"},{"id":"flickerlight-light-light-float-minintensity-float-maxintensity","level":0,"title":"FlickerLight(Light light, float minIntensity, float maxIntensity)","anchor":"#flickerlight-light-light-float-minintensity-float-maxintensity"},{"id":"pulsatelightintensity-light-light-float-minintensity-float-maxintensity-float-pulsationspeed","level":0,"title":"PulsateLightIntensity(Light light, float minIntensity, float maxIntensity, float pulsationSpeed)","anchor":"#pulsatelightintensity-light-light-float-minintensity-float-maxintensity-float-pulsationspeed"},{"id":"flickerlights-light-lights-float-minintensity-float-maxintensity","level":0,"title":"FlickerLights(Light lights, float minIntensity, float maxIntensity)","anchor":"#flickerlights-light-lights-float-minintensity-float-maxintensity"},{"id":"adjustspotlightconeangle-light-light-float-newspotangle","level":0,"title":"AdjustSpotlightConeAngle(Light light, float newSpotAngle)","anchor":"#adjustspotlightconeangle-light-light-float-newspotangle"},{"id":"createpointlight-vector3-position-color-color-float-intensity-float-range","level":0,"title":"CreatePointLight(Vector3 position, Color color, float intensity, float range)","anchor":"#createpointlight-vector3-position-color-color-float-intensity-float-range"},{"id":"strobelight-light-light-float-strobefrequency","level":0,"title":"StrobeLight(Light light, float strobeFrequency)","anchor":"#strobelight-light-light-float-strobefrequency"},{"id":"thunderstormlightning-light-lights-float-lightintensityduringflash-float-lightintensityafterflash-float-flashduration-float-timebetweenflashes","level":0,"title":"ThunderstormLightning(Light lights, float lightIntensityDuringFlash, float lightIntensityAfterFlash, float flashDuration, float timeBetweenFlashes)","anchor":"#thunderstormlightning-light-lights-float-lightintensityduringflash-float-lightintensityafterflash-float-flashduration-float-timebetweenflashes"},{"id":"followtargetwithlight-light-light-gameobject-target","level":0,"title":"FollowTargetWithLight(Light light, GameObject target)","anchor":"#followtargetwithlight-light-light-gameobject-target"}]</script><script id="topic-shortcuts" type="application/json"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.css" rel="stylesheet">   <link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><link rel="manifest" href="https://jetbrains.com/site.webmanifest"><link rel="mask-icon" href="https://jetbrains.com/safari-pinned-tab.svg" color="#000000"><meta name="msapplication-TileColor" content="#000000"/><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>  <meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Lighting Utilities | Advanced API Docs"/><meta property="og:description" content=""/><meta property="og:image" content=""/><meta property="og:site_name" content="Advanced API Docs Help"/><meta property="og:type" content="website"/><meta property="og:locale" content="en_US"/><meta property="og:url" content="lightingutilities.html"/><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Lighting Utilities | Advanced API Docs"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json"> { "@context": "http://schema.org", "@type": "WebPage", "@id": "lightingutilities.html#webpage", "url": "lightingutilities.html", "name": "Lighting Utilities | Advanced API Docs", "description": "", "image": "", "inLanguage":"en-US" }</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json"> { "@type": "WebSite", "@id": "/#website", "url": "/", "name": "Advanced API Docs Help" }</script><!-- End Schema.org --></head>      <body data-id="LightingUtilities" data-main-title="Lighting Utilities" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}"  data-template="article"  data-breadcrumbs="API-reference.md|API Reference///VirtualWorldInteractive.Rendering.md|VirtualWorldInteractive.Rendering"  >   <div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Advanced API Docs  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="LightingUtilities"   id="LightingUtilities.md">Lighting Utilities</h1>  <section class="chapter"><h2 id="togglelight-gameobject-obj" data-toc="togglelight-gameobject-obj"   >ToggleLight(GameObject obj)</h2><p id="e3f96caa_280">Summary:</p><p id="e3f96caa_281">Toggles the visibility of a Light component on the given GameObject.</p><p id="e3f96caa_282">Parameters:</p><p id="e3f96caa_283">obj = The GameObject with a Light component to be toggled.</p><p id="e3f96caa_284">Example usage:</p><div class="code-block" data-lang="csharp"         >
+Start()
+{
+    GameObject myLightObject;
+    LightingUtilities.ToggleLight(myLightObject);
+}
+</div></section><section class="chapter"><h2 id="changelightintensity-gameobject-obj-float-newintensity" data-toc="changelightintensity-gameobject-obj-float-newintensity"   >ChangeLightIntensity(GameObject obj, float newIntensity)</h2><p id="e3f96caa_286">Summary:</p><p id="e3f96caa_287">Changes the intensity of a Light component on the given GameObject to the specified value.</p><p id="e3f96caa_288">Parameters:</p><p id="e3f96caa_289">obj = The GameObject with a Light component to be modified.</p><p id="e3f96caa_290">newIntensity = The new intensity value for the Light component.</p></section><section class="chapter"><h2 id="changelightcolor-gameobject-obj-color-newcolor" data-toc="changelightcolor-gameobject-obj-color-newcolor"   >ChangeLightColor(GameObject obj, Color newColor)</h2><p id="e3f96caa_291">Summary:</p><p id="e3f96caa_292">Changes the color of a Light component on the given GameObject to the specified color.</p><p id="e3f96caa_293">Parameters:</p><p id="e3f96caa_294">obj = The GameObject with a Light component to be modified.</p><p id="e3f96caa_295">newColor =The new color for the Light component.</p></section><section class="chapter"><h2 id="movelighttoposition-gameobject-obj-vector3-newposition" data-toc="movelighttoposition-gameobject-obj-vector3-newposition"   >MoveLightToPosition(GameObject obj, Vector3 newPosition)</h2><p id="e3f96caa_296">Summary:</p><p id="e3f96caa_297">Moves the Light component on the given GameObject to the specified position in the scene.</p><p id="e3f96caa_298">Parameters:</p><p id="e3f96caa_299">obj = The GameObject with a Light component to be moved.</p><p id="e3f96caa_300">newPosition = The new position for the Light component in the scene.</p></section><section class="chapter"><h2 id="fadelightintensity-light-light-float-targetintensity-float-duration" data-toc="fadelightintensity-light-light-float-targetintensity-float-duration"   >FadeLightIntensity(Light light, float targetIntensity, float duration)</h2><p id="e3f96caa_301">Summary:</p><p id="e3f96caa_302">Fades a Light component's intensity to a target value over a specified duration.</p><p id="e3f96caa_303">Parameters:</p><p id="e3f96caa_304">light = The Light component to be faded. targetIntensity = The target intensity to reach. duration = The duration of the fade in seconds.</p></section><section class="chapter"><h2 id="flashlight-light-light-float-frequency" data-toc="flashlight-light-light-float-frequency"   >FlashLight(Light light, float frequency)</h2><p id="e3f96caa_305">Summary:</p><p id="e3f96caa_306">Flashes a Light component on and off with a specified frequency.</p><p id="e3f96caa_307">Parameters:</p><p id="e3f96caa_308">light = The Light component to flash.</p><p id="e3f96caa_309">frequency = The flashing frequency in flashes per second.</p></section><section class="chapter"><h2 id="setlightrange-light-light-float-newrange" data-toc="setlightrange-light-light-float-newrange"   >SetLightRange(Light light, float newRange)</h2><p id="e3f96caa_310">Summary:</p><p id="e3f96caa_311">Sets the range of a Light component to cover a specified radius.</p><p id="e3f96caa_312">Parameters:</p><p id="e3f96caa_313">light = The Light component to adjust.</p><p id="e3f96caa_314">newRange = The new range for the Light component.</p></section><section class="chapter"><h2 id="createlight-vector3-position-color-color-float-intensity-float-range" data-toc="createlight-vector3-position-color-color-float-intensity-float-range"   >CreateLight(Vector3 position, Color color, float intensity, float range)</h2><p id="e3f96caa_315">Summary:</p><p id="e3f96caa_316">Creates a new GameObject with a Light component and positions it in the scene.</p><p id="e3f96caa_317">Parameters:</p><p id="e3f96caa_318">position = The position in the scene where the new light should be placed.</p><p id="e3f96caa_319">color = The color of the new light.</p><p id="e3f96caa_320">intensity = The intensity of the new light.</p><p id="e3f96caa_321">range = The range of the new light.</p><p id="e3f96caa_322">returns = The GameObject with the created Light component.</p></section><section class="chapter"><h2 id="rotatespotlight-light-light-float-rotationspeed" data-toc="rotatespotlight-light-light-float-rotationspeed"   >RotateSpotlight(Light light, float rotationSpeed)</h2><p id="e3f96caa_323">Summary:</p><p id="e3f96caa_324">Rotates a spotlight-like Light component around its pivot point.</p><p id="e3f96caa_325">Parameters:</p><p id="e3f96caa_326">light = The Light component to be rotated.</p><p id="e3f96caa_327">rotationSpeed = The speed of rotation in degrees per second.</p></section><section class="chapter"><h2 id="flickerlight-light-light-float-minintensity-float-maxintensity" data-toc="flickerlight-light-light-float-minintensity-float-maxintensity"   >FlickerLight(Light light, float minIntensity, float maxIntensity)</h2><p id="e3f96caa_328">Summary:</p><p id="e3f96caa_329">Flickers a Light component to simulate a candle-like effect.</p><p id="e3f96caa_330">Parameters::</p><p id="e3f96caa_331">light = The Light component to flicker.</p><p id="e3f96caa_332">minIntensity = The minimum intensity during flickering.</p><p id="e3f96caa_333">maxIntensity = The maximum intensity during flickering.</p></section><section class="chapter"><h2 id="pulsatelightintensity-light-light-float-minintensity-float-maxintensity-float-pulsationspeed" data-toc="pulsatelightintensity-light-light-float-minintensity-float-maxintensity-float-pulsationspeed"   >PulsateLightIntensity(Light light, float minIntensity, float maxIntensity, float pulsationSpeed)</h2><p id="e3f96caa_334">Summary:</p><p id="e3f96caa_335">Pulsates the intensity of a Light component between two values.</p><p id="e3f96caa_336">Parameters:</p><p id="e3f96caa_337">light = The Light component to pulsate.</p><p id="e3f96caa_338">minIntensity = The minimum intensity during pulsation.</p><p id="e3f96caa_339">maxIntensity = The maximum intensity during pulsation.</p><p id="e3f96caa_340">pulsationSpeed = The speed of pulsation in cycles per second.</p></section><section class="chapter"><h2 id="flickerlights-light-lights-float-minintensity-float-maxintensity" data-toc="flickerlights-light-lights-float-minintensity-float-maxintensity"   >FlickerLights(Light lights, float minIntensity, float maxIntensity)</h2><p id="e3f96caa_341">Summary:</p><p id="e3f96caa_342">Simulates a flickering effect for a group of lights.</p><p id="e3f96caa_343">Parameters:</p><p id="e3f96caa_344">lights = An array of Light components to flicker.</p><p id="e3f96caa_345">minIntensity = The minimum intensity during flickering.</p><p id="e3f96caa_346">maxIntensity = The maximum intensity during flickering.</p></section><section class="chapter"><h2 id="adjustspotlightconeangle-light-light-float-newspotangle" data-toc="adjustspotlightconeangle-light-light-float-newspotangle"   >AdjustSpotlightConeAngle(Light light, float newSpotAngle)</h2><p id="e3f96caa_347">Summary:</p><p id="e3f96caa_348">Adjusts the spotlight cone angle of a Light component.</p><p id="e3f96caa_349">Parameters:</p><p id="e3f96caa_350">light = The Light component with a spotlight to be modified.</p><p id="e3f96caa_351">newSpotAngle = The new spotlight cone angle in degrees.</p></section><section class="chapter"><h2 id="createpointlight-vector3-position-color-color-float-intensity-float-range" data-toc="createpointlight-vector3-position-color-color-float-intensity-float-range"   >CreatePointLight(Vector3 position, Color color, float intensity, float range)</h2><p id="e3f96caa_352">Summary:</p><p id="e3f96caa_353">Creates a point light GameObject at the specified position with given parameters.</p><p id="e3f96caa_354">Parameters:</p><p id="e3f96caa_355">position = The position in the scene where the point light will be created.</p><p id="e3f96caa_356">color = The color of the point light.</p><p id="e3f96caa_357">intensity = The intensity of the point light.</p><p id="e3f96caa_358">range = The range of the point light.</p><p id="e3f96caa_359">returns = The GameObject with the created point light component.</p></section><section class="chapter"><h2 id="strobelight-light-light-float-strobefrequency" data-toc="strobelight-light-light-float-strobefrequency"   >StrobeLight(Light light, float strobeFrequency)</h2><p id="e3f96caa_360">Summary:</p><p id="e3f96caa_361">Strobe a Light component at a specified frequency.</p><p id="e3f96caa_362">Parameters:</p><p id="e3f96caa_363">light = The Light component to strobe.</p><p id="e3f96caa_364">strobeFrequency = The strobe frequency in flashes per second.</p></section><section class="chapter"><h2 id="thunderstormlightning-light-lights-float-lightintensityduringflash-float-lightintensityafterflash-float-flashduration-float-timebetweenflashes" data-toc="thunderstormlightning-light-lights-float-lightintensityduringflash-float-lightintensityafterflash-float-flashduration-float-timebetweenflashes"   >ThunderstormLightning(Light lights, float lightIntensityDuringFlash, float lightIntensityAfterFlash, float flashDuration, float timeBetweenFlashes)</h2><p id="e3f96caa_365">Summary:</p><p id="e3f96caa_366">Simulate a thunderstorm lightning effect for a group of lights.</p><p id="e3f96caa_367">Parameters:</p><p id="e3f96caa_368">lights = An array of Light components to be affected by the thunderstorm.</p><p id="e3f96caa_369">lightIntensityDuringFlash = The intensity of lights during the lightning flash.</p><p id="e3f96caa_370">lightIntensityAfterFlash = The intensity of lights after the flash ends.</p><p id="e3f96caa_371">flashDuration = The duration of the lightning flash in seconds.</p><p id="e3f96caa_372">timeBetweenFlashes = The time between lightning flashes in seconds.</p></section><section class="chapter"><h2 id="followtargetwithlight-light-light-gameobject-target" data-toc="followtargetwithlight-light-light-gameobject-target"   >FollowTargetWithLight(Light light, GameObject target)</h2><p id="e3f96caa_373">Summary:</p><p id="e3f96caa_374">Set a light to follow a specified target GameObject.</p><p id="e3f96caa_375">Parameters:</p><p id="e3f96caa_376">light = The Light component to be positioned.</p><p id="e3f96caa_377">target = The target GameObject to follow.</p><div class="code-block" data-lang="none"         >    /// &lt;summary&gt;
+    /// Change the shadow casting mode of a Light component.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;light&quot;&gt;The Light component to change the shadow casting mode for.&lt;/param&gt;
+    /// &lt;param name=&quot;shadowMode&quot;&gt;The new shadow casting mode (Off, On, or TwoSided).&lt;/param&gt;
+    public static void ChangeLightShadowMode(Light light, LightShadows shadowMode)
+    {
+        light.shadows = shadowMode;
+    }
+
+    /// &lt;summary&gt;
+    /// Rotates a directional light to simulate a day-night cycle.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;directionalLight&quot;&gt;The Directional Light to rotate.&lt;/param&gt;
+    /// &lt;param name=&quot;rotationSpeed&quot;&gt;The speed of rotation in degrees per second.&lt;/param&gt;
+    public static void RotateDirectionalLight(Transform directionalLight, float rotationSpeed)
+    {
+        directionalLight.Rotate(Vector3.right, rotationSpeed * Time.deltaTime);
+    }
+
+    /// &lt;summary&gt;
+    /// Change the flare of a Light component.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;light&quot;&gt;The Light component with a flare to be modified.&lt;/param&gt;
+    /// &lt;param name=&quot;flare&quot;&gt;The new flare to set for the Light component.&lt;/param&gt;
+    public static void ChangeLightFlare(Light light, Flare flare)
+    {
+        light.flare = flare;
+    }
+
+    /// &lt;summary&gt;
+    /// Simulate a candle-like flickering effect for a Point Light.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;pointLight&quot;&gt;The Point Light to flicker.&lt;/param&gt;
+    /// &lt;param name=&quot;minIntensity&quot;&gt;The minimum intensity during flickering.&lt;/param&gt;
+    /// &lt;param name=&quot;maxIntensity&quot;&gt;The maximum intensity during flickering.&lt;/param&gt;
+    /// &lt;param name=&quot;flickerSpeed&quot;&gt;The speed of flickering.&lt;/param&gt;
+    public static void FlickerPointLight(Light pointLight, float minIntensity, float maxIntensity, float flickerSpeed)
+    {
+        pointLight.intensity = Mathf.Lerp(minIntensity, maxIntensity, Mathf.PingPong(Time.time * flickerSpeed, 1.0f));
+    }
+
+    /// &lt;summary&gt;
+    /// Simulate a lightning effect for a group of lights.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;lights&quot;&gt;An array of Light components to be affected by the lightning.&lt;/param&gt;
+    /// &lt;param name=&quot;lightIntensityDuringStrike&quot;&gt;The intensity of lights during the lightning strike.&lt;/param&gt;
+    /// &lt;param name=&quot;strikeDuration&quot;&gt;The duration of the lightning strike in seconds.&lt;/param&gt;
+    public static IEnumerator LightningStrike(Light[] lights, float lightIntensityDuringStrike, float strikeDuration)
+    {
+        foreach (var light in lights)
+        {
+            light.intensity = lightIntensityDuringStrike;
+        }
+
+        yield return new WaitForSeconds(strikeDuration);
+
+        foreach (var light in lights)
+        {
+            light.intensity = 0.0f;
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Adjusts the shadow strength of a Light component.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;light&quot;&gt;The Light component with shadows to be modified.&lt;/param&gt;
+    /// &lt;param name=&quot;shadowStrength&quot;&gt;The strength of shadows (0 to 1).&lt;/param&gt;
+    public static void AdjustShadowStrength(Light light, float shadowStrength)
+    {
+        if (light.shadows != LightShadows.None)
+        {
+            light.shadowStrength = Mathf.Clamp01(shadowStrength);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Simulate a police car light effect using two alternating colors.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;light&quot;&gt;The Light component to create the police light effect.&lt;/param&gt;
+    /// &lt;param name=&quot;color1&quot;&gt;The first alternating color.&lt;/param&gt;
+    /// &lt;param name=&quot;color2&quot;&gt;The second alternating color.&lt;/param&gt;
+    /// &lt;param name=&quot;blinkInterval&quot;&gt;The time in seconds for each color to be active.&lt;/param&gt;
+    public static IEnumerator PoliceCarLightEffect(Light light, Color color1, Color color2, float blinkInterval)
+    {
+        while (true)
+        {
+            light.color = color1;
+            yield return new WaitForSeconds(blinkInterval);
+            light.color = color2;
+            yield return new WaitForSeconds(blinkInterval);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Simulate a flickering fire effect for a group of lights.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;lights&quot;&gt;An array of Light components to simulate the fire effect.&lt;/param&gt;
+    /// &lt;param name=&quot;minIntensity&quot;&gt;The minimum intensity during flickering.&lt;/param&gt;
+    /// &lt;param name=&quot;maxIntensity&quot;&gt;The maximum intensity during flickering.&lt;/param&gt;
+    /// &lt;param name=&quot;flickerSpeed&quot;&gt;The speed of flickering.&lt;/param&gt;
+    public static void FlickerFireLight(Light[] lights, float minIntensity, float maxIntensity, float flickerSpeed)
+    {
+        foreach (var light in lights)
+        {
+            light.intensity = Mathf.Lerp(minIntensity, maxIntensity, Mathf.PerlinNoise(Time.time * flickerSpeed, 0));
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Adjusts the spot angle and range of a spotlight for dynamic lighting effects.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;light&quot;&gt;The Light component with a spotlight to be modified.&lt;/param&gt;
+    /// &lt;param name=&quot;newSpotAngle&quot;&gt;The new spotlight cone angle in degrees.&lt;/param&gt;
+    /// &lt;param name=&quot;newRange&quot;&gt;The new range for the spotlight.&lt;/param&gt;
+    public static void AdjustSpotlight(Light light, float newSpotAngle, float newRange)
+    {
+        if (light.type == LightType.Spot)
+        {
+            light.spotAngle = newSpotAngle;
+            light.range = newRange;
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Simulate a lighthouse rotating light beam effect.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;light&quot;&gt;The Light component to create the rotating light beam.&lt;/param&gt;
+    /// &lt;param name=&quot;rotationSpeed&quot;&gt;The speed of rotation in degrees per second.&lt;/param&gt;
+    public static void LighthouseLightBeam(Light light, float rotationSpeed)
+    {
+        light.transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+    }
+
+    /// &lt;summary&gt;
+    /// Simulate a candle-like flickering effect for a group of Point Lights.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;pointLights&quot;&gt;An array of Point Lights to flicker.&lt;/param&gt;
+    /// &lt;param name=&quot;minIntensity&quot;&gt;The minimum intensity during flickering.&lt;/param&gt;
+    /// &lt;param name=&quot;maxIntensity&quot;&gt;The maximum intensity during flickering.&lt;/param&gt;
+    /// &lt;param name=&quot;flickerSpeed&quot;&gt;The speed of flickering.&lt;/param&gt;
+    public static void FlickerCandles(Light[] pointLights, float minIntensity, float maxIntensity, float flickerSpeed)
+    {
+        foreach (var pointLight in pointLights)
+        {
+            pointLight.intensity = Mathf.Lerp(minIntensity, maxIntensity, Mathf.PerlinNoise(Time.time * flickerSpeed, 0));
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Simulate a lightning effect for a group of lights with varying flash durations.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;lights&quot;&gt;An array of Light components to be affected by the lightning.&lt;/param&gt;
+    /// &lt;param name=&quot;lightIntensityDuringStrike&quot;&gt;The intensity of lights during the lightning strike.&lt;/param&gt;
+    /// &lt;param name=&quot;flashDurationRange&quot;&gt;The range of flash durations in seconds.&lt;/param&gt;
+    public static IEnumerator VariableDurationLightning(Light[] lights, float lightIntensityDuringStrike, Vector2 flashDurationRange)
+    {
+        while (true)
+        {
+            foreach (var light in lights)
+            {
+                light.intensity = lightIntensityDuringStrike;
+            }
+
+            float flashDuration = Random.Range(flashDurationRange.x, flashDurationRange.y);
+            yield return new WaitForSeconds(flashDuration);
+
+            foreach (var light in lights)
+            {
+                light.intensity = 0.0f;
+            }
+
+            yield return new WaitForSeconds(Random.Range(0.5f, 2.0f));
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Set the light range of a Point Light for a flickering campfire effect.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;pointLight&quot;&gt;The Point Light to adjust the range for.&lt;/param&gt;
+    /// &lt;param name=&quot;minRange&quot;&gt;The minimum range during flickering.&lt;/param&gt;
+    /// &lt;param name=&quot;maxRange&quot;&gt;The maximum range during flickering.&lt;/param&gt;
+    public static void FlickerCampfireLightRange(Light pointLight, float minRange, float maxRange)
+    {
+        pointLight.range = Random.Range(minRange, maxRange);
+    }
+
+    /// &lt;summary&gt;
+    /// Create a flickering lantern-like light effect for a Point Light.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;pointLight&quot;&gt;The Point Light to create the lantern-like effect.&lt;/param&gt;
+    /// &lt;param name=&quot;minIntensity&quot;&gt;The minimum intensity during flickering.&lt;/param&gt;
+    /// &lt;param name=&quot;maxIntensity&quot;&gt;The maximum intensity during flickering.&lt;/param&gt;
+    /// &lt;param name=&quot;flickerSpeed&quot;&gt;The speed of flickering.&lt;/param&gt;
+    public static void FlickerLanternLight(Light pointLight, float minIntensity, float maxIntensity, float flickerSpeed)
+    {
+        pointLight.intensity = Mathf.Lerp(minIntensity, maxIntensity, Mathf.PingPong(Time.time * flickerSpeed, 1.0f));
+    }
+
+    /// &lt;summary&gt;
+    /// Simulate a pulsating sun-like light effect for a Directional Light.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;directionalLight&quot;&gt;The Directional Light to create the pulsating effect.&lt;/param&gt;
+    /// &lt;param name=&quot;minIntensity&quot;&gt;The minimum intensity during pulsation.&lt;/param&gt;
+    /// &lt;param name=&quot;maxIntensity&quot;&gt;The maximum intensity during pulsation.&lt;/param&gt;
+    /// &lt;param name=&quot;pulsationSpeed&quot;&gt;The speed of pulsation in cycles per second.&lt;/param&gt;
+    public static void PulsateSunlight(Light directionalLight, float minIntensity, float maxIntensity, float pulsationSpeed)
+    {
+        directionalLight.intensity = Mathf.Lerp(minIntensity, maxIntensity, 0.5f + 0.5f * Mathf.Sin(Time.time * Mathf.PI * pulsationSpeed));
+    }
+
+    /// &lt;summary&gt;
+    /// Adjust the light color temperature of a Light component to simulate daylight changes.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;light&quot;&gt;The Light component to adjust.&lt;/param&gt;
+    /// &lt;param name=&quot;colorTemperature&quot;&gt;The new color temperature value.&lt;/param&gt;
+    public static void ChangeLightColorTemperature(Light light, float colorTemperature)
+    {
+        light.colorTemperature = colorTemperature;
+    }
+
+    /// &lt;summary&gt;
+    /// Simulate a car headlight effect for a group of lights.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;lights&quot;&gt;An array of Light components to create the headlight effect.&lt;/param&gt;
+    /// &lt;param name=&quot;lightIntensity&quot;&gt;The intensity of the car headlights.&lt;/param&gt;
+    public static void CarHeadlightEffect(Light[] lights, float lightIntensity)
+    {
+        foreach (var light in lights)
+        {
+            light.intensity = lightIntensity;
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Simulate a flickering neon light effect for a Line Renderer.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;lineRenderer&quot;&gt;The Line Renderer to create the neon light effect.&lt;/param&gt;
+    /// &lt;param name=&quot;minIntensity&quot;&gt;The minimum intensity during flickering.&lt;/param&gt;
+    /// &lt;param name=&quot;maxIntensity&quot;&gt;The maximum intensity during flickering.&lt;/param&gt;
+    /// &lt;param name=&quot;flickerSpeed&quot;&gt;The speed of flickering.&lt;/param&gt;
+    public static void FlickerNeonLight(LineRenderer lineRenderer, float minIntensity, float maxIntensity, float flickerSpeed)
+    {
+        Color originalColor = lineRenderer.startColor;
+        float intensity = Mathf.Lerp(minIntensity, maxIntensity, Mathf.PingPong(Time.time * flickerSpeed, 1.0f));
+        Color flickerColor = originalColor * intensity;
+        lineRenderer.startColor = flickerColor;
+        lineRenderer.endColor = flickerColor;
+    }
+
+    /// &lt;summary&gt;
+    /// Simulate a searchlight effect for a group of lights.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;lights&quot;&gt;An array of Light components to create the searchlight effect.&lt;/param&gt;
+    /// &lt;param name=&quot;lightIntensity&quot;&gt;The intensity of the searchlight.&lt;/param&gt;
+    /// &lt;param name=&quot;searchlightRotationSpeed&quot;&gt;The speed of rotation in degrees per second.&lt;/param&gt;
+    public static void SearchlightEffect(Light[] lights, float lightIntensity, float searchlightRotationSpeed)
+    {
+        foreach (var light in lights)
+        {
+            light.intensity = lightIntensity;
+        }
+
+        lights[0].transform.Rotate(Vector3.up, searchlightRotationSpeed * Time.deltaTime);
+    }
+
+    /// &lt;summary&gt;
+    /// Simulate a dynamic disco light effect for a group of Point Lights.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;pointLights&quot;&gt;An array of Point Lights to create the disco light effect.&lt;/param&gt;
+    /// &lt;param name=&quot;colors&quot;&gt;An array of colors for the disco lights.&lt;/param&gt;
+    /// &lt;param name=&quot;discoSpeed&quot;&gt;The speed of color change in cycles per second.&lt;/param&gt;
+    public static void DiscoLightEffect(Light[] pointLights, Color[] colors, float discoSpeed)
+    {
+        float t = Mathf.PingPong(Time.time * discoSpeed, colors.Length);
+        int colorIndex = Mathf.FloorToInt(t);
+        float lerpT = t - colorIndex;
+
+        for (int i = 0; i &lt; pointLights.Length; i++)
+        {
+            int nextColorIndex = (colorIndex + i) % colors.Length;
+            pointLights[i].color = Color.Lerp(colors[colorIndex], colors[nextColorIndex], lerpT);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Adjust the range and intensity of a group of lights for a dynamic fireworks effect.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;lights&quot;&gt;An array of Light components to create the fireworks effect.&lt;/param&gt;
+    /// &lt;param name=&quot;minRange&quot;&gt;The minimum range during fireworks.&lt;/param&gt;
+    /// &lt;param name=&quot;maxRange&quot;&gt;The maximum range during fireworks.&lt;/param&gt;
+    /// &lt;param name=&quot;minIntensity&quot;&gt;The minimum intensity during fireworks.&lt;/param&gt;
+    /// &lt;param name=&quot;maxIntensity&quot;&gt;The maximum intensity during fireworks.&lt;/param&gt;
+    public static void FireworksEffect(Light[] lights, float minRange, float maxRange, float minIntensity, float maxIntensity)
+    {
+        for (int i = 0; i &lt; lights.Length; i++)
+        {
+            float range = Random.Range(minRange, maxRange);
+            float intensity = Random.Range(minIntensity, maxIntensity);
+
+            lights[i].range = range;
+            lights[i].intensity = intensity;
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Simulate a flickering torch-like fire effect for a Point Light.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;pointLight&quot;&gt;The Point Light to create the torch-like fire effect.&lt;/param&gt;
+    /// &lt;param name=&quot;minIntensity&quot;&gt;The minimum intensity during flickering.&lt;/param&gt;
+    /// &lt;param name=&quot;maxIntensity&quot;&gt;The maximum intensity during flickering.&lt;/param&gt;
+    /// &lt;param name=&quot;flickerSpeed&quot;&gt;The speed of flickering.&lt;/param&gt;
+    public static void FlickerTorchLight(Light pointLight, float minIntensity, float maxIntensity, float flickerSpeed)
+    {
+        pointLight.intensity = Mathf.Lerp(minIntensity, maxIntensity, Mathf.PingPong(Time.time * flickerSpeed, 1.0f));
+    }
+
+    /// &lt;summary&gt;
+    /// Simulate a lighthouse rotating light beam effect using a spotlight.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;spotlight&quot;&gt;The Spotlight to create the lighthouse light beam effect.&lt;/param&gt;
+    /// &lt;param name=&quot;rotationSpeed&quot;&gt;The speed of rotation in degrees per second.&lt;/param&gt;
+    public static void LighthouseSpotlightEffect(Light spotlight, float rotationSpeed)
+    {
+        spotlight.transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+    }
+
+    /// &lt;summary&gt;
+    /// Simulate a traffic light cycle effect using a group of lights.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;lights&quot;&gt;An array of Light components to create the traffic light effect.&lt;/param&gt;
+    /// &lt;param name=&quot;redLightDuration&quot;&gt;The duration of the red light phase in seconds.&lt;/param&gt;
+    /// &lt;param name=&quot;yellowLightDuration&quot;&gt;The duration of the yellow light phase in seconds.&lt;/param&gt;
+    /// &lt;param name=&quot;greenLightDuration&quot;&gt;The duration of the green light phase in seconds.&lt;/param&gt;
+    public static IEnumerator TrafficLightCycle(Light[] lights, float redLightDuration, float yellowLightDuration, float greenLightDuration)
+    {
+        while (true)
+        {
+            lights[0].enabled = true;  // Red
+            yield return new WaitForSeconds(redLightDuration);
+
+            lights[1].enabled = true;  // Yellow
+            lights[0].enabled = false;
+            yield return new WaitForSeconds(yellowLightDuration);
+
+            lights[2].enabled = true;  // Green
+            lights[1].enabled = false;
+            yield return new WaitForSeconds(greenLightDuration);
+
+            lights[2].enabled = false;  // Yellow (transition to red)
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Create a dynamic disco ball light effect for a Point Light.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;pointLight&quot;&gt;The Point Light to create the disco ball effect.&lt;/param&gt;
+    /// &lt;param name=&quot;colors&quot;&gt;An array of colors for the disco ball lights.&lt;/param&gt;
+    /// &lt;param name=&quot;discoSpeed&quot;&gt;The speed of color change in cycles per second.&lt;/param&gt;
+    public static void DiscoBallLightEffect(Light pointLight, Color[] colors, float discoSpeed)
+    {
+        float t = Mathf.PingPong(Time.time * discoSpeed, colors.Length);
+        int colorIndex = Mathf.FloorToInt(t);
+        float lerpT = t - colorIndex;
+
+        pointLight.color = Color.Lerp(colors[colorIndex], colors[(colorIndex + 1) % colors.Length], lerpT);
+    }
+
+    /// &lt;summary&gt;
+    /// Create a dynamic disco floor effect using a grid of lights.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;floorLights&quot;&gt;A 2D array of Light components representing the disco floor.&lt;/param&gt;
+    /// &lt;param name=&quot;colors&quot;&gt;An array of colors for the disco lights.&lt;/param&gt;
+    /// &lt;param name=&quot;discoSpeed&quot;&gt;The speed of color change in cycles per second.&lt;/param&gt;
+    public static void DiscoFloorEffect(Light[,] floorLights, Color[] colors, float discoSpeed)
+    {
+        float t = Mathf.PingPong(Time.time * discoSpeed, colors.Length);
+        int colorIndex = Mathf.FloorToInt(t);
+        float lerpT = t - colorIndex;
+
+        for (int i = 0; i &lt; floorLights.GetLength(0); i++)
+        {
+            for (int j = 0; j &lt; floorLights.GetLength(1); j++)
+            {
+                floorLights[i, j].color = Color.Lerp(colors[colorIndex], colors[(colorIndex + 1) % colors.Length], lerpT);
+            }
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Simulate a dynamic water reflection effect using a group of Point Lights.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;pointLights&quot;&gt;An array of Point Lights to create the water reflection effect.&lt;/param&gt;
+    /// &lt;param name=&quot;waveAmplitude&quot;&gt;The amplitude of the wave effect.&lt;/param&gt;
+    /// &lt;param name=&quot;waveSpeed&quot;&gt;The speed of the wave effect.&lt;/param&gt;
+    public static void WaterReflectionEffect(Light[] pointLights, float waveAmplitude, float waveSpeed)
+    {
+        float time = Time.time * waveSpeed;
+
+        for (int i = 0; i &lt; pointLights.Length; i++)
+        {
+            float x = pointLights[i].transform.position.x;
+            float z = pointLights[i].transform.position.z;
+            float yOffset = waveAmplitude * Mathf.Sin(x + z + time);
+            pointLights[i].transform.position = new Vector3(x, yOffset, z);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Create a dynamic traffic signal effect using a group of lights.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;lights&quot;&gt;An array of Light components to create the traffic signal effect.&lt;/param&gt;
+    /// &lt;param name=&quot;greenLightDuration&quot;&gt;The duration of the green light phase in seconds.&lt;/param&gt;
+    /// &lt;param name=&quot;yellowLightDuration&quot;&gt;The duration of the yellow light phase in seconds.&lt;/param&gt;
+    /// &lt;param name=&quot;redLightDuration&quot;&gt;The duration of the red light phase in seconds.&lt;/param&gt;
+    public static IEnumerator TrafficSignalEffect(Light[] lights, float greenLightDuration, float yellowLightDuration, float redLightDuration)
+    {
+        while (true)
+        {
+            lights[0].enabled = true;  // Green
+            yield return new WaitForSeconds(greenLightDuration);
+
+            lights[1].enabled = true;  // Yellow
+            lights[0].enabled = false;
+            yield return new WaitForSeconds(yellowLightDuration);
+
+            lights[2].enabled = true;  // Red
+            lights[1].enabled = false;
+            yield return new WaitForSeconds(redLightDuration);
+
+            lights[2].enabled = false;  // Yellow (transition to green)
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Simulate a dynamic aurora borealis effect using a group of Line Renderers.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;lineRenderers&quot;&gt;An array of Line Renderers to create the aurora effect.&lt;/param&gt;
+    /// &lt;param name=&quot;color1&quot;&gt;The first alternating color for the aurora borealis.&lt;/param&gt;
+    /// &lt;param name=&quot;color2&quot;&gt;The second alternating color for the aurora borealis.&lt;/param&gt;
+    /// &lt;param name=&quot;auroraSpeed&quot;&gt;The speed of color change in cycles per second.&lt;/param&gt;
+    public static void AuroraBorealisEffect(LineRenderer[] lineRenderers, Color color1, Color color2, float auroraSpeed)
+    {
+        float t = Mathf.PingPong(Time.time * auroraSpeed, 1.0f);
+
+        foreach (var lineRenderer in lineRenderers)
+        {
+            Color lerpColor = Color.Lerp(color1, color2, t);
+            lineRenderer.startColor = lerpColor;
+            lineRenderer.endColor = lerpColor;
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Simulate a dynamic disco ceiling light effect using a grid of lights.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;ceilingLights&quot;&gt;A 2D array of Light components representing the disco ceiling.&lt;/param&gt;
+    /// &lt;param name=&quot;colors&quot;&gt;An array of colors for the disco lights.&lt;/param&gt;
+    /// &lt;param name=&quot;discoSpeed&quot;&gt;The speed of color change in cycles per second.&lt;/param&gt;
+    public static void DiscoCeilingEffect(Light[,] ceilingLights, Color[] colors, float discoSpeed)
+    {
+        float t = Mathf.PingPong(Time.time * discoSpeed, colors.Length);
+        int colorIndex = Mathf.FloorToInt(t);
+        float lerpT = t - colorIndex;
+
+        for (int i = 0; i &lt; ceilingLights.GetLength(0); i++)
+        {
+            for (int j = 0; j &lt; ceilingLights.GetLength(1); j++)
+            {
+                ceilingLights[i, j].color = Color.Lerp(colors[colorIndex], colors[(colorIndex + 1) % colors.Length], lerpT);
+            }
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Simulate a sunrise effect by changing the color and intensity of a light over time.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;light&quot;&gt;The Light component to represent the sun.&lt;/param&gt;
+    /// &lt;param name=&quot;sunriseDuration&quot;&gt;The duration of the sunrise effect in seconds.&lt;/param&gt;
+    public static IEnumerator SunriseEffect(Light light, float sunriseDuration)
+    {
+        float initialIntensity = light.intensity;
+        Color initialColor = light.color;
+        float elapsedTime = 0.0f;
+
+        while (elapsedTime &lt; sunriseDuration)
+        {
+            elapsedTime += Time.deltaTime;
+
+            light.intensity = Mathf.Lerp(0.0f, initialIntensity, elapsedTime / sunriseDuration);
+            light.color = Color.Lerp(Color.black, initialColor, elapsedTime / sunriseDuration);
+
+            yield return null;
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Simulate a heartbeat-like light intensity variation for a Point Light.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;pointLight&quot;&gt;The Point Light to create the heartbeat effect.&lt;/param&gt;
+    /// &lt;param name=&quot;minIntensity&quot;&gt;The minimum intensity during the heartbeat.&lt;/param&gt;
+    /// &lt;param name=&quot;maxIntensity&quot;&gt;The maximum intensity during the heartbeat.&lt;/param&gt;
+    /// &lt;param name=&quot;heartbeatSpeed&quot;&gt;The speed of the heartbeat effect in beats per minute.&lt;/param&gt;
+    public static void HeartbeatEffect(Light pointLight, float minIntensity, float maxIntensity, float heartbeatSpeed)
+    {
+        float heartbeatInterval = 60.0f / heartbeatSpeed; // Time in seconds for one heartbeat
+        float t = Mathf.PingPong(Time.time, heartbeatInterval) / heartbeatInterval;
+
+        pointLight.intensity = Mathf.Lerp(minIntensity, maxIntensity, t);
+    }
+
+    /// &lt;summary&gt;
+    /// Rotate a directional light to simulate a day-night cycle with specified times for sunrise and sunset.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;directionalLight&quot;&gt;The Directional Light to rotate for the day-night cycle.&lt;/param&gt;
+    /// &lt;param name=&quot;rotationSpeed&quot;&gt;The speed of rotation in degrees per second.&lt;/param&gt;
+    /// &lt;param name=&quot;sunriseTime&quot;&gt;The time in seconds representing the sunrise time.&lt;/param&gt;
+    /// &lt;param name=&quot;sunsetTime&quot;&gt;The time in seconds representing the sunset time.&lt;/param&gt;
+    public static void DayNightCycle(Light directionalLight, float rotationSpeed, float sunriseTime, float sunsetTime)
+    {
+        float currentTimeOfDay = Mathf.Repeat(Time.time, sunriseTime + sunsetTime);
+        float t = Mathf.InverseLerp(0, sunriseTime + sunsetTime, currentTimeOfDay);
+        float angle = Mathf.Lerp(-180, 180, t);
+
+        directionalLight.transform.rotation = Quaternion.Euler(angle, 0, 0);
+    }
+
+    /// &lt;summary&gt;
+    /// Simulate a dynamic flickering TV screen effect using a group of lights.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;lights&quot;&gt;An array of Light components to create the TV screen effect.&lt;/param&gt;
+    /// &lt;param name=&quot;minIntensity&quot;&gt;The minimum intensity during flickering.&lt;/param&gt;
+    /// &lt;param name=&quot;maxIntensity&quot;&gt;The maximum intensity during flickering.&lt;/param&gt;
+    /// &lt;param name=&quot;flickerSpeed&quot;&gt;The speed of flickering.&lt;/param&gt;
+    public static void FlickerTVScreen(Light[] lights, float minIntensity, float maxIntensity, float flickerSpeed)
+    {
+        foreach (var light in lights)
+        {
+            light.intensity = Mathf.Lerp(minIntensity, maxIntensity, Mathf.PingPong(Time.time * flickerSpeed, 1.0f));
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Simulate a flickering candlelight effect for a Point Light.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;pointLight&quot;&gt;The Point Light to create the candlelight effect.&lt;/param&gt;
+    /// &lt;param name=&quot;minIntensity&quot;&gt;The minimum intensity during flickering.&lt;/param&gt;
+    /// &lt;param name=&quot;maxIntensity&quot;&gt;The maximum intensity during flickering.&lt;/param&gt;
+    /// &lt;param name=&quot;flickerSpeed&quot;&gt;The speed of flickering.&lt;/param&gt;
+    public static void FlickerCandleLight(Light pointLight, float minIntensity, float maxIntensity, float flickerSpeed)
+    {
+        pointLight.intensity = Mathf.Lerp(minIntensity, maxIntensity, Mathf.PingPong(Time.time * flickerSpeed, 1.0f));
+    }
+
+    /// &lt;summary&gt;
+    /// Simulate a dynamic traffic light cycle with pedestrian signal using a group of lights.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;lights&quot;&gt;An array of Light components to create the traffic light effect.&lt;/param&gt;
+    /// &lt;param name=&quot;greenLightDuration&quot;&gt;The duration of the green light phase in seconds.&lt;/param&gt;
+    /// &lt;param name=&quot;yellowLightDuration&quot;&gt;The duration of the yellow light phase in seconds.&lt;/param&gt;
+    /// &lt;param name=&quot;redLightDuration&quot;&gt;The duration of the red light phase in seconds.&lt;/param&gt;
+    /// &lt;param name=&quot;pedestrianLightDuration&quot;&gt;The duration of the pedestrian walk signal in seconds.&lt;/param&gt;
+    public static IEnumerator TrafficLightWithPedestrian(Light[] lights, float greenLightDuration, float yellowLightDuration, float redLightDuration, float pedestrianLightDuration)
+    {
+        while (true)
+        {
+            lights[0].enabled = true;  // Green
+            lights[3].enabled = true;  // Pedestrian walk signal
+            yield return new WaitForSeconds(greenLightDuration);
+
+            lights[1].enabled = true;  // Yellow
+            lights[0].enabled = false;
+            lights[3].enabled = false;  // Pedestrian don't walk signal
+            yield return new WaitForSeconds(yellowLightDuration);
+
+            lights[2].enabled = true;  // Red
+            lights[1].enabled = false;
+            yield return new WaitForSeconds(redLightDuration);
+
+            lights[2].enabled = false;
+            lights[3].enabled = true;  // Pedestrian walk signal
+            yield return new WaitForSeconds(pedestrianLightDuration);
+
+            lights[3].enabled = false;  // Pedestrian don't walk signal
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Simulate a dynamic lightning effect for a group of lights with random flash durations.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;lights&quot;&gt;An array of Light components to be affected by the lightning.&lt;/param&gt;
+    /// &lt;param name=&quot;lightIntensityDuringStrike&quot;&gt;The intensity of lights during the lightning strike.&lt;/param&gt;
+    /// &lt;param name=&quot;minFlashDuration&quot;&gt;The minimum duration of lightning flash in seconds.&lt;/param&gt;
+    /// &lt;param name=&quot;maxFlashDuration&quot;&gt;The maximum duration of lightning flash in seconds.&lt;/param&gt;
+    public static IEnumerator RandomDurationLightning(Light[] lights, float lightIntensityDuringStrike, float minFlashDuration, float maxFlashDuration)
+    {
+        while (true)
+        {
+            foreach (var light in lights)
+            {
+                light.intensity = lightIntensityDuringStrike;
+            }
+
+            float flashDuration = Random.Range(minFlashDuration, maxFlashDuration);
+            yield return new WaitForSeconds(flashDuration);
+
+            foreach (var light in lights)
+            {
+                light.intensity = 0.0f;
+            }
+
+            yield return new WaitForSeconds(Random.Range(0.5f, 2.0f));  // Time between lightning strikes
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Simulate a dynamic police siren light effect using a group of lights.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;lights&quot;&gt;An array of Light components to create the police siren effect.&lt;/param&gt;
+    /// &lt;param name=&quot;sirenSpeed&quot;&gt;The speed of the police siren effect in cycles per second.&lt;/param&gt;
+    public static void PoliceSirenLightEffect(Light[] lights, float sirenSpeed)
+    {
+        float t = Mathf.PingPong(Time.time * sirenSpeed, 1.0f);
+
+        for (int i = 0; i &lt; lights.Length; i++)
+        {
+            lights[i].enabled = (i % 2 == 0) ? (t &gt; 0.5f) : (t &lt;= 0.5f);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Simulate a dynamic starry night sky effect using a grid of Point Lights.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;pointLights&quot;&gt;A 2D array of Point Lights representing the stars in the night sky.&lt;/param&gt;
+    /// &lt;param name=&quot;minIntensity&quot;&gt;The minimum intensity of stars.&lt;/param&gt;
+    /// &lt;param name=&quot;maxIntensity&quot;&gt;The maximum intensity of stars.&lt;/param&gt;
+    /// &lt;param name=&quot;starrySpeed&quot;&gt;The speed of intensity variation in cycles per second.&lt;/param&gt;
+    public static void StarryNightSkyEffect(Light[,] pointLights, float minIntensity, float maxIntensity, float starrySpeed)
+    {
+        float t = Mathf.PingPong(Time.time * starrySpeed, 1.0f);
+        float lerpIntensity = Mathf.Lerp(minIntensity, maxIntensity, t);
+
+        for (int i = 0; i &lt; pointLights.GetLength(0); i++)
+        {
+            for (int j = 0; j &lt; pointLights.GetLength(1); j++)
+            {
+                pointLights[i, j].intensity = lerpIntensity;
+            }
+        }
+    }
+</div></section><div class="last-modified"> Last modified: 15 December 2023</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom">  <a class="navigation-links__prev" href="virtualworldinteractive-rendering.html">VirtualWorldInteractive.Rendering</a>   <a class="navigation-links__next" href="particleutilities.html">Particle Utilities</a>  </div></article><div id="disqus_thread"></div></div></section></main></div>  <script src="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.js"></script></body></html>

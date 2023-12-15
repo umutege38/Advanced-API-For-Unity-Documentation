@@ -1,0 +1,775 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat"><html lang="en-US" data-colors-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex">  <meta name="built-on" content="2023-12-15T20:31:17.9466086"><meta name="build-number" content="${buildNumber}">       <title>Math Utilities | Advanced API Docs</title><script id="virtual-toc-data" type="application/json">[]</script><script id="topic-shortcuts" type="application/json"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.css" rel="stylesheet">   <link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><link rel="manifest" href="https://jetbrains.com/site.webmanifest"><link rel="mask-icon" href="https://jetbrains.com/safari-pinned-tab.svg" color="#000000"><meta name="msapplication-TileColor" content="#000000"/><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>  <meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Math Utilities | Advanced API Docs"/><meta property="og:description" content=""/><meta property="og:image" content=""/><meta property="og:site_name" content="Advanced API Docs Help"/><meta property="og:type" content="website"/><meta property="og:locale" content="en_US"/><meta property="og:url" content="mathutilities.html"/><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Math Utilities | Advanced API Docs"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json"> { "@context": "http://schema.org", "@type": "WebPage", "@id": "mathutilities.html#webpage", "url": "mathutilities.html", "name": "Math Utilities | Advanced API Docs", "description": "", "image": "", "inLanguage":"en-US" }</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json"> { "@type": "WebSite", "@id": "/#website", "url": "/", "name": "Advanced API Docs Help" }</script><!-- End Schema.org --></head>      <body data-id="MathUtilities" data-main-title="Math Utilities" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}"  data-template="article"  data-breadcrumbs="API-reference.md|API Reference///VirtualWorldInteractive-Engineering.md|VirtualWorldInteractive.Engineering"  >   <div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Advanced API Docs  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="MathUtilities"   id="MathUtilities.md">Math Utilities</h1>  <div class="code-block" data-lang="none"         >    /// &lt;summary&gt;
+    /// A Stopwatch used for measuring elapsed time in your code.
+    /// &lt;/summary&gt;
+    private static System.Diagnostics.Stopwatch timer = new System.Diagnostics.Stopwatch();
+
+    /// &lt;summary&gt;
+    /// Calculates the Euclidean distance between two points in 3D space.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;pointA&quot;&gt;The position of the first point.&lt;/param&gt;
+    /// &lt;param name=&quot;pointB&quot;&gt;The position of the second point.&lt;/param&gt;
+    /// &lt;returns&gt;The Euclidean distance between the two points in 3D space.&lt;/returns&gt;
+    public static float CalculateDistance(Vector3 pointA, Vector3 pointB)
+    {
+        return Vector3.Distance(pointA, pointB);
+    }
+
+    /// &lt;summary&gt;
+    /// Clamps a value within a specified range.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;value&quot;&gt;The value to be clamped.&lt;/param&gt;
+    /// &lt;param name=&quot;min&quot;&gt;The minimum allowed value.&lt;/param&gt;
+    /// &lt;param name=&quot;max&quot;&gt;The maximum allowed value.&lt;/param&gt;
+    /// &lt;returns&gt;
+    /// If the 'value' is within the range defined by 'min' and 'max', it is returned as-is.
+    /// If 'value' is less than 'min', 'min' is returned.
+    /// If 'value' is greater than 'max', 'max' is returned.
+    /// &lt;/returns&gt;
+    public static float Clamp(float value, float min, float max)
+    {
+        return Mathf.Clamp(value, min, max);
+    }
+
+    /// &lt;summary&gt;
+    /// Calculates the angle in degrees between two vectors.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;fromVector&quot;&gt;The source vector.&lt;/param&gt;
+    /// &lt;param name=&quot;toVector&quot;&gt;The target vector.&lt;/param&gt;
+    /// &lt;returns&gt;The angle in degrees between the two vectors.&lt;/returns&gt;
+    public static float CalculateAngle(Vector3 fromVector, Vector3 toVector)
+    {
+        return Vector3.Angle(fromVector, toVector);
+    }
+
+    /// &lt;summary&gt;
+    /// Converts an angle in degrees to radians.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;degrees&quot;&gt;The angle in degrees to convert.&lt;/param&gt;
+    /// &lt;returns&gt;The equivalent angle in radians.&lt;/returns&gt;
+    public static float DegreesToRadians(float degrees)
+    {
+        return degrees * Mathf.Deg2Rad;
+    }
+
+    /// &lt;summary&gt;
+    /// Converts an angle in radians to degrees.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;radians&quot;&gt;The angle in radians to convert.&lt;/param&gt;
+    /// &lt;returns&gt;The equivalent angle in degrees.&lt;/returns&gt;
+    public static float RadiansToDegrees(float radians)
+    {
+        return radians * Mathf.Rad2Deg;
+    }
+
+    /// &lt;summary&gt;
+    /// Rounds a floating-point value to the nearest integer.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;value&quot;&gt;The value to round to the nearest integer.&lt;/param&gt;
+    /// &lt;returns&gt;The nearest integer to the input value, rounding to the nearest whole number.&lt;/returns&gt;
+    public static int RoundToInt(float value)
+    {
+        return Mathf.RoundToInt(value);
+    }
+
+    /// &lt;summary&gt;
+    /// Retrieves the sign of a number, returning -1 for negative values, 0 for zero, and 1 for positive values.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;value&quot;&gt;The number to determine the sign of.&lt;/param&gt;
+    /// &lt;returns&gt;-1 if the number is negative, 0 if it's zero, and 1 if it's positive.&lt;/returns&gt;
+    public static float Sign(float value)
+    {
+        return Mathf.Sign(value);
+    }
+
+    /// &lt;summary&gt;
+    /// Calculates the square root of a number.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;number&quot;&gt;The number to calculate the square root of.&lt;/param&gt;
+    /// &lt;returns&gt;The square root of the input number.&lt;/returns&gt;
+    public static float SquareRoot(float number)
+    {
+        return Mathf.Sqrt(number);
+    }
+
+    /// &lt;summary&gt;
+    /// Calculates the average value of an array of numbers.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;numbers&quot;&gt;An array of numbers to calculate the average from.&lt;/param&gt;
+    /// &lt;returns&gt;The average value of the input numbers. Returns 0 if the array is empty.&lt;/returns&gt;
+    public static float CalculateAverage(float[] numbers)
+    {
+        if (numbers.Length == 0)
+            return 0.0f;
+
+        float sum = 0.0f;
+        foreach (float num in numbers)
+        {
+            sum += num;
+        }
+        return sum / numbers.Length;
+    }
+
+    /// &lt;summary&gt;
+    /// Calculates the factorial of a non-negative integer.
+    /// &lt;/summary&gt; 
+    /// &lt;param name=&quot;n&quot;&gt;The non-negative integer for which to calculate the factorial.&lt;/param&gt;
+    /// &lt;returns&gt;The factorial of the input integer. Returns -1 for invalid input or 1 for n=0.&lt;/returns&gt;
+    public static int Factorial(int n)
+    {
+        if (n &lt; 0)
+            return -1; // Invalid input.
+        if (n == 0)
+            return 1; // Factorial of 0 is 1.
+
+        int result = 1;
+        for (int i = 1; i &lt;= n; i++)
+        {
+            result *= i;
+        }
+        return result;
+    }
+
+    /// &lt;summary&gt;
+    /// Rounds a value to a specified number of decimal places.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;value&quot;&gt;The value to round.&lt;/param&gt;
+    /// &lt;param name=&quot;decimalPlaces&quot;&gt;The number of decimal places to round to.&lt;/param&gt;
+    /// &lt;returns&gt;The value rounded to the specified number of decimal places.&lt;/returns&gt;
+    public static float RoundToDecimalPlaces(float value, int decimalPlaces)
+    {
+        float multiplier = Mathf.Pow(10, decimalPlaces);
+        return Mathf.Round(value * multiplier) / multiplier;
+    }
+
+    /// &lt;summary&gt;
+    /// Calculates the area of a circle based on its radius.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;radius&quot;&gt;The radius of the circle.&lt;/param&gt; 
+    /// &lt;returns&gt;The area of the circle.&lt;/returns&gt;
+    public static float CalculateCircleArea(float radius)
+    {
+        return Mathf.PI * radius * radius;
+    }
+
+    /// &lt;summary&gt;
+    /// Calculates the volume of a sphere based on its radius.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;radius&quot;&gt;The radius of the sphere.&lt;/param&gt;
+    /// &lt;returns&gt;The volume of the sphere.&lt;/returns&gt;
+    public static float CalculateSphereVolume(float radius)
+    {
+        return (4.0f / 3.0f) * Mathf.PI * Mathf.Pow(radius, 3);
+    }
+
+    /// &lt;summary&gt;
+    /// Calculates the distance between two points in 2D space.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;pointA&quot;&gt;The first point in 2D space.&lt;/param&gt;
+    /// &lt;param name=&quot;pointB&quot;&gt;The second point in 2D space.&lt;/param&gt;
+    /// &lt;returns&gt;The distance between the two points.&lt;/returns&gt;
+    public static float CalculateDistance(Vector2 pointA, Vector2 pointB)
+    {
+        return Vector2.Distance(pointA, pointB);
+    }
+
+    /// &lt;summary&gt;
+    /// Calculates the dot product of two 3D vectors.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;vectorA&quot;&gt;The first 3D vector.&lt;/param&gt;
+    /// &lt;param name &quot;vectorB&quot;&gt;The second 3D vector.&lt;/param&gt;
+    /// &lt;returns&gt;The dot product of the two vectors.&lt;/returns&gt;
+    public static float DotProduct(Vector3 vectorA, Vector3 vectorB)
+    {
+        return Vector3.Dot(vectorA, vectorB);
+    }
+
+    /// &lt;summary&gt;
+    /// Calculates the cross product of two 3D vectors.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;vectorA&quot;&gt;The first 3D vector.&lt;/param&gt;
+    /// &lt;param name=&quot;vectorB&quot;&gt;The second 3D vector.&lt;/param&gt;
+    /// &lt;returns&gt;The cross product of the two vectors.&lt;/returns&gt;
+    public static Vector3 CrossProduct(Vector3 vectorA, Vector3 vectorB)
+    {
+        return Vector3.Cross(vectorA, vectorB);
+    }
+
+    /// &lt;summary&gt;
+    /// Calculates the hypotenuse (length of the diagonal) of a right triangle.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;sideA&quot;&gt;The length of the first side of the right triangle.&lt;/param&gt;
+    /// &lt;param name=&quot;sideB&quot;&gt;The length of the second side of the right triangle.&lt;/param&gt;
+    /// &lt;returns&gt;The length of the hypotenuse.&lt;/returns&gt;
+    public static float CalculateHypotenuse(float sideA, float sideB)
+    {
+        return Mathf.Sqrt(sideA * sideA + sideB * sideB);
+    }
+
+    /// &lt;summary&gt;
+    /// Calculates the absolute value of a number.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;number&quot;&gt;The number for which to find the absolute value.&lt;/param&gt;
+    /// &lt;returns&gt;The absolute value of the input number.&lt;/returns&gt;
+    public static float AbsoluteValue(float number)
+    {
+        return Mathf.Abs(number);
+    }
+
+    /// &lt;summary&gt;
+    /// Calculates the square of the hypotenuse of a right triangle.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;sideA&quot;&gt;The length of the first side of the right triangle.&lt;/param&gt;
+    /// &lt;param name=&quot;sideB&quot;&gt;The length of the second side of the right triangle.&lt;/param&gt;
+    /// &lt;returns&gt;The square of the hypotenuse.&lt;/returns&gt;
+    public static float SquareHypotenuse(float sideA, float sideB)
+    {
+        return sideA * sideA + sideB * sideB;
+    }
+
+    /// &lt;summary&gt;
+    /// Calculates the circumference of a circle based on its radius.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;radius&quot;&gt;The radius of the circle.&lt;/param&gt;
+    /// &lt;returns&gt;The circumference of the circle.&lt;/returns&gt;
+    public static float CalculateCircleCircumference(float radius)
+    {
+        return 2.0f * Mathf.PI * radius;
+    }
+
+    /// &lt;summary&gt;
+    /// Calculates the surface area of a sphere based on its radius.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;radius&quot;&gt;The radius of the sphere.&lt;/param&gt;
+    /// &lt;returns&gt;The surface area of the sphere.&lt;/returns&gt;
+    public static float CalculateSphereSurfaceArea(float radius)
+    {
+        return 4.0f * Mathf.PI * radius * radius;
+    }
+
+    /// &lt;summary&gt;
+    /// Calculates the exponential value of a number (e^x).
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;x&quot;&gt;The exponent for the exponential calculation.&lt;/param&gt;
+    /// &lt;returns&gt;The result of raising the mathematical constant 'e' to the power of 'x'.&lt;/returns&gt;
+    public static float Exponential(float x)
+    {
+        return Mathf.Exp(x);
+    }
+
+    /// &lt;summary&gt;
+    /// Calculates the logarithm of a number to a specified base.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;number&quot;&gt;The number for which to calculate the logarithm.&lt;/param&gt;
+    /// &lt;param name=&quot;baseValue&quot;&gt;The base of the logarithm.&lt;/param&gt;
+    /// &lt;returns&gt;The logarithm of the number to the specified base.&lt;/returns&gt;
+    public static float Logarithm(float number, float baseValue)
+    {
+        return Mathf.Log(number, baseValue);
+    }
+
+    /// &lt;summary&gt;
+    /// Calculates the area of a triangle defined by its three vertices in 2D space.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;vertex1&quot;&gt;The first vertex of the triangle.&lt;/param&gt;
+    /// &lt;param name=&quot;vertex2&quot;&gt;The second vertex of the triangle.&lt;/param&gt;
+    /// &lt;param name=&quot;vertex3&quot;&gt;The third vertex of the triangle.&lt;/param&gt;
+    /// &lt;returns&gt;The area of the triangle.&lt;/returns&gt;
+    public static float CalculateTriangleArea(Vector2 vertex1, Vector2 vertex2, Vector2 vertex3)
+    {
+        return 0.5f * Mathf.Abs((vertex1.x * (vertex2.y - vertex3.y) + vertex2.x * (vertex3.y - vertex1.y) + vertex3.x * (vertex1.y - vertex2.y)));
+    }
+
+    /// &lt;summary&gt;
+    /// Calculates the length (magnitude) of a 2D vector.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;vector&quot;&gt;The 2D vector for which to determine the length.&lt;/param&gt;
+    /// &lt;returns&gt;The length (magnitude) of the vector.&lt;/returns&gt;
+    public static float CalculateVectorLength(Vector2 vector)
+    {
+        return vector.magnitude;
+    }
+
+    /// &lt;summary&gt;
+    /// Calculates the angle in degrees between two 3D vectors.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;vector1&quot;&gt;The first 3D vector.&lt;/param&gt;
+    /// &lt;param name=&quot;vector2&quot;&gt;The second 3D vector.&lt;/param&gt;
+    /// &lt;returns&gt;The angle in degrees between the two vectors.&lt;/returns&gt;
+    public static float CalculateAngleBetweenVectors(Vector3 vector1, Vector3 vector2)
+    {
+        return Vector3.Angle(vector1, vector2);
+    }
+
+    /// &lt;summary&gt;
+    /// Calculates the normal vector of a plane defined by three points in 3D space.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;point1&quot;&gt;The first point of the plane.&lt;/param&gt;
+    /// &lt;param name=&quot;point2&quot;&gt;The second point of the plane.&lt;/param&gt;
+    /// &lt;param name=&quot;point3&quot;&gt;The third point of the plane.&lt;/param&gt;
+    /// &lt;returns&gt;The normal vector of the plane defined by the three input points.&lt;/returns&gt;
+    public static Vector3 CalculateNormalVector(Vector3 point1, Vector3 point2, Vector3 point3)
+    {
+        Vector3 side1 = point2 - point1;
+        Vector3 side2 = point3 - point1;
+        return Vector3.Cross(side1, side2).normalized;
+    }
+
+    /// &lt;summary&gt;
+    /// Calculates a 2D perpendicular vector to the input vector in the XY plane.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;vector&quot;&gt;The input vector to calculate the perpendicular vector from.&lt;/param&gt;
+    /// &lt;returns&gt;A vector that is perpendicular to the input vector in the XY plane.&lt;/returns&gt;
+    public static Vector3 CalculatePerpendicularVector(Vector3 vector)
+    {
+        return new Vector3(-vector.y, vector.x, vector.z);
+    }
+
+    /// &lt;summary&gt;
+    /// Determines whether an integer is an odd number.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;number&quot;&gt;The integer to check for oddness.&lt;/param&gt; 
+    /// &lt;returns&gt;True if the number is odd; otherwise, false.&lt;/returns&gt;
+    public static bool IsOdd(int number)
+    {
+        return number % 2 != 0;
+    }
+
+    /// &lt;summary&gt;
+    /// Determines whether an integer is an even number.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;number&quot;&gt;The integer to check for evenness.&lt;/param&gt;
+    /// &lt;returns&gt;True if the number is even; otherwise, false.&lt;/returns&gt;
+    public static bool IsEven(int number)
+    {
+        return number % 2 == 0;
+    }
+
+    /// &lt;summary&gt;
+    /// Rounds a floating-point number to the nearest integer.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;number&quot;&gt;The floating-point number to round.&lt;/param&gt;
+    /// &lt;returns&gt;The nearest integer to the input number, rounding to the nearest whole value.&lt;/returns&gt;
+    public static int RoundFloatToInt(float number)
+    {
+        return Mathf.RoundToInt(number);
+    }
+
+    /// &lt;summary&gt;
+    /// Converts a floating-point number to an integer by truncating the decimal part.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;number&quot;&gt;The floating-point number to convert.&lt;/param&gt;
+    /// &lt;returns&gt;The integer value obtained by truncating the decimal part of the input.&lt;/returns&gt;
+    public static int ConvertFloatToInt(float number)
+    {
+        return (int)number;
+    }
+
+    /// &lt;summary&gt;
+    /// Generates a random color with RGB values.
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;A Color object with random RGB values.&lt;/returns&gt;
+    public static Color GenerateRandomColor()
+    {
+        return new Color(Random.value, Random.value, Random.value);
+    }
+
+    /// &lt;summary&gt;
+    /// Generates a random integer within a specified range (inclusive).
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;min&quot;&gt;The minimum value of the range.&lt;/param&gt; 
+    /// &lt;param name=&quot;max&quot;&gt;The maximum value of the range.&lt;/param&gt;
+    /// &lt;returns&gt;A random integer within the specified range.&lt;/returns&gt;
+    public static int GenerateRandomInt(int min, int max)
+    {
+        return Random.Range(min, max + 1);
+    }
+
+    /// &lt;summary&gt;
+    /// Generates a random float within a specified range (inclusive).
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;min&quot;&gt;The minimum value of the range.&lt;/param&gt;
+    /// &lt;param name &quot;max&quot;&gt;The maximum value of the range.&lt;/param&gt;
+    /// &lt;returns&gt;A random float within the specified range.&lt;/returns&gt;
+    public static float GenerateRandomFloat(float min, float max)
+    {
+        return Random.Range(min, max);
+    }
+
+    /// &lt;summary&gt;
+    /// Shuffles the elements of a generic List randomly.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;list&quot;&gt;The List to be shuffled.&lt;/param&gt;
+    /// &lt;typeparam name=&quot;T&quot;&gt;The type of elements in the List.&lt;/typeparam&gt;
+    public static void ShuffleList&lt;T&gt;(List&lt;T&gt; list)
+    {
+        for (int i = 0; i &lt; list.Count; i++)
+        {
+            int randomIndex = Random.Range(i, list.Count);
+            T temp = list[i];
+            list[i] = list[randomIndex];
+            list[randomIndex] = temp;
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Generates a unique identifier using the System.Guid class.
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;A string representation of the generated unique identifier.&lt;/returns&gt;
+    public static string GenerateUniqueId()
+    {
+        return System.Guid.NewGuid().ToString();
+    }
+
+    /// &lt;summary&gt;
+    /// Clamps a value within the specified minimum and maximum limits.
+    /// &lt;/summary&gt;
+    /// &lt;typeparam name=&quot;T&quot;&gt;The type of value to clamp.&lt;/typeparam&gt;
+    /// &lt;param name=&quot;value&quot;&gt;The value to clamp.&lt;/param&gt;
+    /// &lt;param name=&quot;min&quot;&gt;The minimum limit.&lt;/param&gt;
+    /// &lt;param name=&quot;max&quot;&gt;The maximum limit.&lt;/param&gt;
+    /// &lt;returns&gt;The clamped value, constrained between the minimum and maximum limits.&lt;/returns&gt;
+    public static T Clamp&lt;T&gt;(T value, T min, T max) where T : System.IComparable
+    {
+        if (value.CompareTo(min) &lt; 0) return min;
+        if (value.CompareTo(max) &gt; 0) return max;
+        return value;
+    }
+
+    /// &lt;summary&gt;
+    /// Rounds a decimal number to the nearest integer.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;number&quot;&gt;The decimal number to round.&lt;/param&gt;
+    /// &lt;returns&gt;The nearest integer to the input number.&lt;/returns&gt;
+    public static int RoundToInteger(decimal number)
+    {
+        return (int)System.Math.Round(number);
+    }
+
+    /// &lt;summary&gt;
+    /// Converts a decimal number to a float without rounding.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;number&quot;&gt;The decimal number to convert to a float.&lt;/param&gt;
+    /// &lt;returns&gt;The equivalent float representation of the decimal number.&lt;/returns&gt;
+    public static float RoundToFloat(decimal number)
+    {
+        return (float)number;
+    }
+
+    /// &lt;summary&gt;
+    /// Converts a decimal number to another decimal number with a specified number of decimal places.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;number&quot;&gt;The decimal number to convert.&lt;/param&gt;
+    /// &lt;param name=&quot;decimalPlaces&quot;&gt;The number of decimal places in the result.&lt;/param&gt;
+    /// &lt;returns&gt;A decimal number with the specified number of decimal places.&lt;/returns&gt;
+    public static decimal Decimalize(decimal number, int decimalPlaces)
+    {
+        decimal multiplier = (decimal)System.Math.Pow(10, decimalPlaces);
+        return System.Math.Round(number * multiplier) / multiplier;
+    }
+
+    /// &lt;summary&gt;
+    /// Formats a decimal number as a string with a specified number of decimal places.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;number&quot;&gt;The decimal number to format.&lt;/param&gt;
+    /// &lt;param name=&quot;decimalPlaces&quot;&gt;The number of decimal places in the formatted string.&lt;/param&gt;
+    /// &lt;returns&gt;A string representation of the decimal number with the specified number of decimal places.&lt;/returns&gt;
+    public static string RoundToDecimalPlaces(decimal number, int decimalPlaces)
+    {
+        string format = &quot;0.&quot; + new string('#', decimalPlaces);
+        return number.ToString(format);
+    }
+
+    /// &lt;summary&gt;
+    /// Rounds a decimal number to the nearest whole number using &quot;away from zero&quot; rounding.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;number&quot;&gt;The decimal number to round.&lt;/param&gt;
+    /// &lt;returns&gt;A decimal number rounded to the nearest whole number using &quot;away from zero&quot; rounding.&lt;/returns&gt;
+    public static decimal RoundToRealNumber(decimal number)
+    {
+        return System.Math.Round(number, System.MidpointRounding.AwayFromZero);
+    }
+
+    /// &lt;summary&gt;
+    /// Calculates the percentage of a value relative to a total.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;value&quot;&gt;The value for which to calculate the percentage.&lt;/param&gt;
+    /// &lt;param name=&quot;total&quot;&gt;The total value against which to calculate the percentage.&lt;/param&gt;
+    /// &lt;returns&gt;The calculated percentage of the value relative to the total.&lt;/returns&gt;
+    public static float CalculatePercentage(float value, float total)
+    {
+        if (total == 0f) return 0f; // Avoid division by zero.
+        return (value / total) * 100f;
+    }
+
+    /// &lt;summary&gt;
+    /// Checks if an integer is a power of two.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;number&quot;&gt;The integer to be checked.&lt;/param&gt;
+    /// &lt;returns&gt;True if the number is a power of two, otherwise false.&lt;/returns&gt;
+    public static bool IsPowerOfTwo(int number)
+    {
+        return (number &amp; (number - 1)) == 0;
+    }
+
+    /// &lt;summary&gt;
+    /// Finds the closest point to a target within an array of points.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;points&quot;&gt;An array of Vector3 points to search within.&lt;/param&gt;
+    /// &lt;param name=&quot;target&quot;&gt;The target point to find the closest point to.&lt;/param&gt;
+    /// &lt;returns&gt;The closest point in the array to the target point.&lt;/returns&gt;
+    public static Vector3 FindClosestPoint(Vector3[] points, Vector3 target)
+    {
+        Vector3 closestPoint = points[0];
+        float closestDistance = Vector3.Distance(target, closestPoint);
+
+        foreach (Vector3 point in points)
+        {
+            float distance = Vector3.Distance(target, point);
+            if (distance &lt; closestDistance)
+            {
+                closestPoint = point;
+                closestDistance = distance;
+            }
+        }
+
+        return closestPoint;
+    }
+
+    /// &lt;summary&gt;
+    /// Performs linear interpolation (Lerp) between two values.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;start&quot;&gt;The initial value to interpolate from.&lt;/param&gt;
+    /// &lt;param name=&quot;end&quot;&gt;The final value to interpolate to.&lt;/param&gt;
+    /// &lt;param name=&quot;t&quot;&gt;The interpolation factor within the range [0, 1].&lt;/param&gt;
+    /// &lt;returns&gt;The interpolated value between start and end based on the interpolation factor t.&lt;/returns&gt;
+    public static float Lerp(float start, float end, float t)
+    {
+        t = Mathf.Clamp01(t); // Ensure t is within the range [0, 1].
+        return start + (end - start) * t;
+    }
+
+    /// &lt;summary&gt;
+    /// Maps a value from one range to another range.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;value&quot;&gt;The value to be mapped.&lt;/param&gt;
+    /// &lt;param name=&quot;fromMin&quot;&gt;The minimum value of the source range.&lt;/param&gt;
+    /// &lt;param name=&quot;fromMax&quot;&gt;The maximum value of the source range.&lt;/param&gt;
+    /// &lt;param name=&quot;toMin&quot;&gt;The minimum value of the target range.&lt;/param&gt;
+    /// &lt;param name=&quot;toMax&quot;&gt;The maximum value of the target range.&lt;/param&gt;
+    /// &lt;returns&gt;The mapped value within the target range.&lt;/returns&gt;
+    public static float MapValue(float value, float fromMin, float fromMax, float toMin, float toMax)
+    {
+        // Map the value from the source range to the target range.
+        return (value - fromMin) / (fromMax - fromMin) * (toMax - toMin) + toMin;
+    }
+
+    /// &lt;summary&gt;
+    /// Checks if a value is within a specified range.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;value&quot;&gt;The value to check.&lt;/param&gt;
+    /// &lt;param name=&quot;min&quot;&gt;The minimum value of the range (inclusive).&lt;/param&gt;
+    /// &lt;param name=&quot;max&quot;&gt;The maximum value of the range (inclusive).&lt;/param&gt;
+    /// &lt;returns&gt;True if the value is within the range, false otherwise.&lt;/returns&gt;
+    public static bool IsValueWithinRange(float value, float min, float max)
+    {
+        return value &gt;= min &amp;&amp; value &lt;= max;
+    }
+
+    /// &lt;summary&gt;
+    /// Calculates the magnitude (length) of a 3D vector.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;vector&quot;&gt;The vector for which to calculate the magnitude.&lt;/param&gt;
+    /// &lt;returns&gt;The magnitude (length) of the vector.&lt;/returns&gt;
+    public static float VectorMagnitude(Vector3 vector)
+    {
+        return vector.magnitude;
+    }
+
+    /// &lt;summary&gt;
+    /// Normalizes a 3D vector, setting its length to 1 while preserving its direction.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;vector&quot;&gt;The vector to be normalized.&lt;/param&gt;
+    /// &lt;returns&gt;The normalized vector with a magnitude of 1.&lt;/returns&gt;
+    public static Vector3 NormalizeVector(Vector3 vector)
+    {
+        return vector.normalized;
+    }
+
+    /// &lt;summary&gt;
+    /// Generates a random boolean value (true or false) with approximately equal probability.
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;A randomly generated boolean value.&lt;/returns&gt;
+    public static bool GenerateRandomBoolean()
+    {
+        return Random.value &gt; 0.5f;
+    }
+
+    /// &lt;summary&gt;
+    /// Determines whether a given year is a leap year.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;year&quot;&gt;The year to check.&lt;/param&gt;
+    /// &lt;returns&gt;True if the year is a leap year; otherwise, false.&lt;/returns&gt;
+    public static bool IsLeapYear(int year)
+    {
+        return (year % 4 == 0 &amp;&amp; year % 100 != 0) || (year % 400 == 0);
+    }
+
+    /// &lt;summary&gt;
+    /// Generates a random string of the specified length composed of letters (both uppercase and lowercase) and digits.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;length&quot;&gt;The length of the random string to generate.&lt;/param&gt;
+    /// &lt;returns&gt;A random string of the specified length.&lt;/returns&gt;
+    public static string GenerateRandomString(int length)
+    {
+        const string chars = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789&quot;;
+        return new string(Enumerable.Repeat(chars, length)
+          .Select(s =&gt; s[Random.Range(0, s.Length)]).ToArray());
+    }
+
+    /// &lt;summary&gt;
+    /// Finds the greatest common divisor (GCD) of two integers using the Euclidean algorithm.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;a&quot;&gt;The first integer.&lt;/param&gt;
+    /// &lt;param name=&quot;b&quot;&gt;The second integer.&lt;/param&gt;
+    /// &lt;returns&gt;The GCD of the two input integers.&lt;/returns&gt;
+    public static int FindGCD(int a, int b)
+    {
+        while (b != 0)
+        {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
+    /// &lt;summary&gt;
+    /// Calculates the factorial of a non-negative integer.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;n&quot;&gt;The non-negative integer for which to calculate the factorial.&lt;/param&gt;
+    /// &lt;returns&gt;The factorial of the input integer.&lt;/returns&gt;
+    public static int CalculateFactorial(int n)
+    {
+        if (n &lt; 0)
+            return 0; // Factorial is not defined for negative numbers.
+        if (n == 0 || n == 1)
+            return 1;
+        int result = 1;
+        for (int i = 2; i &lt;= n; i++)
+        {
+            result *= i;
+        }
+        return result;
+    }
+
+    /// &lt;summary&gt;
+    /// Randomizes the order of elements in a generic list.
+    /// &lt;/summary&gt;
+    /// &lt;typeparam name=&quot;T&quot;&gt;The type of elements in the list.&lt;/typeparam&gt;
+    /// &lt;param name=&quot;list&quot;&gt;The list to be randomized.&lt;/param&gt;
+    /// &lt;returns&gt;A new list with the elements in a randomized order.&lt;/returns&gt;
+    public static List&lt;T&gt; RandomizeListOrder&lt;T&gt;(List&lt;T&gt; list)
+    {
+        List&lt;T&gt; randomizedList = new List&lt;T&gt;(list);
+        int n = randomizedList.Count;
+        while (n &gt; 1)
+        {
+            n--;
+            int k = Random.Range(0, n + 1);
+            T value = randomizedList[k];
+            randomizedList[k] = randomizedList[n];
+            randomizedList[n] = value;
+        }
+        return randomizedList;
+    }
+
+    public static float SmoothDamp(float current, float target, ref float velocity, float smoothTime)
+    {
+        return Mathf.SmoothDamp(current, target, ref velocity, smoothTime);
+    }
+
+    public static Color LerpColor(Color startColor, Color endColor, float t)
+    {
+        t = Mathf.Clamp01(t); // Ensure t is within the range [0, 1].
+        return Color.Lerp(startColor, endColor, t);
+    }
+
+    public static void StartTimer()
+    {
+        timer.Start();
+    }
+
+    public static void StopTimer()
+    {
+        timer.Stop();
+    }
+
+    /// &lt;summary&gt;
+    /// Get the frames per second (FPS) based on the last frame's time.
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;The current frames per second (FPS).&lt;/returns&gt;
+    public static float GetFPS()
+    {
+        return 1.0f / Time.deltaTime;
+    }
+
+    /// &lt;summary&gt;
+    /// Set the target frames per second (FPS) for the application.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;targetFrameRate&quot;&gt;The desired target FPS to set for the application.&lt;/param&gt;
+    public static void SetTargetFPS(int targetFrameRate)
+    {
+        Application.targetFrameRate = targetFrameRate;
+    }
+
+    public static float GetElapsedTime()
+    {
+        return timer.ElapsedMilliseconds / 1000.0f;
+    }
+
+    /// &lt;summary&gt;
+    /// Create and return a new Vector2 with the specified components.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;x&quot;&gt;The X component of the new Vector2.&lt;/param&gt;
+    /// &lt;param name=&quot;y&quot;&gt;The Y component of the new Vector2.&lt;/param&gt;
+    /// &lt;returns&gt;A new Vector2 with the specified components.&lt;/returns&gt;
+    public static Vector2 GetVector2(float x, float y)
+    {
+        return new Vector2(x, y);
+    }
+
+    /// &lt;summary&gt;
+    /// Set the X and Y components of a Vector3 to the specified values.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;vector&quot;&gt;The Vector3 to be modified.&lt;/param&gt;
+    /// &lt;param name=&quot;x&quot;&gt;The new X component for the Vector3.&lt;/param&gt;
+    /// &lt;param name=&quot;y&quot;&gt;The new Y component for the Vector3.&lt;/param&gt;
+    public static void SetVector2(ref Vector3 vector, float x, float y)
+    {
+        vector = new Vector2(x, y);
+    }
+
+    /// &lt;summary&gt;
+    /// Create and return a new Vector3 with the specified components.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;x&quot;&gt;The X component of the new Vector3.&lt;/param&gt;
+    /// &lt;param name=&quot;y&quot;&gt;The Y component of the new Vector3.&lt;/param&gt;
+    /// &lt;param name=&quot;z&quot;&gt;The Z component of the new Vector3.&lt;/param&gt;
+    /// &lt;returns&gt;A new Vector3 with the specified components.&lt;/returns&gt;
+    public static Vector3 GetVector3(float x, float y, float z)
+    {
+        return new Vector3(x, y, z);
+    }
+
+    /// &lt;summary&gt;
+    /// Set the components of a Vector3 to the specified values.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;vector&quot;&gt;The Vector3 to be modified.&lt;/param&gt;
+    /// &lt;param name=&quot;x&quot;&gt;The new X component of the Vector3.&lt;/param&gt;
+    /// &lt;param name=&quot;y&quot;&gt;The new Y component of the Vector3.&lt;/param&gt;
+    /// &lt;param name=&quot;z&quot;&gt;The new Z component of the Vector3.&lt;/param&gt;
+    public static void SetVector3(ref Vector3 vector, float x, float y, float z)
+    {
+        vector = new Vector3(x, y, z);
+    }
+</div><div class="last-modified"> Last modified: 15 December 2023</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom">  <a class="navigation-links__prev" href="transformutilities.html">Transform Utilities</a>   <a class="navigation-links__next" href="rigidbodyutilities.html">Rigidbody Utilities</a>  </div></article><div id="disqus_thread"></div></div></section></main></div>  <script src="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.js"></script></body></html>
